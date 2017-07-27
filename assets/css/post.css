@@ -1,0 +1,165 @@
+@charset "utf-8";
+@import url(http://fonts.googleapis.com/earlyaccess/nanummyeongjo.css);
+
+article{
+	display: block;
+	width: 800px;
+	margin: 30px auto;
+}
+
+article header{
+	margin-bottom: 50px;
+	font-family: 'Nanum Myeongjo', serif;
+	text-align: center;
+}
+
+article header h1{
+	position: relative;
+	margin: 4px 0;
+	padding: 30px 0 10px;
+	font-size: 32px;
+	font-weight: 600;
+	background-color: white;
+}
+article header h1 span{
+	display: inline-block;
+	position: relative;
+	padding: 0 13px;
+	background-color: white;
+	z-index: 3;
+}
+article header h1:after{
+	position: absolute;
+	display: block;
+	content: '';
+
+	top: 47px;
+	left: 50%;
+	height: 1px;
+	width: 800px;
+	margin-left: -400px;
+	background-color: #E1E1E1;
+}
+
+article header .date{ font-size: 14px; color: #949494 }
+
+article .post-body{
+	color: #666;
+	font-size: 16px;
+	line-height: 1.5em;
+	text-align: justify;
+}
+
+article .post-body .center{ text-align: center; }
+
+article .post-body h2,
+article .post-body h3,
+article .post-body h4{ color: #111; font-weight: 400 }
+
+article .post-body h2{
+	position: relative;
+	font-size: 28px;
+	margin: 40px 0 0;
+	padding: 10px 0 5px;
+	/*border-bottom: 1px dashed #ccc;*/
+
+	font-family: 'Nanum Myeongjo', serif;
+	font-weight: 600;
+}
+article .post-body h2:before,
+article .post-body h2:after{
+	position: absolute;
+	display: block;
+	content: '';
+	top: -2px;
+	left: 2px;
+	width: 6px;
+	height: 6px;
+	background-color: #D8D8D8;
+	border-radius: 50%;
+}
+article .post-body h2:after{ left: 12px }
+
+article .post-body img{
+	max-width: 100%;
+}
+
+article .post-body strong{
+	font-weight: 500;
+	color: #1E2025;
+}
+/*
+blockquote {
+	background: #f9f9f9;
+	border-left: 5px solid #ccc;
+	margin: 1.5em 10px;
+	padding: 0.5em 10px;
+	quotes: "\201C""\201D""\2018""\2019";
+}
+blockquote:before {
+	color: #ccc;
+	content: open-quote;
+	font-size: 5em;
+	line-height: 0.1em;
+	margin-right: 0.25em;
+	vertical-align: -0.4em;
+}
+blockquote p {
+	margin: 0;
+	padding: 0 0 13px 10px;
+}
+*/
+
+/*
+article .article-footer{ position: relative; margin-top: 30px; padding-top: 25px; border-top: 1px solid #eee; color: #999; }
+article .article-footer .tags{ position: absolute; text-align: center; width: 540px; margin-left: 200px }
+article .article-footer .tags a{ color: #505050 }
+
+article .article-footer a{ color: #999; text-decoration: none; }
+article .article-footer a strong{ color: black; font-weight: normal; }
+article .article-footer .tags a:hover,
+article .article-footer a:hover strong{ text-decoration: underline; }
+*/
+
+article footer{
+	margin-top: 40px;
+	padding-top: 20px;
+	border-top: 1px solid #eaeaea;
+}
+
+article footer .readmore{
+	margin-top: 40px;
+	padding-top: 20px;
+	border-top: 1px solid #eaeaea;
+}
+
+article footer .readmore h3{
+	margin: 0;
+	padding: 0;
+	font-weight: 400;
+	font-size: 20px;
+	margin-bottom: 20px;
+}
+
+article footer .readmore ul{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+article footer .readmore ul li{
+	margin: 0 0 20px 0;
+	padding: 0 0 13px 0;
+	font-size: 16px;
+	border-bottom: 1px solid #f0f0f0;
+}
+
+article footer .readmore ul li a{ color: #5694f1; text-decoration: none; transition: all 0.15s }
+article footer .readmore ul li a:hover{ opacity: 0.8 }
+
+article footer .readmore ul li .dates{
+	float: right;
+	position: relative;
+	top: 1px;
+	color: #bbb;
+}

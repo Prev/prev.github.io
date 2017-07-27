@@ -1,0 +1,31 @@
+name: Prev.kr
+description: Personal brand website prev.kr
+
+markdown: kramdown
+highlighter: rouge
+
+paginate: 50
+baseurl: /
+domain_name: 'https://prev.kr'
+google_analytics: ''
+disqus_shortname: 'prevdev'
+
+url:            'https://prev.kr'
+author:         'Prev'
+permalink:       /posts/:title/
+gems: [jekyll-paginate]
+future: true
+
+defaults:
+    -
+        scope:
+            path: "" # empty string for all files
+            type: pages
+        values:
+            layout: default
+    -
+        scope:
+            path: "" # empty string for all files
+            type: posts
+        values:
+            layout: post

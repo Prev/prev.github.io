@@ -1,0 +1,18 @@
+<ul class="post-list clearfix">
+	{% for post in paginator.posts %}
+	<a href="{{ site.baseurl }}{{ post.url | remove_first: '/' }}">
+		<li>
+			<div class="thumbnail" style="background-image: url('{{ site.baseurl }}attachs/{{ post.image }}')"></div>
+			<div class="background-filter"></div>
+			<div class="content">
+				<div>{{ post.date | date:"%-m월 %-d일, %Y" }}</div>
+				<h4>{{ post.title }}</h4>
+			</div>
+		</li>
+	</a>
+	{% endfor %}
+</ul>
+
+{% if paginator.previous_page or paginator.next_page %}
+	{% include pagination.html %}
+{% endif %}
