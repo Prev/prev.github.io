@@ -152,8 +152,10 @@ ul.post-list li{
 	width: 260px;
 	height: 160px;
 	margin-right: 10px;
+	margin-bottom: 10px;
 }
 ul.post-list a:last-child li{ margin-right: 0 }
+ul.post-list a:nth-child(3n) li{ margin-right: 0 }
 
 ul.post-list li .thumbnail{
 	width: inherit;

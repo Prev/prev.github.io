@@ -3,6 +3,17 @@ layout: default
 type: posts
 ---
 
-<h1 style="text-align: center; font-weight: 400; margin-top: 70px">준비중입니다</h1>
+<section class="post-list">
+	<ul class="post-list clearfix">
+	{% for post in site.posts %}
+		{% include post-tile.html %}
+	{% endfor %}
+	</ul>
+</section>
 
-{% include post-list.html %}
+<style type="text/css">
+	section{
+		width: 800px;
+		margin: 30px auto;
+	}
+</style>
