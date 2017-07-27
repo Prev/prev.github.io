@@ -1,0 +1,59 @@
+@charset "utf-8";
+
+section{
+	position: relative;
+	width: 800px;
+	margin: 40px auto 70px;
+	font-size: 16px;
+	color: #5A5A5A;
+}
+
+section h2{
+	position: relative;
+	margin: 10px 0 10px 0;
+	font-size: 32px;
+	font-family: 'Nanum Myeongjo', serif;
+	font-weight: 600;
+
+	border-bottom: 1px solid #E7E7E7;
+}
+
+section.projects a{
+	color: #A0A0A0;
+	text-decoration: none;
+	transition: 0.5s all;
+}
+section.projects a:hover{ color: #ccc }
+
+section.projects ul{
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+section.projects ul li{
+	margin: 10px 0 35px;
+	padding: 10px 0;
+}
+
+section.projects ul li .fl{ width: 210px }
+section.projects ul li .fr{ width: 500px }
+
+section.projects ul li .fl h3{
+	margin: 0;
+	padding: 0;
+}
+/*section.projects ul li .fl p{ text-align: justify; }*/
+section.projects ul li .fl .weak{ font-size: 15px; color: #999 }
+
+section.projects ul li .fl .link{
+	width: 160px;
+	margin-bottom: 25px;
+	padding: 2px 0 10px;
+	border-bottom: 1px dashed #C5C5C5;
+	color: #999;
+}
+
+section.projects ul li .fr .description{ margin-bottom: 12px }
+section.projects ul li .fr a{ color: #2e88b5 }
+section.projects ul li .fr a:hover{ color: #84d1f7 }
