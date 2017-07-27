@@ -1,0 +1,61 @@
+@charset "utf-8";
+
+.profile{
+	width: 750px;
+	margin: 0 auto;
+	font-weight: 200;
+	color: #444;
+}
+.profile dl{ margin: 40px 0; padding: 0; *zoom: 1; }
+.profile dl:after{ clear: both; content: ""; display: block; }
+
+.profile dl dt,
+.profile dl dd{ float: left; margin: 0; padding: 0; }
+
+.profile dl dt{ width: 200px; text-align: right; padding-right: 30px }
+
+.profile dl dd ul{ margin: 0; padding: 0; list-style: none; }
+
+.profile dl dd ul li{ margin-bottom: 5px }
+.profile dl dd ul li.section{ width: 450px; border-bottom: 1px solid #d0d0d0; margin-bottom: 12px }
+.profile dl dd ul li div{ margin-bottom: 12px; line-height: 140% }
+
+.profile dl dt h3,
+.profile dl dd h4,
+.profile dl dd h5{ margin: 0; padding: 0; font-weight: normal; font-size: 19px; line-height: 140% }
+
+.profile dl dd h4{ color: black }
+.profile dl dd h4 .small{ font-size: 15px }
+/*.profile dl dd h4 .date{ display: inline-block; margin-top: -4px; color: #5384b9; font-size: 16px; vertical-align: bottom; }*/
+.profile dl dd h4 .date{
+	display: inline-block;
+	margin: -4px 0 0 3px;
+	vertical-align: middle;
+	background-color: #969696;
+	color: white;
+	font-weight: 300;
+	font-size: 13px;
+	line-height: 100%;
+	padding: 3px 3px 0 3px;
+	border-radius: 3px;
+}
+
+
+.profile dl dd h5{ font-size: 16px; color: #2d3fa5 }
+.profile dl dd h5 a{ color: #2d3fa5 }
+.profile dl dd h5 span.small{ font-size: 13px }
+.profile dl dd div.detail{ padding-left: 13px }
+
+.profile .name-section{ margin: 60px 0 48px 0 }
+.profile .name-section .picture-wrap{ margin: 0 20px 0 125px }
+.profile .name-section .picture-wrap .profile-picture{ border-radius: 50% }
+.profile .name-section h2{ margin: 15px 0 4px 0; font-weight: normal; }
+
+.profile .name-section .contacts{ margin: 12px 0 0 40px; padding-left: 40px; border-left: 1px solid #ccc }
+.profile .name-section .contacts ul{ list-style: none; margin: 0; padding: 0 }
+.profile .name-section .contacts ul li{ margin: 4px 0 }
+
+.profile .description-myself{ text-align: center; margin: 0 15px 50px 15px }
+
+.profile a{ color: #444; text-decoration: none; }
+.profile a:hover{ text-decoration: underline; }

@@ -5,14 +5,14 @@ markdown: kramdown
 highlighter: rouge
 
 baseurl: /
-domain_name: 'https://prev.kr'
 google_analytics: ''
 disqus_shortname: 'prevdev'
 
 url:            'https://prev.kr'
 author:         'Prev'
 permalink:       /posts/:title/
-future: true
+gems:           []
+future:         true
 
 defaults:
     -

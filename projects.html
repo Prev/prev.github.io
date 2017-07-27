@@ -1,6 +1,367 @@
 ---
 layout: default
 type: projects
+title: Projects
 ---
 
-<h1 style="text-align: center; font-weight: 400; margin-top: 70px">준비중입니다</h1>
+<style type="text/css">
+	section{
+		position: relative;
+		width: 800px;
+		margin: 40px auto 70px;
+		font-size: 16px;
+		color: #5A5A5A;
+	}
+
+	section h2{
+		position: relative;
+		margin: 10px 0 10px 0;
+		font-size: 32px;
+		font-family: 'Nanum Myeongjo', serif;
+		font-weight: 600;
+
+		border-bottom: 1px solid #E7E7E7;
+	}
+
+	section.projects a{
+		color: #A0A0A0;
+		text-decoration: none;
+		transition: 0.5s all;
+	}
+	section.projects a:hover{ color: #ccc }
+
+	section.projects ul{
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+
+	section.projects ul li{
+		margin: 10px 0 35px;
+		padding: 10px 0;
+	}
+
+	section.projects ul li .fl{ width: 210px }
+	section.projects ul li .fr{ width: 500px }
+
+	section.projects ul li .fl h3{
+		margin: 0;
+		padding: 0;
+	}
+	/*section.projects ul li .fl p{ text-align: justify; }*/
+	section.projects ul li .fl .weak{ font-size: 15px; color: #999 }
+
+	section.projects ul li .fl .link{
+		width: 160px;
+		margin-bottom: 25px;
+		padding: 2px 0 10px;
+		border-bottom: 1px dashed #C5C5C5;
+		color: #999;
+	}
+
+	section.projects ul li .fr .description{ margin-bottom: 12px }
+	section.projects ul li .fr a{ color: #2e88b5 }
+	section.projects ul li .fr a:hover{ color: #84d1f7 }
+
+</style>
+
+<!-- <h1 style="text-align: center; font-weight: 400; margin-top: 70px">준비중입니다</h1> -->
+
+<section class="projects">
+	<h2 id="2017">2017</h2>
+	<ul>
+		<li id="memento" class="clearfix">
+			<div class="fl">
+				<h3>
+					<img src="/assets/images/project-icons/memento.png" alt="memento" height="32">
+				</h3>
+				<div class="link">
+					<a href="https://memento.live" target="_blank">https://memento.live</a>
+				</div>
+				<p>
+					2016.12 ~ 2017.06
+				</p>
+				<p>
+					<u>SW마에스트로</u> 2단계 프로젝트 팀 (3명) / <strong>팀장</strong>
+				</p>
+				<p>
+					프로젝트 관리, UX 설계, 정적 웹 생성 및 배포 및 프론트엔드 담당
+				</p>
+				<p>
+					<a href="https://github.com/memento7">https://github.com/memento7</a>
+				</p>
+			</div>
+			<div class="fr">
+				<div class="description">
+					인터넷에 흩어진 정보를 모두 모아 <b>인공지능</b>(AI) 시스템을 통해 정보를 분석하고 가공하여 유명인 “그”가 <b>살았던 삶</b>을 들려 주는 서비스
+				</div>
+				<div class="screenshot">
+					<img src="/assets/images/project-screenshots/memento.png" alt="memento 스크린샷" width="500">
+				</div>
+			</div>
+		</li>
+
+		<li id="ofcourse" class="clearfix">
+			<div class="fl">
+				<h3>
+					<img src="/assets/images/project-icons/ofcourse.png" alt="ofcourse" height="36">
+				</h3>
+				<div class="link">
+					<a href="https://ofcourse.kr" target="_blank">https://ofcourse.kr</a>
+				</div>
+				<p>2017.03</p>
+				<p>
+					개인 프로젝트
+					<span class="weak">(개발, 디자인, 강의 작성)</span>
+				</p>
+			</div>
+			<div class="fr">
+				<div class="description">
+					웹 <strong>프론트엔드 강의</strong> 사이트로, <a href="#div-or-kr">div.or.kr</a>의 리뉴얼 프로젝트
+				</div>
+				<div class="screenshot">
+					<img src="/assets/images/project-screenshots/ofcourse.png" alt="ofcourse 스크린샷" width="500">
+				</div>
+			</div>
+		</li>
+	</ul>
+</section>
+
+<section class="projects">
+	<h2 id="2016">2016</h2>
+	<ul>
+		<li id="regular-express" class="clearfix">
+			<div class="fl">
+				<h3>
+					<img src="/assets/images/project-icons/regular.express.png" alt="regular.express" height="42">
+				</h3>
+				<div class="link">
+					<a href="https://regular.express" target="_blank">https://regular.express</a>
+				</div>
+				<p>
+					2016.09 ~ 2016.11
+				</p>
+				<p>
+					<u>SW마에스트로</u> 1단계 프로젝트 팀 (3명) / 팀원</p>
+				<p>
+					UI/UX 설계,  정적 웹 생성 및 배포 및 프론트엔드 담당
+				</p>
+				<p>
+					<a href="https://github.com/rexpress">https://github.com/rexpress</a>
+				</p>
+			</div>
+			<div class="fr">
+				<div class="description">
+					단순히 언어의 정규표현식을 테스트할 수 있을뿐만 아니라,
+					각종 미들웨어, 라이브러리 내에 있는 <strong>정규표현식</strong>도 <strong>테스트</strong> 하고 <strong>공유</strong>할 수 있는 글로벌 서비스
+				</div>
+				<div class="screenshot">
+					<img src="/assets/images/project-screenshots/regular.express.png" alt="regular.express 스크린샷" width="500">
+				</div>
+			</div>
+		</li>
+
+		<li id="gamtu" class="clearfix">
+			<div class="fl">
+				<h3>
+					<img src="/assets/images/project-icons/gamtu.png" alt="gamtu" height="42">
+				</h3>
+				<div class="link">
+					<a href="https://gamtu.us" target="_blank">https://gamtu.us</a>
+				</div>
+				<p>2016.09 ~ 2016.12</p>
+				<p>
+					개인 프로젝트
+					<span class="weak">(기획, 개발, 디자인)</span>
+				</p>
+			</div>
+			<div class="fr">
+				<div class="description">
+					고생하는 운영진들을 위한 <strong>소모임 관리</strong> 서비스
+				</div>
+				<div class="screenshot">
+					<img src="/assets/images/project-screenshots/gamtu.png" alt="gamtu 스크린샷" width="500">
+				</div>
+			</div>
+		</li>
+	</ul>
+</section>
+
+
+<section class="projects">
+	<h2 id="2015">2015</h2>
+	<ul>
+		<li id="tourgeeks" class="clearfix">
+			<div class="fl">
+				<h3>
+					<img src="/assets/images/project-icons/tourgeeks.png" alt="tourgeeks" height="30">
+				</h3>
+				<div class="link">
+					<a href="https://tourgeeks.net" target="_blank">https://tourgeeks.net</a><br>
+					<i>(현재 서비스 중단)</i>
+				</div>
+				<p>2015.07 ~ 2015.08</p>
+				<p>
+					개인 프로젝트
+					<span class="weak">(기획, 개발, 디자인)</span>
+				</p>
+			</div>
+			<div class="fr">
+				<div class="description">
+					지금까지 가봤던 여행지들을 기록하고, 당신만을 위한 숨겨진 대한민국의 명소를 추천받을 수 있는 <strong>국내 명소 추천</strong> 서비스
+				</div>
+				<div class="screenshot">
+					<img src="/assets/images/project-screenshots/tourgeeks.png" alt="tourgeeks 스크린샷" width="500">
+				</div>
+			</div>
+		</li>
+	</ul>
+</section>
+
+
+<section class="projects">
+	<h2 id="2014">2014</h2>
+	<ul>
+		<li id="colorscripter" class="clearfix">
+			<div class="fl">
+				<h3>
+					<img src="/assets/images/project-icons/colorscripter.png" alt="colorscripter" height="33">
+				</h3>
+				<div class="link">
+					<a href="https://colorscripter.com" target="_blank">https://colorscripter.com</a>
+				</div>
+				<p>2014.12 ~</p>
+				<p>
+					개인 프로젝트
+					<span class="weak">(기획, 개발, 디자인)</span>
+				</p>
+			</div>
+			<div class="fr">
+				<div class="description">
+					네이버 블로그 등 JavaScript 사용이 불가능한 환경에서 유용하게 쓰이고 있는<br>
+					편리하고 유연한 <strong>Syntax HighLighter</strong>
+				</div>
+				<div class="screenshot">
+					<img src="/assets/images/project-screenshots/colorscripter.png" alt="colorscripter 스크린샷" width="500">
+				</div>
+			</div>
+		</li>
+	</ul>
+</section>
+
+<section class="projects">
+	<h2 id="2013">2013</h2>
+	<ul>
+		<li id="dimigo-intranet" class="clearfix">
+			<div class="fl">
+				<h3>
+					<img src="/assets/images/project-icons/intranet.png" alt="intranet" height="50">
+				</h3>
+				<div class="link">
+					<a href="https://intranet.dimigo.hs.kr" target="_blank">https://intranet.dimigo.hs.kr</a>
+					<i>(현재 서비스 중단)</i>
+				</div>
+				<p>2013.01 ~ 2013.12</p>
+				<p>
+					디미고 홈페이지 개편 및 시스템 전산화팀 (20여명 규모) / <strong>개발총괄</strong>
+				</p>
+				<p>
+					핵심 엔진 및 주요 모듈 개발, 데이터베이스 설계, 개발팀 관리 등 담당
+				</p>
+			</div>
+			<div class="fr">
+				<div class="description">
+					잔류신청, 수강신청 등의 기능을 이용 할 수 있는 <strong>한국디지털미디어고등학교</strong> 교내 인트라넷 웹서비스
+				</div>
+				<div class="screenshot">
+					<img src="/assets/images/project-screenshots/intranet.png" alt="intranet 스크린샷" width="500">
+				</div>
+			</div>
+		</li>
+
+		<li id="div-or-kr" class="clearfix">
+			<div class="fl">
+				<h3>
+					<img src="/assets/images/project-icons/div.or.kr.png" alt="div.or.kr" height="36">
+				</h3>
+				<div class="link">
+					<a href="http://div.or.kr" target="_blank">http://div.or.kr</a>
+				</div>
+				<p>2013.06 ~ 2013.11</p>
+				<p>
+					Parameter (고교 창업 동아리, 10여명 규모) / <strong>동아리장</strong>
+				</p>
+				<p>
+					프로젝트 관리, 백엔드 및 프론트엔드 개발 담당
+				</p>
+			</div>
+			<div class="fr">
+				<div class="description">
+					더 빠르고 쉽게 웹 개발을 익힐 수 있는 <strong>웹 학습 사이트</strong>로,
+					동아리 내부 강의 자료를 모두에게 공개하고자 진행했던 프로젝트
+				</div>
+				<div class="screenshot">
+					<img src="/assets/images/project-screenshots/div.or.kr.png" alt="div.or.kr 스크린샷" width="500">
+				</div>
+			</div>
+		</li>
+
+
+		<li id="checkaboutme" class="clearfix">
+			<div class="fl">
+				<h3>
+					<img src="/assets/images/project-icons/checkabout.me.png" alt="checkabout.me" height="32">
+				</h3>
+				<div class="link">
+					<a href="http://checkabout.me" target="_blank">http://checkabout.me</a>
+				</div>
+				<p>2013.06 ~ 2013.11</p>
+				<p>
+					Parameter (고교 창업 동아리, 10여명 규모) / <strong>동아리장</strong>
+				</p>
+				<p>
+					프로젝트 관리, 백엔드 및 프론트엔드 개발 담당
+				</p>
+			</div>
+			<div class="fr">
+				<div class="description">
+					‘2분성격테스트’, ‘애인이 생길 확률’ 등의 테스트 컨텐츠를
+					즐기며 이용할 수 있을 뿐더러 직접 제작 할 수도 있는 <strong>자가 진단 테스트 플랫폼</strong>
+				</div>
+				<div class="screenshot">
+					<img src="/assets/images/project-screenshots/checkabout.me.png" alt="checkabout.me 스크린샷" width="500">
+				</div>
+			</div>
+		</li>
+	</ul>
+</section>
+
+
+<section class="projects">
+	<h2 id="2012">2012</h2>
+	<ul>
+		<li id="kwc12771" class="clearfix">
+			<div class="fl">
+				<h3>
+					<img src="/assets/images/project-icons/12771.png" alt="12771" height="55">
+				</h3>
+				<div class="link">
+					<a href="http://12771.prev.kr" target="_blank">http://12771.prev.kr</a>
+				</div>
+				<p>2012.06 ~ 2012.08</p>
+				<p>
+					개인 프로젝트
+					<span class="weak">(기획, 개발, 디자인)</span>
+				</p>
+			</div>
+			<div class="fr">
+				<div class="description">
+					2013KWC <strong>수상작</strong>, 일제 강점기의 독립을 향한 투쟁을 느낄 수 있는 웹사이트
+				</div>
+				<div class="screenshot">
+					<img src="/assets/images/project-screenshots/12771.png" alt="12771 스크린샷" width="500">
+				</div>
+			</div>
+		</li>
+	</ul>
+</section>
