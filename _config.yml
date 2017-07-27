@@ -5,7 +5,7 @@ markdown: kramdown
 highlighter: rouge
 
 baseurl: /
-google_analytics: ''
+google_analytics: 'UA-34015951-1'
 disqus_shortname: 'prevdev'
 
 url:            'https://prev.kr'
