@@ -77,7 +77,7 @@
 
 	.profile dl{ margin: 50px 0 }
 	.profile dl dt,
-	.profile dl dd{ float: none; text-align: center; padding: 0 20px }
+	.profile dl dd{ float: none; /*text-align: center*/; padding: 0 20px }
 
 	.profile dl dt{
 		width: 150px;
@@ -85,7 +85,7 @@
 		margin: 0 auto 15px auto;
 	}
 
-	.profile dl dt h3{ font-size: 26px }
+	.profile dl dt h3{ font-size: 26px; text-align: center; }
 
 	.profile dl dd ul li.section{
 		width: 100%;

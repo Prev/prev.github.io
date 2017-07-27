@@ -4,24 +4,10 @@ type: posts
 title: Posts
 ---
 
-<section class="post-list">
+<section class="post-list w800">
 	<ul class="post-list clearfix">
 	{% for post in site.posts %}
 		{% include post-tile.html %}
 	{% endfor %}
 	</ul>
 </section>
-
-<style type="text/css">
-	section{
-		width: 800px;
-		margin: 30px auto;
-	}
-
-	@media (max-width: 800px) {
-		section{
-			width: auto;
-			padding: 15px;
-		}
-	}
-</style>
