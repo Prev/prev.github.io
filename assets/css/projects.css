@@ -15,7 +15,7 @@ section h2{
 	font-family: 'Nanum Myeongjo', serif;
 	font-weight: 600;
 
-	border-bottom: 1px solid #E7E7E7;
+	border-bottom: 1px solid #bbb;
 }
 
 section.projects a{
@@ -57,3 +57,35 @@ section.projects ul li .fl .link{
 section.projects ul li .fr .description{ margin-bottom: 12px }
 section.projects ul li .fr a{ color: #2e88b5 }
 section.projects ul li .fr a:hover{ color: #84d1f7 }
+
+
+@media (max-width: 800px) {
+	#wrapper{
+		background-color: #f0f0f0;
+	}
+
+	section{
+		width: auto;
+		margin: 0;
+		padding: 15px 0;
+	}
+	section h2{ padding: 0 15px }
+
+	section.projects ul li{
+		margin-bottom: 15px;
+		padding: 15px 15px 0 15px;
+		background-color: white;
+	}
+	section.projects ul li .fl,
+	section.projects ul li .fr{
+		float: none;
+		width: 100%;
+	}
+	section.projects ul li .fr{ border-top: 1px solid #f0f0f0; padding-top: 15px }
+
+	section.projects ul li .fr img{
+		width: 100%;
+		width: calc(100% + 30px);
+		margin-left: -15px;
+	}
+}

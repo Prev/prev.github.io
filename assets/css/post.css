@@ -142,3 +142,14 @@ article footer .readmore ul li .dates{
 	top: 1px;
 	color: #bbb;
 }
+
+
+@media (max-width: 800px) {
+	article{
+		width: auto;
+		margin: 0;
+		padding: 20px;
+	}
+
+	article header h1:after{ display: none; }
+}

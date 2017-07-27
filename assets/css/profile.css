@@ -59,3 +59,35 @@
 
 .profile a{ color: #444; text-decoration: none; }
 .profile a:hover{ text-decoration: underline; }
+
+
+@media (max-width: 800px) {
+	.profile{ padding-left: 10px; width: auto; }
+
+	.profile .name-section{
+		width: 180px;
+		margin: 25px auto 48px auto;
+		text-align: center;
+	}
+	.profile .name-section .fl{ float: none; }
+
+	.profile .name-section .picture-wrap{ margin: 0 }
+
+	.profile .name-section .contacts{ border-left: none; padding-left: 0; margin-left: 0 }
+
+	.profile dl{ margin: 50px 0 }
+	.profile dl dt,
+	.profile dl dd{ float: none; text-align: center; padding: 0 20px }
+
+	.profile dl dt{
+		width: 150px;
+		padding: 10px 0 0 0;
+		margin: 0 auto 15px auto;
+	}
+
+	.profile dl dt h3{ font-size: 26px }
+
+	.profile dl dd ul li.section{
+		width: 100%;
+	}
+}

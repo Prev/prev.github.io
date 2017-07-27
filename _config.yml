@@ -11,8 +11,10 @@ disqus_shortname: 'prevdev'
 url:            'https://prev.kr'
 author:         'Prev'
 permalink:       /posts/:title/
-gems:           []
 future:         true
+
+gems:
+  - jekyll-redirect-from
 
 defaults:
     -

@@ -97,6 +97,8 @@ header#site-header .background{
 	position: absolute;
 	top: 0;
 	z-index: 1;
+	width: 100%;
+	overflow: hidden;
 }
 
 
@@ -229,3 +231,34 @@ section.profile a.see-more{
 header#site-header > div.clearfix{ background-color: #2C4168 }
 header#site-header .logo-wrap svg path{ fill: white; }
 header#site-header .logo-wrap .logo-txt{ color: white }
+
+
+
+
+@media (max-width: 800px) {
+	header#site-header .background svg{
+		width: 400px;
+		margin-top: -50px;
+	}
+
+	header#site-header nav.gnb ul{
+		width: 100%;
+		padding: 0;
+	}
+	header#site-header nav.gnb ul li{ width: 25% }
+
+	footer#site-footer{ margin-top: 0 }
+}
+
+@media (max-width: 573px) {
+	ul.post-list li{ width: 100% }
+
+	header#site-header .logo-wrap{ padding-top: 20px }
+
+	header#site-header .logo-wrap .logo-txt{
+		width: 230px;
+		text-align: center;
+		top: 140px;
+		left: -33px;
+	}
+}

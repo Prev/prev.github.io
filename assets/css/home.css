@@ -81,7 +81,7 @@ section.service-shortcut ul a li{
 	float: left;
 	width: 260px;
 	height: 140px;
-	margin-right: 10px;
+	margin: 0 10px 10px 0;
 	font-size: 14px;
 	text-align: center;
 	border: 1px solid #eee;
@@ -105,3 +105,19 @@ section.service-shortcut ul a li .content{
 	text-align: center;
 }
 
+
+
+@media (max-width: 800px) {
+	section{
+		width: auto;
+		padding: 15px;
+	}
+
+	section h2:after{ width: 100% }
+	section .view-more{ right: 15px; top: 26px; }
+	section.profile{ width: auto }
+}
+
+@media (max-width: 573px) {
+	section.service-shortcut ul a li{ width: 100% }
+}
