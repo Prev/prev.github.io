@@ -85,7 +85,7 @@ section.service-shortcut ul a li{
 	font-size: 14px;
 	text-align: center;
 	border: 1px solid #eee;
-	border-radius: 5px;
+	border-radius: 0 5px 0 0;
 	/*background-color: #fcfcfc;*/
 	transition: 0.7s all;
 	box-sizing: border-box;

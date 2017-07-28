@@ -8,8 +8,23 @@ type: home
 	Development, SW Architecting, User Interface and User eXperience.
 </h3>
 
+<section class="post-list">
+	<h2><span>Recent Posts</span></h2>
+
+	<div class="view-more">
+		<a href="/posts">more</a>
+	</div>
+
+	<ul class="post-list clearfix">
+	{% for post in site.posts limit:3 %}
+		{% include post-tile.html %}
+	{% endfor %}
+	</ul>
+</section>
+
+
 <section class="service-shortcut">
-	<h2><span>Service Shortcut</span></h2>
+	<h2><span>Service Shortcuts</span></h2>
 	<ul class="clearfix">
 		<a href="http://colorscripter.com" target="_blank">
 			<li>
@@ -32,18 +47,5 @@ type: home
 	</ul>
 </section>
 
-<section class="post-list">
-	<h2><span>Recent Posts</span></h2>
-
-	<div class="view-more">
-		<a href="/posts">more</a>
-	</div>
-
-	<ul class="post-list clearfix">
-	{% for post in site.posts limit:3 %}
-		{% include post-tile.html %}
-	{% endfor %}
-	</ul>
-</section>
 
 {% include profile.html %}
