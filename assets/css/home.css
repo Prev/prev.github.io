@@ -116,6 +116,8 @@ section.service-shortcut ul a li .content{
 	section h2:after{ width: 100% }
 	section .view-more{ right: 15px; top: 26px; }
 	section.profile{ width: auto }
+
+	h3.description{ padding: 0 10px }
 }
 
 @media (max-width: 573px) {

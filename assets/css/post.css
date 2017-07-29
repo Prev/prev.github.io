@@ -49,6 +49,8 @@ article .post-body{
 	text-align: justify;
 }
 
+article .post-body .cover{ margin-top: -10px }
+
 article .post-body .center{ text-align: center; }
 
 article .post-body h2,
@@ -95,17 +97,6 @@ article .post-body .caption{
 	color: #909090;
 	text-align: center;
 }
-
-/*
-article .article-footer{ position: relative; margin-top: 30px; padding-top: 25px; border-top: 1px solid #eee; color: #999; }
-article .article-footer .tags{ position: absolute; text-align: center; width: 540px; margin-left: 200px }
-article .article-footer .tags a{ color: #505050 }
-
-article .article-footer a{ color: #999; text-decoration: none; }
-article .article-footer a strong{ color: black; font-weight: normal; }
-article .article-footer .tags a:hover,
-article .article-footer a:hover strong{ text-decoration: underline; }
-*/
 
 article footer{
 	margin-top: 40px;
@@ -158,6 +149,7 @@ article footer .readmore ul li .dates{
 		padding: 20px;
 	}
 
+	article header h1{ padding-top: 20px }
 	article header h1:after{ display: none; }
 
 	article .post-body p.mf img{
