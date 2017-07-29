@@ -55,7 +55,7 @@ article .post-body .center{ text-align: center; }
 
 article .post-body h2,
 article .post-body h3,
-article .post-body h4{ color: #111; font-weight: 400 }
+article .post-body h4{ color: #111; font-weight: 400; text-align: left; }
 
 article .post-body h2{
 	position: relative;
@@ -152,6 +152,7 @@ article footer .readmore ul li .dates{
 	article header h1{ padding-top: 20px }
 	article header h1:after{ display: none; }
 
+	article.mf .post-body img,
 	article .post-body p.mf img{
 		width: calc(100% + 40px);
 		max-width: initial;

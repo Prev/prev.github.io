@@ -3,7 +3,7 @@ layout: default
 type: posts
 ---
 
-<article class="post">
+<article class="post{% if page.full_image_on_mobile %} mf{% endif %}">
 	<header>
 		<h1><span>{{ page.title }}</span></h1>
 		<div class="date">{{ page.date | date:"%-m월 %-d일, %Y" }}</div>
