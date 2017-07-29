@@ -88,6 +88,13 @@ article .post-body strong{
 	color: #1E2025;
 }
 
+article .post-body .caption{
+	display: block;
+	margin-top: -5px;
+	font-size: 15px;
+	color: #909090;
+	text-align: center;
+}
 
 /*
 article .article-footer{ position: relative; margin-top: 30px; padding-top: 25px; border-top: 1px solid #eee; color: #999; }
@@ -152,4 +159,10 @@ article footer .readmore ul li .dates{
 	}
 
 	article header h1:after{ display: none; }
+
+	article .post-body p.mf img{
+		width: calc(100% + 40px);
+		max-width: initial;
+		margin-left: -20px;
+	}
 }

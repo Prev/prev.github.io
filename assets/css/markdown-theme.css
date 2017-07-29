@@ -134,11 +134,24 @@
 	color: #ccc;
 	content: open-quote;
 	font-size: 5em;
-	line-height: 0.1em;
+	/*line-height: 0.1em;*/
+	line-height: 0;
 	margin-right: 0.25em;
 	vertical-align: -0.4em;
 }
 .md-theme blockquote p {
 	margin: 0;
 	padding: 0 0 13px 10px;
+}
+
+@media (max-width: 800px) {
+	/*.md-theme pre{
+		width: calc(100% + 40px);
+		margin-left: -20px;
+	}*/
+
+	.md-theme blockquote{
+		margin-left: 0;
+		margin-right: 0;
+	}
 }
