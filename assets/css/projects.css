@@ -10,13 +10,14 @@ section{
 
 section h2{
 	position: relative;
-	margin: 10px 0 10px 0;
+	margin: 10px 0;
+	padding: 5px 0;
 	font-size: 32px;
 	font-family: 'Nanum Myeongjo', serif;
 	font-weight: 600;
 	color: black;
 
-	border-bottom: 1px solid #bbb;
+	border-bottom: 2px solid black;
 }
 
 section h2 .small{ font-size: 20px; font-weight: 400; color: #999 }

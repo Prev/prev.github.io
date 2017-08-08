@@ -5,9 +5,16 @@ description: '메멘토 서비스 디자인 1: 사용자 경험(UX) 파트'
 image: design-memento1/ux_cover.png
 ---
 
-<p class="center mf cover">
-	<img src="/attachs/design-memento1/ux_cover.png" width="450">
-</p>
+
+<div class="center mf cover">
+<img src="/attachs/design-memento1/ux_cover.png" width="450"><br>
+
+<h3 class="center">Design Memento Series</h3>
+
+<u><i> Part 1: UX</i></u><br>
+<a href="/posts/Design-memento-2">Part 2: UI</a>
+
+</div>
 
 ## 1. 디자인에 대한 생각
 

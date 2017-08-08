@@ -107,6 +107,7 @@
 	border-color: #ddd;
 	border-style: solid;
 }
+.md-theme table.full{ width: 100% }
 
 .md-theme table td, .md-theme table th {
 	border-width: 0 1px 1px 0;
@@ -116,9 +117,12 @@
 	padding: 8px 10px;
 }
 
-
 .md-theme table tr:nth-child(2n) {
 	background-color: #f8f8f8;
+}
+
+.md-theme table thead tr{
+	background-color: #f1f4ff;
 }
 
 
@@ -153,5 +157,10 @@
 	.md-theme blockquote{
 		margin-left: 0;
 		margin-right: 0;
+	}
+
+	.md-theme table.full{
+		margin-left: -20px;
+		width: calc(100% + 40px);
 	}
 }
