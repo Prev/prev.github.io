@@ -10,7 +10,7 @@ full_image_on_mobile: true
 
 <h3 class="center">Design Memento Series</h3>
 
-<a href="/posts/Design-memento-1">Part 1: UX</a><br>
+<a href="/posts/Design-Memento-1">Part 1: UX</a><br>
 
 <u><i> Part 2: UI</i></u>
 

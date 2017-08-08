@@ -12,7 +12,7 @@ image: design-memento1/ux_cover.png
 <h3 class="center">Design Memento Series</h3>
 
 <u><i> Part 1: UX</i></u><br>
-<a href="/posts/Design-memento-2">Part 2: UI</a>
+<a href="/posts/Design-Memento-2">Part 2: UI</a>
 
 </div>
 
