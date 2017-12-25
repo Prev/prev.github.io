@@ -90,7 +90,7 @@ full_image_on_mobile: true
 
 전문 디자이너가 아닌 개발자였기에 완벽한 디자인이 나오진 않았지만, 나름의 고민과 함께 최대한 예쁘게 디자인해보고자 노력했는데요, 그 결과 아래와 같은 **스토리보드** 초안이 나오게 되었습니다.
 
-![storyboard](/attachs/design-memento2/storyboard.png)
+![storyboard](/attachs/design-memento2/storyboard.jpg)
 
 
 
