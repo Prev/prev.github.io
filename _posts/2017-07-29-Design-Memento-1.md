@@ -2,6 +2,7 @@
 title:  'Design Memento 1 : UX'
 date:   2017-07-29 14:20:00
 description: '메멘토 서비스 디자인 1: 사용자 경험(UX) 파트'
+category: ux/ui
 image: design-memento1/ux_cover.png
 ---
 

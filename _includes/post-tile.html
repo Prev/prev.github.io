@@ -3,7 +3,10 @@
 		<div class="thumbnail" style="background-image: url('/attachs/{{ post.image }}')"></div>
 		<div class="background-filter"></div>
 		<div class="content">
-			<div>{{ post.date | date:"%-m월 %-d일, %Y" }}</div>
+			<div>
+				<span>{{ post.date | date:"%-m월 %-d일, %Y" }}</span>
+				{% include category-label.html %}
+			</div>
 			<h4>{{ post.title }}</h4>
 		</div>
 	</li>
