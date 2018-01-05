@@ -4,7 +4,7 @@ description: Personal brand website that treats Development, SW Architecting, Us
 markdown: kramdown
 highlighter: rouge
 
-baseurl: https://prev.kr
+baseurl: /
 google_analytics: 'UA-34015951-1'
 disqus_shortname: 'prevdev'
 

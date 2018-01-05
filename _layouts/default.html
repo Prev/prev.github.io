@@ -15,8 +15,10 @@
 
 	{% if page.description %}
 	<meta name="description" content="{{ page.description }}">
+	<meta property="og:description" content="{{ page.description }}"/>
 	{% else %}
 	<meta name="description" content="{{ site.description }}">
+	<meta property="og:description" content="{{ site.description }}"/>
 	{% endif %}
 	
 	{% if page.image %}
@@ -24,6 +26,7 @@
 	{% else %}
 	<meta property="og:image" content="/assets/images/cover.png">
 	{% endif %}
+	<meta property="og:type" content="blog"/>
 
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/assets/css/global.css">

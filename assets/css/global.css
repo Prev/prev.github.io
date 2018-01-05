@@ -182,7 +182,7 @@ ul.post-list li:hover .thumbnail{ filter: brightness(70%); }
 ul.post-list li .background-filter{
 	position: absolute;
 	width: 100%;
-	height: 120px;
+	height: 150px;
 	bottom: 0;
 	background: -webkit-linear-gradient(0deg,rgba(0,0,0,.85),rgba(0,0,0,0));
 	background: linear-gradient(0deg,rgba(0,0,0,.85),rgba(0,0,0,0));

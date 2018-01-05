@@ -3,6 +3,12 @@ layout: default
 type: posts
 ---
 
+{% if page.fbcomment_url %}
+	{% assign fbcomment_url = page.fbcomment_url %}
+{% else %}
+	{% assign fbcomment_url = site.url | append: page.url %}
+{% endif e%}
+
 <article class="post{% if page.full_image_on_mobile %} mf{% endif %}">
 	<header>
 		<h1><span>{{ page.title }}</span></h1>
@@ -16,7 +22,7 @@ type: posts
 	<footer>
 		<section class="comment">
 			<div class="comment-box">
-				<div class="fb-comments" data-href="{{ site.url }}{{ page.url }}" data-width="800" data-numposts="10" data-colorscheme="light"></div>
+				<div class="fb-comments" data-href="{{ fbcomment_url }}" data-width="800" data-numposts="10" data-colorscheme="light"></div>
 			</div>
 		</section>
 		
