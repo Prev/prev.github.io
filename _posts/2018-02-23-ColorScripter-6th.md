@@ -1,8 +1,8 @@
 ---
-title:  Color Scripter - 운영한지 6년된 개인 프로젝트
+title:  Color Scripter - 운영한지 6년 된 개인 프로젝트
 date:   2018-02-23
 description: '나는 혼자 만들고, 디자인하고, 운영한 프로젝트를 6년 동안 어떻게 이끌어 나갔는가'
-category: dev
+category: etc
 image: colorscripter-6th/cover.png
 ---
 
