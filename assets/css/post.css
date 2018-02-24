@@ -152,10 +152,20 @@ article footer .readmore ul li .dates{
 	article header h1{ padding-top: 20px }
 	article header h1:after{ display: none; }
 
-	article.mf .post-body img,
-	article .post-body p.mf img{
+	article .post-body img{
 		width: calc(100% + 40px);
 		max-width: initial;
 		margin-left: -20px;
+	}
+
+	article .post-body p.margined img{
+		width: 100%;
+		max-width: 100%;
+		margin-left: 0;
+	}
+
+	.md-theme blockquote{
+		margin-left: -20px;
+		width: calc(100% + 15px);
 	}
 }

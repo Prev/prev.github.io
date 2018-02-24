@@ -2,11 +2,11 @@
 title:  Color Scripter - 운영한지 6년 된 개인 프로젝트
 date:   2018-02-23
 description: '나는 혼자 만들고, 디자인하고, 운영한 프로젝트를 6년 동안 어떻게 이끌어 나갔는가'
-category: etc
+category: dev
 image: colorscripter-6th/cover.png
 ---
 
-<p class="center">
+<p class="center margined">
 	<img src="/attachs/colorscripter-6th/logo.png" width="445">
 </p>
 
@@ -80,7 +80,7 @@ For문을 중첩하고 각종 `flag`를 이용하여 프로그램을 만들었�
 
 
 
-## 2년 - 버전 3.0
+## 3년 - 버전 3.0
 
 *2014.12.14 ~*
 
