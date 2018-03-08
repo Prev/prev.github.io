@@ -29,28 +29,28 @@ section.projects a{
 }
 section.projects a:hover{ color: #ccc }
 
-section.projects ul{
+section.projects > ul{
 	list-style: none;
 	margin: 0;
 	padding: 0;
 }
 
-section.projects ul li{
+section.projects > ul > li{
 	margin: 10px 0 35px;
 	padding: 10px 0;
 }
 
-section.projects ul li .fl{ width: 210px }
-section.projects ul li .fr{ width: 500px }
+section.projects > ul > li .fl{ width: 210px }
+section.projects > ul > li .fr{ width: 500px }
 
-section.projects ul li .fl h3{
+section.projects > ul > li .fl h3{
 	margin: 0;
 	padding: 0;
 }
-/*section.projects ul li .fl p{ text-align: justify; }*/
-section.projects ul li .fl .weak{ font-size: 15px; color: #999 }
+/*section.projects > ul > li .fl p{ text-align: justify; }*/
+section.projects > ul > li .fl .weak{ font-size: 15px; color: #999 }
 
-section.projects ul li .fl .link{
+section.projects > ul > li .fl .link{
 	width: 160px;
 	margin-bottom: 25px;
 	padding: 2px 0 10px;
@@ -58,9 +58,20 @@ section.projects ul li .fl .link{
 	color: #999;
 }
 
-section.projects ul li .fr .description{ margin-bottom: 12px }
-section.projects ul li .fr a{ color: #2e88b5 }
-section.projects ul li .fr a:hover{ color: #84d1f7 }
+section.projects > ul > li .fr .description{ margin-bottom: 12px }
+section.projects > ul > li .fr a{ color: #2e88b5 }
+section.projects > ul > li .fr a:hover{ color: #84d1f7 }
+
+section.projects > ul > li .fr h4{
+	border-top: 1px solid #eee;
+	padding-top: 10px;
+	margin-bottom: 8px;
+	margin-top: 5px;
+}
+section.projects > ul > li .fr ul li{
+	margin-bottom: 3px;
+}
+
 
 
 @media (max-width: 800px) {
