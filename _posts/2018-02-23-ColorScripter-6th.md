@@ -247,5 +247,5 @@ if (lang == 'xml' || lang == 'html' || lang == 'xml' || lang == 'php'):
 
 Color Scripter를 6년간 만들어가며 개발 뿐만 아니라 운영 관점, 사용자 편의성 관점에서도 다양한 발전을 해 나갈 수 있었는데, 이에 대해 감사하며 앞으로도 좋은 서비스를 만들 기회가 있다면 이를 경험삼아 해 내가면 좋을 것 같다.
 
-*여튼 Happy Hnniversary, Color Scripter!*
+*여튼 Happy Anniversary, Color Scripter!*
 
