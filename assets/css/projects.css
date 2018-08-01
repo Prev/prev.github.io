@@ -80,8 +80,6 @@ section.projects > ul > li .fr ul li{
 	}
 
 	section{
-		width: auto;
-		margin: 0;
 		padding: 15px 0;
 	}
 	section h2{ padding: 0 15px }
@@ -102,5 +100,11 @@ section.projects > ul > li .fr ul li{
 		width: 100%;
 		width: calc(100% + 30px);
 		margin-left: -15px;
+	}
+}
+
+@media (max-width: 573px) {
+	section{
+		margin: 0;
 	}
 }

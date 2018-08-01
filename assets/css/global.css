@@ -206,8 +206,8 @@ ul.post-list li .content h4{
 }
 
 
-/* component/profile */
-section.profile{
+/* component/profile-box */
+section.profile-box{
 	width: 350px;
 	margin: 50px auto 0;
 	padding: 30px 0 20px;
@@ -216,18 +216,18 @@ section.profile{
 	border-bottom: 1px solid #ddd;
 }
 
-section.profile img {
+section.profile-box img {
 	border-radius: 50%;
 }
 
-section.profile .description{ color: #666 }
-section.profile .description h3{
+section.profile-box .description{ color: #666 }
+section.profile-box .description h3{
 	margin: 12px 0 4px 0;
 	font-weight: normal;
 }
 
-section.profile .btn-container{ margin: 12px 0 }
-section.profile a.see-more{
+section.profile-box .btn-container{ margin: 12px 0 }
+section.profile-box a.see-more{
 	background-color: #2C4168;
 	padding: 5px 8px 3px 8px;
 	border-radius: 3px;
@@ -262,10 +262,15 @@ header#site-header .logo-wrap .logo-txt{ color: white }
 
 
 @media (max-width: 800px) {
+	section,
 	section.w800{
-		width: auto;
+		max-width: 570px;
 		padding: 15px;
+		margin-right: auto;
+		margin-left: auto;
 	}
+
+	ul.post-list a:nth-child(3n) li{ margin-right: 10px }
 
 	header#site-header .background svg{
 		width: 400px;
@@ -282,6 +287,11 @@ header#site-header .logo-wrap .logo-txt{ color: white }
 }
 
 @media (max-width: 573px) {
+	section,
+	section.w800{
+		width: auto;
+	}
+
 	ul.post-list li{ width: 100% }
 
 	header#site-header .logo-wrap{ padding-top: 10px }
