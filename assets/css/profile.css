@@ -42,7 +42,7 @@
 
 
 .profile dl dd h5{ font-size: 16px; color: #2d3fa5 }
-.profile dl dd h5 a{ color: #2d3fa5 }
+.profile dl dd h5 a{ color: #2d3fa5; text-decoration: underline; }
 .profile dl dd h5 span.small{ font-size: 13px }
 .profile dl dd div.detail{ padding-left: 13px }
 

@@ -63,7 +63,6 @@ section.projects > ul > li .fr a{ color: #2e88b5 }
 section.projects > ul > li .fr a:hover{ color: #84d1f7 }
 
 section.projects > ul > li .fr h4{
-	border-top: 1px solid #eee;
 	padding-top: 10px;
 	margin-bottom: 8px;
 	margin-top: 5px;
@@ -81,26 +80,36 @@ section.projects > ul > li .fr ul li{
 
 	section{
 		padding: 15px 0;
+		margin-top: 0;
+		margin-bottom: 20px;
+		width: auto;
 	}
 	section h2{ padding: 0 15px }
 
-	section.projects ul li{
+	section.projects > ul > li{
 		margin-bottom: 15px;
-		padding: 15px 15px 0 15px;
+		padding: 15px;
 		background-color: white;
 	}
-	section.projects ul li .fl,
-	section.projects ul li .fr{
+	section.projects > ul > li .fl,
+	section.projects > ul > li .fr{
 		float: none;
 		width: 100%;
 	}
-	section.projects ul li .fr{ border-top: 1px solid #f0f0f0; padding-top: 15px }
+	/*section.projects ul li .fr{ border-top: 1px solid #f0f0f0; padding-top: 15px }*/
 
-	section.projects ul li .fr img{
+	section.projects > ul > li .fr img{
 		width: 100%;
 		width: calc(100% + 30px);
 		margin-left: -15px;
 	}
+
+	/*section.projects > ul > li{
+		padding-bottom: 10px;
+	}
+	section.projects > ul > li .fr ul li{
+		padding-top: 5px;
+	}*/
 }
 
 @media (max-width: 573px) {
