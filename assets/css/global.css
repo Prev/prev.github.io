@@ -305,4 +305,13 @@ header#site-header .logo-wrap .logo-txt{ color: white }
 		top: 130px;
 		left: -33px;
 	}
+
+	footer#site-footer{
+		padding-left: 15px;
+		padding-right: 15px;
+	}
+
+	footer#site-footer .description div{
+		display: inline;
+	}
 }

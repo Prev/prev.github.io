@@ -7,11 +7,11 @@ title: Posts
 <section class="post-list w800">
 	<header>
 		<h3>
-			태그로 모아보기:
-		{% for tag in site.data.tags %}
-		<a href="/posts/tag/{{ tag[0] }}">
-			<strong>#{{ tag[0] }}</strong>
-		</a>
+			<span>태그로 모아보기:</span>
+			{% for tag in site.data.tags %}
+			<a href="/posts/tag/{{ tag[0] }}">
+				<strong>#{{ tag[0] }}</strong>
+			</a>
 		{% endfor %}
 		</h3>
 	</header>

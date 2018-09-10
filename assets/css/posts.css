@@ -22,3 +22,12 @@ section.post-list > header a{
 	color: #999;
 }
 section.post-list > header a:hover{ text-decoration: underline }
+
+
+
+
+@media (max-width: 573px) {
+	section.post-list > header h3 span:first-child{
+		display: block;
+	}
+}

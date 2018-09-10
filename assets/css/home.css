@@ -115,7 +115,10 @@ section.service-shortcut ul a li .content{
 	section h2:after{ width: 100% }
 
 	section.pictures{ margin: 0; padding: 0; max-width: 100%; }
-	section.pictures img{ width: 100%; }
+	section.pictures img{
+		width: 100%;
+		height: auto;
+	}
 
 	section .view-more{ right: 15px; top: 26px; }
 	section.profile{ width: auto }
