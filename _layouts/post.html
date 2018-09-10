@@ -13,6 +13,11 @@ type: posts
 	<header>
 		<h1><span>{{ page.title }}</span></h1>
 		<div class="date">{{ page.date | date:"%-m월 %-d일, %Y" }}</div>
+		<div class="tags">
+		{% for tag in page.tags %}
+			<a href="/posts/tag/{{ tag }}">#{{ tag }}</a>
+		{% endfor %}
+		</div>
 	</header>
 	
 	<section class="post-body md-theme">

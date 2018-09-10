@@ -1,0 +1,23 @@
+---
+layout: default
+type: posts
+---
+
+<section class="post-list w800">
+	<header>
+		<h3>
+			<strong>#{{page.tag}}</strong>에 관한 글
+		</h3>
+	</header>
+
+	{% if site.tags[page.tag] %}
+		<ul class="post-list clearfix">
+		{% for post in site.tags[page.tag] %}
+			{% include post-tile.html %}
+		{% endfor %}
+		</ul>
+
+  	{% else %}
+		<p>There are no posts for this tag.</p>
+  	{% endif %}
+</section>

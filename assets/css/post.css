@@ -42,6 +42,10 @@ article header h1:after{
 
 article header .date{ font-size: 14px; color: #949494 }
 
+article header .tags{ margin-top: 3px; font-size: 14px; }
+article header .tags a{ color: #949494; text-decoration: none; }
+article header .tags a:hover{ text-decoration: underline; }
+
 article .post-body{
 	color: #666;
 	font-size: 16px;
@@ -143,10 +147,14 @@ article footer .readmore ul li .dates{
 
 
 @media (max-width: 800px) {
+	section{
+		padding: 20px;
+	}
+
 	article{
 		width: auto;
 		margin: 0;
-		padding: 20px;
+		padding: 20px 0;
 	}
 
 	article header h1{ padding-top: 20px }

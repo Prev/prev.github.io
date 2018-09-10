@@ -253,12 +253,14 @@ header#site-header .logo-wrap .logo-txt{ color: white }
 	height: 16px;
 	vertical-align: middle;
 
-	background-image: url('/assets/images/label_sprite.png');
+	background-image: url('/assets/images/label_sprite.png?2');
 	background-size: 38px auto;
 }
 .label.label-dev{ background-position: 0 0 }
 .label.label-uxui{ background-position: 0 -16px }
-.label.label-etc{ background-position: 0 -32px }
+.label.label-design{ background-position: 0 -32px }
+.label.label-manage{ background-position: 0 -48px }
+.label.label-thoughts{ background-position: 0 -64px }
 
 
 @media (max-width: 800px) {
@@ -269,6 +271,7 @@ header#site-header .logo-wrap .logo-txt{ color: white }
 		margin-right: auto;
 		margin-left: auto;
 	}
+	section.w800{ padding-top: 0 }
 
 	ul.post-list a:nth-child(3n) li{ margin-right: 10px }
 

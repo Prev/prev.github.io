@@ -1,0 +1,14 @@
+개발:
+  classname: dev
+
+설계:
+  classname: design
+
+UX:
+  classname: uxui
+
+관리:
+  classname: manage
+
+생각:
+  classname: thoughts
