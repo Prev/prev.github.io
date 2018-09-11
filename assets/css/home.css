@@ -20,6 +20,10 @@ h3.description:after{
 	background-color: #2c4168;
 }
 
+section.pictures{
+	margin-top: 60px;
+}
+
 
 section{
 	position: relative;
@@ -67,43 +71,6 @@ section .view-more a{
 	transition: 0.7s all;
 }
 section .view-more a:hover{ color: #444 }
-
-section.service-shortcut{}
-section.service-shortcut ul{
-	margin: 0;
-	padding: 0;
-	list-style: none;
-}
-section.service-shortcut ul a{ color: #333; text-decoration: none; }
-section.service-shortcut ul a li{
-	/*float: left;*/
-	position: relative;
-	float: left;
-	width: 260px;
-	height: 140px;
-	margin: 0 10px 10px 0;
-	font-size: 14px;
-	text-align: center;
-	border: 1px solid #eee;
-	border-radius: 0 5px 0 0;
-	/*background-color: #fcfcfc;*/
-	transition: 0.7s all;
-	box-sizing: border-box;
-}
-section.service-shortcut ul a:last-child li{ margin-right: 0 }
-section.service-shortcut ul a li:hover{ background-color: #f7f7f7 }
-
-section.service-shortcut ul a li .content{
-	position: absolute;
-	width: 100%;
-	bottom: 0;
-	padding: 4px 0;
-	/*background-color: black;
-	color: white;*/
-	background-color: #f7f7f7;
-	color: #555;
-	text-align: center;
-}
 
 
 

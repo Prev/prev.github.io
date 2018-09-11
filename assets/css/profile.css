@@ -3,8 +3,8 @@
 .profile{
 	width: 750px;
 	margin: 0 auto;
-	font-weight: 200;
-	color: #444;
+	font-weight: 400;
+	color: #666;
 }
 .profile dl{ margin: 40px 0; padding: 0; *zoom: 1; }
 .profile dl:after{ clear: both; content: ""; display: block; }
