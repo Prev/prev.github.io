@@ -8,6 +8,145 @@ section{
 	color: #5A5A5A;
 }
 
+.primary-button{
+	display: inline-block;
+	width: 120px;
+	text-align: center;
+	font-size: 16px;
+	font-weight: normal;
+	text-decoration: none;
+	color: white;
+
+	padding: 9px 0 8px;
+	border-radius: 7px;
+	
+	background-color: #454f62;
+	transition: 0.3s all;
+}
+.primary-button:hover{ opacity: 0.8 }
+
+.primary-button.small{
+	font-size: 15px;
+	width: 100px;
+	padding: 6px 0 5px;
+}
+
+
+section.prominent-project h2#memento{
+	width: 184px;
+	height: 29px;
+	background-image: url('/assets/images/project-logos/memento.png');
+	background-size: 184px 29px;
+}
+section.prominent-project h2#colorscripter{
+	width: 220px;
+	height: 35px;
+	background-image: url('/assets/images/project-logos/colorscripter.png');
+	background-size: 220px 35px;
+}
+section.prominent-project h2#kreact{
+	width: 253px;
+	height: 60px;
+	background-image: url('/assets/images/project-logos/kreact.png');
+	background-size: 253px 60px;
+}
+
+
+
+section.prominent-project{
+	position: relative;
+
+	margin-bottom: 40px;
+	padding-bottom: 40px;
+	border-bottom: 1px dashed #979797;
+}
+section.prominent-project .content{ position: relative; z-index: 3 }
+section.prominent-project .screenshot{
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+section.prominent-project h2{
+	margin: 20px 0 25px 5px;
+}
+section.prominent-project p,
+section.prominent-project ul{
+	margin: 0;
+	line-height: 22px;
+}
+section.prominent-project p{ padding-left: 5px }
+section.prominent-project ul{ padding-left: 30px; margin-top: 2px }
+
+
+section.prominent-project p.meta{
+	line-height: 24px;
+}
+
+section.prominent-project h4{
+	display: inline-block;
+	font-size: 13px;
+	font-weight: normal;
+	color: white;
+
+	margin: 20px 0 6px;
+	padding: 2px 6px 1px;
+	border-radius: 10px;
+	background-color: #78808f;
+}
+
+section.prominent-project .primary-button{
+	margin: 40px 0 0 5px;
+}
+
+
+section.prominent-project ul li a{
+	color: #2e88b5;
+	text-decoration: none;
+	transition: 0.3s all;
+}
+section.prominent-project ul li a:hover{ color: #84d1f7 }
+
+
+
+section.other-projects{
+	margin-top: -38px;
+	padding-top: 40px;
+	border-top: 1px dashed #979797;
+	/*border-bottom: 1px dashed #979797;*/
+}
+
+section.other-projects .project{
+	margin-bottom: 35px;
+}
+
+section.other-projects .project:after{ clear: both; content: ""; display: block; }
+
+section.other-projects .project .logo{
+	width: 240px;
+	float: left;
+	padding-top: 50px;
+	text-align: center;
+}
+section.other-projects .project .content{
+	width: 500px;
+	float: right;
+	line-height: 19px;
+}
+section.other-projects .project .content p{
+	margin: 10px 0;
+	text-align: justify;
+}
+
+
+p.meta i{
+	width: 16px;
+	text-align: right;
+	margin-right: 5px;
+	color: #78808f;
+}
+
+/*
 section h2{
 	position: relative;
 	margin: 10px 0;
@@ -47,7 +186,6 @@ section.projects > ul > li .fl h3{
 	margin: 0;
 	padding: 0;
 }
-/*section.projects > ul > li .fl p{ text-align: justify; }*/
 section.projects > ul > li .fl .weak{ font-size: 15px; color: #999 }
 
 section.projects > ul > li .fl .link{
@@ -69,7 +207,7 @@ section.projects > ul > li .fr h4{
 }
 section.projects > ul > li .fr ul li{
 	margin-bottom: 3px;
-}
+}*/
 
 
 
@@ -86,7 +224,7 @@ section.projects > ul > li .fr ul li{
 	}
 	section h2{ padding: 0 15px }
 
-	section.projects > ul > li{
+	/*section.projects > ul > li{
 		margin-bottom: 15px;
 		padding: 15px;
 		background-color: white;
@@ -96,19 +234,11 @@ section.projects > ul > li .fr ul li{
 		float: none;
 		width: 100%;
 	}
-	/*section.projects ul li .fr{ border-top: 1px solid #f0f0f0; padding-top: 15px }*/
-
+	
 	section.projects > ul > li .fr img{
 		width: 100%;
 		width: calc(100% + 30px);
 		margin-left: -15px;
-	}
-
-	/*section.projects > ul > li{
-		padding-bottom: 10px;
-	}
-	section.projects > ul > li .fr ul li{
-		padding-top: 5px;
 	}*/
 }
 

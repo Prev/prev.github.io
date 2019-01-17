@@ -24,6 +24,10 @@ section.pictures{
 	margin-top: 60px;
 }
 
+section.pictures img{
+	background-color: #eee;
+}
+
 
 section{
 	position: relative;
