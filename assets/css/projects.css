@@ -51,6 +51,8 @@ section.prominent-project h2#kreact{
 	background-size: 253px 60px;
 }
 
+section.prominent-project:first-child{ margin-top: 60px }
+
 
 
 section.prominent-project{
@@ -146,104 +148,41 @@ p.meta i{
 	color: #78808f;
 }
 
-/*
-section h2{
-	position: relative;
-	margin: 10px 0;
-	padding: 5px 0;
-	font-size: 32px;
-	font-family: 'Nanum Myeongjo', serif;
-	font-weight: 600;
-	color: black;
-
-	border-bottom: 2px solid black;
-}
-
-section h2 .small{ font-size: 20px; font-weight: 400; color: #999 }
-
-section.projects a{
-	color: #A0A0A0;
-	text-decoration: none;
-	transition: 0.5s all;
-}
-section.projects a:hover{ color: #ccc }
-
-section.projects > ul{
-	list-style: none;
-	margin: 0;
-	padding: 0;
-}
-
-section.projects > ul > li{
-	margin: 10px 0 35px;
-	padding: 10px 0;
-}
-
-section.projects > ul > li .fl{ width: 210px }
-section.projects > ul > li .fr{ width: 500px }
-
-section.projects > ul > li .fl h3{
-	margin: 0;
-	padding: 0;
-}
-section.projects > ul > li .fl .weak{ font-size: 15px; color: #999 }
-
-section.projects > ul > li .fl .link{
-	width: 160px;
-	margin-bottom: 25px;
-	padding: 2px 0 10px;
-	border-bottom: 1px dashed #C5C5C5;
-	color: #999;
-}
-
-section.projects > ul > li .fr .description{ margin-bottom: 12px }
-section.projects > ul > li .fr a{ color: #2e88b5 }
-section.projects > ul > li .fr a:hover{ color: #84d1f7 }
-
-section.projects > ul > li .fr h4{
-	padding-top: 10px;
-	margin-bottom: 8px;
-	margin-top: 5px;
-}
-section.projects > ul > li .fr ul li{
-	margin-bottom: 3px;
-}*/
-
-
 
 @media (max-width: 800px) {
-	#wrapper{
-		background-color: #f0f0f0;
-	}
-
 	section{
-		padding: 15px 0;
+		padding: 0 20px;
 		margin-top: 0;
 		margin-bottom: 20px;
 		width: auto;
 	}
-	section h2{ padding: 0 15px }
 
-	/*section.projects > ul > li{
-		margin-bottom: 15px;
-		padding: 15px;
-		background-color: white;
+	section.prominent-project:first-child{ margin-top: 20px }
+
+	section.prominent-project .screenshot{
+		/*position: relative;*/
+		display: none;
 	}
-	section.projects > ul > li .fl,
-	section.projects > ul > li .fr{
+
+	section.other-projects{
+		padding: 0 20px;
+	}
+
+	section.other-projects .project .logo,
+	section.other-projects .project .content{
 		float: none;
-		width: 100%;
+		width: auto;
 	}
-	
-	section.projects > ul > li .fr img{
-		width: 100%;
-		width: calc(100% + 30px);
-		margin-left: -15px;
-	}*/
+
+	section.other-projects .project .logo{
+		text-align: left;
+	}
+
+	section.prominent-project h2{ margin-top: 0 }
 }
 
 @media (max-width: 573px) {
-	section{
+	/*section{
 		margin: 0;
-	}
+	}*/
 }

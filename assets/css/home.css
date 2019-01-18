@@ -80,6 +80,7 @@ section .view-more a:hover{ color: #444 }
 
 @media (max-width: 800px) {
 	section{
+		margin-top: 20px;
 		padding: 15px;
 	}
 
@@ -87,7 +88,8 @@ section .view-more a:hover{ color: #444 }
 
 	section.pictures{ margin: 0; padding: 0; max-width: 100%; }
 	section.pictures img{
-		width: 100%;
+		margin: 15px;
+		width: calc(100% - 30px);
 		height: auto;
 	}
 
