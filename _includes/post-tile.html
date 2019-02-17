@@ -12,7 +12,20 @@
 					</span>
 				{% endfor %}
 			</div>
-			<h4>{{ post.title }}</h4>
+			<h4>
+				{{ post.title }}
+
+				{% if post.fbcomment_url %}
+					{% assign fbcomment_url = post.fbcomment_url %}
+				{% else %}
+					{% assign fbcomment_url = site.site_url | append: post.url %}
+				{% endif %}
+				
+				<span class="comments-count">
+					<span class="fb-comments-count" data-href="{{ fbcomment_url }}"></span>
+				</span>
+			</h4>
+			<!-- {{fbcomment_url}} -->
 		</div>
 	</li>
 </a>
