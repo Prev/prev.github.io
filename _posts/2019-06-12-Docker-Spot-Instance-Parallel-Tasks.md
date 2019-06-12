@@ -20,7 +20,7 @@ image: ec2-parallel-tasks/parallel-tasks.png
 
 <p class="center">
 	<img src="/attachs/ec2-parallel-tasks/parallel-tasks.png" alt="parallel-tasks">
-	<span class="caption">아름다운 병렬 처리의 모습</span>
+	<span class="caption">이상적인 병렬 처리의 모습</span>
 </p>
 
 이를 구현하기 위해서는 크게 2가지 방법이 있다.
@@ -38,9 +38,7 @@ image: ec2-parallel-tasks/parallel-tasks.png
 
 ## Scrapy로 크롤러를 만들고 Docker로 패키징하기
 
-먼저 크롤러를 만들어야 한다. [Scrapy](https://scrapy.org/)를 이용했는데, 이 라이브러리를 이용하면 python으로 빠르고 효율적인 크롤러를 개발할 수 있다. arg를 통해 크롤링 할 날짜를 받고, 노드 내에서 병렬적으로 크롤링을 진행한다. 한 기사 크롤링이 완료되면 scrapy pipeline을 통과하여 로컬 파일에 JSON type으로 저장하도록 했다. 전체 작업이 완료되면 gzip으로 압축하여 AWS S3에 데이터를 업로드한다. 파일 구조는 이후 Athena에서 쿼리할 수 있도록 만들었다.
-
-Scrapy spider는 `date` arg를 받도록 만들었고 해당 날짜의 기사를 전부 긁었다면 정상 종료된다. 환경변수에는 S3 업로드를 위한 버킷 이름, `access key`, `secret key` 를 받도록 하였다. 이를 shell 로 실행하려면 다음과 같은 명령어를 주면 된다.
+먼저 크롤러를 만들어야 한다. [Scrapy](https://scrapy.org/)를 이용했는데, 이 라이브러리를 이용하면 python으로 빠르고 효율적인 크롤러를 개발할 수 있다. 크롤러는 arg를 통해 크롤링 할 날짜를 받고, 해당 날짜의 기사를 전부 긁었다면 정상 종료되도록 개발하였다. 기사 데이터는 로컬 파일에 JSON type으로 저장하도록 했다. 전체 작업이 완료되면 gzip으로 압축하여 AWS S3에 데이터를 업로드한다. 환경변수에는 S3 업로드를 위한 버킷 이름, `access key`, `secret key` 를 받도록 하였다. 이를 shell 로 실행하려면 다음과 같은 명령어를 주면 된다.
 
 ```bash
 env AWS_BUCKET=<S3_BUCKET_NAME> \
@@ -49,9 +47,9 @@ env AWS_SECRET_ACCESS_KEY=<AWS_SECRET_ACCESS_KEY> \
 scrapy runspider spiders/naver_news.py -a date=20190101
 ```
 
-이 명령어를 노드마다 실행하게 하지는 않을 것이다. 만약 ssh 등으로 실행한다면 그전에 python3, scrapy, virtualenv 등을 설치하고 환경을 갖추어 주어야 하는데 이는 너무 불편하다. 그렇다. Docker로 scrapy를 패키징 해줄 필요가 무척 있었다.
+하지만 이 명령어를 노드마다 실행하게 하지는 않을 것이다. 만약 ssh 등으로 실행한다면 그전에 python3, scrapy, virtualenv 등을 설치하고 환경을 갖추어 주어야 하는데 이는 너무 불편하다. 그렇다. Docker로 scrapy를 패키징 해줄 필요가 무척 있었다.
 
-다만 약간의 문제가 있는데, scrapy는 library 형태가 아닌 framework로, 자체 `scrapy runspider` 명령어를 통해 수행해준다는 것이다. Python docker image를 사용하려면 scrapy를 시작시킬 엔트리용 파일을 작성할 필요가 있었다. 이에 scrapy에서는 공식적으로 `CrawlerProcess` 라는 클래스 제공한다. 이를 이용하면 `scrapy` 프로세스를 python으로 작성하고 관리할 수 있게 된다. 실제 scrapy의 `setup.py`를 확인해보면 `cmdline.py` 의 `execute` 함수를 호출함을 볼 수 있는데, 이 함수 내에서도 `CrawlerProcess` 클래스를 이용한다.
+다만 약간의 문제가 있는데, scrapy는 library 형태가 아닌 framework로, 자체 `scrapy runspider` 명령어를 통해 수행해준다는 것이다. Python docker image를 사용하려면 scrapy를 시작시킬 엔트리용 파일을 작성할 필요가 있었다. 이에 scrapy에서는 공식적으로 `CrawlerProcess` 라는 클래스를 제공한다. 이를 이용하면 `scrapy` 프로세스를 python으로 작성하고 관리할 수 있다. 실제 scrapy의 `setup.py`를 확인해보면 `cmdline.py` 의 `execute` 함수를 호출함을 볼 수 있는데, 이 함수 내에서도 `CrawlerProcess` 클래스를 이용한다.
 
 ```python
 # run-scrapy.py
@@ -95,7 +93,7 @@ CMD ["python", "run-scrapy.py"]
 
 ![docker images](/attachs/ec2-parallel-tasks/docker-images.png)
 
-그럼 3번에 대해서 이야기할 텐데, 위에서 잠깐 이야기하였지만 docker는 RESTFul 형태로 API를 제공하며, **외부에서도 명령을 보낼 수 있다**. 나는 이 점을 이용하여 `ssh` 접속 없이도 작업 노드의 docker socket에 바로 접속하여 위에서 만든 이미지를 실행하고자 했다. 조금 더 자세히는 master 노드가 작업 노드의 IP주소를 가지고 있고, 작업 노드들에게 `docker run` 명령어를 원격으로 실행시켜 크롤링을 수행하고, 해당 작업이 끝나 컨테이너가 종료되면 다음 task를 바탕으로 다시 docker를 실행시키는 구조를 만들고자 했다.
+그럼 3번에 대해서 이야기할 텐데, 위에서 잠깐 이야기하였지만 docker는 RESTFul 형태로 API를 제공하며, **외부에서도 명령을 보낼 수 있다**. 나는 이 점을 이용하여 `ssh` 접속 없이도 작업 노드의 docker socket에 바로 접속하여 위에서 만든 이미지를 실행하고자 했다. 조금 더 자세히는 *master* 노드가 작업 노드의 IP주소를 가지고 있고, 작업 노드들에게 `docker run` 명령어를 원격으로 실행시켜 크롤링을 수행하고, 해당 작업이 끝나 컨테이너가 종료되면 다음 task를 바탕으로 다시 docker를 실행시키는 구조를 만들고자 했다.
 
 이를 위해서는 먼저 외부에 socket을 열어주어야 한다. 다만 보안 이슈가 있었는데, `0.0.0.0` 으로 전 세계에 오픈 해 버릴 경우 비트코인 채굴기 등에 악용 될 소지가 있었다. 이를 막으려면 VPN을 구성하거나, Docker Engine API에서 제공하는 [OpenSSL CA](https://docs.docker.com/engine/security/https/)를 사용할 수 있다. 후자가 적합해 보였지만, 이또한 귀찮았기에 그냥 `0.0.0.0`으로 열어버린 뒤 EC2에서 제공하는 **Security group**을 이용해서 내 IP만 허용하고 나머지 접속을 막아버리기로 했다.
 
@@ -151,14 +149,17 @@ queue = Queue()
 queue.put('task 1')
 queue.put('task 2')
 
-for node in nodes:
-    p = Process(target=process_entry, args=(node, queue))
-    p.start()
+def process_entry(queue):
+	while not queue.empty():
+		print(queue.get())
+
+p = Process(target=process_entry, args=(queue, ))
+p.start()
 ```
 
 
 
-`Process`, `Queue`, `docker-py`를 이용해서 날짜마다 task를 나누어 1년 치 데이터를 긁도록 명령하는 master process는 다음처럼 구성할 수 있다. 2018년 1월 1일부터 12월 31일까지 날짜를 generate한 뒤 queue에 넣어두고, 각 프로세스마다 queue에서 pop을 수행해 순차적으로 작업을 수행한다.
+`Process`, `Queue`, `docker-py`를 이용해서 날짜마다 task를 나누어 1년 치 데이터를 긁도록 명령하는 master process는 아래처럼 구성할 수 있다. 2018년 1월 1일부터 12월 31일까지 날짜를 generate한 뒤 queue에 넣어두고, 각 프로세스마다 queue에서 pop을 수행해 순차적으로 작업을 수행하도록 작성하였다.
 
 ```python
 import docker
@@ -245,6 +246,6 @@ ORDER BY date
 
 뉴스 기사 데이터는 확실히 RDBMS보다 S3 같은 Key-value storage에서 관리하는 것이 좋다고 생각한다. 다만 이처럼 다수의 데이터에 쿼리를 실행해보고 그래프를 보고자 하는 필요성이 가끔씩 있는데, Athena를 사용하면 정말 빠르게 결과를 확인할 수 있다.
 
-이 글에서는 크롤링을 다루었지만, 이 외에도 AWS를 잘 사용하면 데이터 **수집부터 분석까지의 작업을 매우 효율적으로** 수행할 수 있다. <stroke>이 포스트를 작성하며</stroke> 이 작업을 진행하며 Spot Instance + Data Transfer 등등 해서 비용은 10달러 정도 사용된 것 같다.
+이 글에서는 크롤링을 다루었지만, 이 외에도 AWS를 잘 사용하면 데이터 **수집부터 분석까지의 작업을 매우 효율적으로** 수행할 수 있다. <stroke>이 포스트를 작성하며</stroke> 이 작업을 진행하며 Spot Instance + Data Transfer 등등 해서 비용은 10달러 정도 발생한 것 같다.
 
 ![spot-intance-saving](/attachs/ec2-parallel-tasks/spot-intance-saving.png)
