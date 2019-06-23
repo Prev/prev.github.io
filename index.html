@@ -2,28 +2,7 @@
 layout: default
 type: home
 ---
-<!-- 
-<h3 class="description">
-	Personal brand website that treats<br>
-	Development, SW Architecting, User Interface and User eXperience.
-</h3>
- -->
+
 <section class="pictures">
 	<img src="https://pictures.prev.kr" width="800" height="450">
 </section>
-
-<section class="post-list">
-	<h2><span>Recent Posts</span></h2>
-
-	<div class="view-more">
-		<a href="/posts/">more</a>
-	</div>
-
-	<ul class="post-list clearfix">
-	{% for post in site.posts limit:3 %}
-		{% include post-tile.html %}
-	{% endfor %}
-	</ul>
-</section>
-
-<!-- {% include profile-box.html %} -->

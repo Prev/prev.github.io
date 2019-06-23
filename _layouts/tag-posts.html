@@ -11,7 +11,7 @@ type: posts
 	</header>
 
 	{% if site.tags[page.tag] %}
-		<ul class="post-list clearfix">
+		<ul class="post-list">
 		{% for post in site.tags[page.tag] %}
 			{% include post-tile.html %}
 		{% endfor %}

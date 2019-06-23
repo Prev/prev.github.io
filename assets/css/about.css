@@ -1,11 +1,36 @@
 @charset "utf-8";
 
-.profile{
+.about{
 	width: 750px;
 	margin: 0 auto;
 	font-weight: 400;
 	color: #666;
 }
+
+.about p{
+	text-align: center;
+	line-height: 150%;
+}
+
+.about p a{
+	color: #2e88b5;
+}
+
+
+.about a{ color: #444; text-decoration: none; }
+.about a:hover{ text-decoration: underline; }
+
+
+.about .name-section{ margin: 60px 0 48px 0 }
+.about .name-section .picture-wrap{ margin: 0 20px 0 125px }
+.about .name-section .picture-wrap .profile-picture{ border-radius: 50% }
+.about .name-section h2{ margin: 15px 0 4px 0; font-weight: normal; }
+
+.about .name-section .contacts{ margin: 12px 0 0 40px; padding-left: 40px; border-left: 1px solid #ccc }
+.about .name-section .contacts ul{ list-style: none; margin: 0; padding: 0 }
+.about .name-section .contacts ul li{ margin: 4px 0 }
+
+
 .profile dl{ margin: 40px 0; padding: 0; *zoom: 1; }
 .profile dl:after{ clear: both; content: ""; display: block; }
 
@@ -46,34 +71,20 @@
 .profile dl dd h5 span.small{ font-size: 13px }
 .profile dl dd div.detail{ padding-left: 13px }
 
-.profile .name-section{ margin: 60px 0 48px 0 }
-.profile .name-section .picture-wrap{ margin: 0 20px 0 125px }
-.profile .name-section .picture-wrap .profile-picture{ border-radius: 50% }
-.profile .name-section h2{ margin: 15px 0 4px 0; font-weight: normal; }
-
-.profile .name-section .contacts{ margin: 12px 0 0 40px; padding-left: 40px; border-left: 1px solid #ccc }
-.profile .name-section .contacts ul{ list-style: none; margin: 0; padding: 0 }
-.profile .name-section .contacts ul li{ margin: 4px 0 }
-
-.profile .description-myself{ text-align: center; margin: 0 15px 50px 15px }
-
-.profile a{ color: #444; text-decoration: none; }
-.profile a:hover{ text-decoration: underline; }
-
 
 @media (max-width: 800px) {
-	.profile{ padding-left: 10px; width: auto; }
+	.about{ padding-left: 10px; width: auto; }
 
-	.profile .name-section{
+	.about .name-section{
 		width: 180px;
 		margin: 25px auto 48px auto;
 		text-align: center;
 	}
-	.profile .name-section .fl{ float: none; }
+	.about .name-section .fl{ float: none; }
 
-	.profile .name-section .picture-wrap{ margin: 0 }
+	.about .name-section .picture-wrap{ margin: 0 }
 
-	.profile .name-section .contacts{ border-left: none; padding-left: 0; margin-left: 0 }
+	.about .name-section .contacts{ border-left: none; padding-left: 0; margin-left: 0 }
 
 	.profile dl{ margin: 50px 0 }
 	.profile dl dt,

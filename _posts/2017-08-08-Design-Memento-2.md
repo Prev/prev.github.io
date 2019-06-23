@@ -2,7 +2,7 @@
 title:  'Design Memento 2 : UI'
 description: '메멘토 서비스 디자인 2: 사용자 인터페이스(UI) 파트'
 image: design-memento2/ui_cover.png
-tags: ['UX']
+tags: ['UI/UX']
 ---
 
 <div class="center mf cover">

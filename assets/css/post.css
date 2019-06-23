@@ -112,6 +112,7 @@ article footer .readmore{
 	margin-top: 40px;
 	padding-top: 20px;
 	border-top: 1px solid #eaeaea;
+	font-size: 14px;
 }
 
 article footer .readmore h3{
@@ -122,6 +123,12 @@ article footer .readmore h3{
 	margin-bottom: 20px;
 }
 
+article footer .readmore h4 strong{
+	font-size: 16px !important;
+	color: #2e88b5 !important;
+}
+
+/*
 article footer .readmore ul{
 	margin: 0;
 	padding: 0;
@@ -144,7 +151,7 @@ article footer .readmore ul li .dates{
 	top: 1px;
 	color: #bbb;
 }
-
+*/
 
 @media (max-width: 800px) {
 	section{

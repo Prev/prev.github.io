@@ -1,13 +1,15 @@
 @charset "utf-8";
 
+
 section.post-list > header{
 	text-align: center;
-	padding: 10px 0 40px;
+	padding: 20px 0;
+	font-family: 'Nanum Myeongjo', serif;
 }
 
 section.post-list > header h3{
 	font-weight: normal;
-	font-size: 20px;
+	font-size: 16px;
 	color: #999;
 }
 
@@ -24,10 +26,3 @@ section.post-list > header a{
 section.post-list > header a:hover{ text-decoration: underline }
 
 
-
-
-@media (max-width: 573px) {
-	section.post-list > header h3 span:first-child{
-		display: block;
-	}
-}

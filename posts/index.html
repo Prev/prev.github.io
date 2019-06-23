@@ -5,18 +5,17 @@ title: Posts
 ---
 
 <section class="post-list w800">
-	<header>
+	 <header>
 		<h3>
-			<span>태그로 모아보기:</span>
-			{% for tag in site.data.tags %}
-			<a href="/posts/tag/{{ tag[0] }}">
-				<strong>#{{ tag[0] }}</strong>
+			{% for tag in site.tags %}
+			<a href="/posts/tag/{{ tag[0] | replace: '/', '-' }}">
+				#<strong>{{ tag[0] }}</strong>
 			</a>
-		{% endfor %}
+			{% endfor %}
 		</h3>
 	</header>
 
-	<ul class="post-list clearfix">
+	<ul class="post-list">
 	{% for post in site.posts %}
 		{% include post-tile.html %}
 	{% endfor %}

@@ -15,7 +15,7 @@ type: posts
 		<div class="date">{{ page.date | date:"%-m월 %-d일, %Y" }}</div>
 		<div class="tags">
 		{% for tag in page.tags %}
-			<a href="/posts/tag/{{ tag }}">#{{ tag }}</a>
+			<a href="/posts/tag/{{ tag | replace: '/', '-' }}">#{{ tag }}</a>
 		{% endfor %}
 		</div>
 	</header>
@@ -33,35 +33,17 @@ type: posts
 		
 		<section class="readmore">
 			<h3>더보기</h3>
-			<ul>
-			{% for post in site.posts %}
+			<ul class="post-list">
+			{% assign tag = page.tags[0] %}
+			{% for post in site.tags[tag] %}
 				{% if post.url != page.url %}
-				<li>
-					<a href="{{ post.url }}">{{ post.title }}<span class="dates">{{ post.date | date:"%-m월 %-d일, %Y" }}</span></a>
-				</li>
+					<!-- <li>
+						<a href="{{ post.url }}">{{ post.title }}<span class="dates">{{ post.date | date:"%-m월 %-d일, %Y" }}</span></a>
+					</li> -->
+					{% include post-tile.html %}
 				{% endif %}
 			{% endfor %}
 			</ul>
 		</section>
 	</footer>
 </article>
-<!-- 
-<script type="text/javascript" src="//api.colorscripter.com/code/colorscripter.js"></script>
-<script type="text/javascript">
-	(function() {
-		$('.post-body pre code').each(function() {
-			var dom = $(this).parent().parent();
-
-			var className = dom.attr('class');
-			if (!className) return;
-
-			var temp = className.split('language-')[1];
-			if (!temp) return;
-
-			var lang = temp.split(' ')[0];
-			var cs = new ColorScripter(lang);
-
-			$(this).html( cs.color( $(this).text() ) );
-		});
-	})();
-</script> -->

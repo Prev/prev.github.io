@@ -13,7 +13,7 @@ layout: compress
 	<link rel="shortcut icon" href="/favicon.ico">
 	<link rel="alternate" type="application/rss+xml" title="feed" href="/feed.xml">
 
-	<meta name="keywords" content="prev,cse,programming,developer,web,ui,ux,design" />
+	<meta name="keywords" content="prev,cse,programming,developer,web" />
 	<meta name="robots" content="ALL">
 
 	{% if page.description %}
@@ -32,21 +32,23 @@ layout: compress
 	<meta property="og:type" content="blog"/>
 
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-	<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> -->
-	<link rel="stylesheet" href="/assets/css/global.css?3">
+
+	{% assign assetappendix = '20190623' %}
+
+	<link rel="stylesheet" href="/assets/css/global.css?{{ assetappendix }}">
 
 	{% if page.type == 'home' %}
-	<link rel="stylesheet" href="/assets/css/home.css?2">
+	<link rel="stylesheet" href="/assets/css/home.css?{{ assetappendix }}">
 	{% elsif page.type == 'posts' %}
-	<link rel="stylesheet" href="/assets/css/posts.css?2">
+	<link rel="stylesheet" href="/assets/css/posts.css?{{ assetappendix }}">
 	{% elsif layout.type == 'posts' %}
-	<link rel="stylesheet" href="/assets/css/markdown-theme.css?3">
-	<link rel="stylesheet" href="/assets/css/code-highlight.css?2">
-	<link rel="stylesheet" href="/assets/css/post.css">
-	{% elsif page.type == 'profile' %}
-	<link rel="stylesheet" href="/assets/css/profile.css?2">
+	<link rel="stylesheet" href="/assets/css/markdown-theme.css?{{ assetappendix }}">
+	<link rel="stylesheet" href="/assets/css/code-highlight.css?{{ assetappendix }}">
+	<link rel="stylesheet" href="/assets/css/post.css?{{ assetappendix }}">
+	{% elsif page.type == 'about' %}
+	<link rel="stylesheet" href="/assets/css/about.css?{{ assetappendix }}">
 	{% elsif page.type == 'projects' %}
-	<link rel="stylesheet" href="/assets/css/projects.css?3">
+	<link rel="stylesheet" href="/assets/css/projects.css?{{ assetappendix }}">
 	{% endif %}
 
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -73,18 +75,18 @@ layout: compress
 							<path d="M126.6,92.3l-23.85,21.75L62.35,97.3l25.4-20.05L126.6,92.3" fill="#091223" />
 							<path d="M169.35,141.2l-45.3-18.75l23.2-22.5l43.3,16.45L169.35,141.2z" fill="#091223" />
 						</svg>
-						<div class="logo-txt">
+						<!-- <div class="logo-txt">
 							<span>personal brand website</span>
 							<strong>prev.kr</strong>
-						</div>
+						</div> -->
 					</div>
 				</a>
 			</div>
 			<div class="background">
-				<svg width="580" height="178" viewBox="0 0 580 178" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+				<svg width="580" height="158" viewBox="0 0 580 158" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 					<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
 						<g fill="#273B60">
-							<polyline points="0 178 0 0 580 0 580 0"></polyline>
+							<polyline points="0 158 0 0 580 0 580 0"></polyline>
 						</g>
 					</g>
 				</svg>
@@ -99,16 +101,16 @@ layout: compress
 							HOME
 						</li>
 					</a>
-					<a href="/profile/">
-						<li {% if page.type == 'profile' %} class="selected" {% endif %}>
-							PROFILE
+					<a href="/about/">
+						<li {% if page.type == 'about' %} class="selected" {% endif %}>
+							ABOUT
 						</li>
 					</a>
-					<a href="/projects/">
+					<!-- <a href="/projects/">
 						<li {% if page.type == 'projects' %} class="selected" {% endif %}>
 							PROJECTS
 						</li>
-					</a>
+					</a> -->
 					<a href="/posts/">
 						<li {% if page.type == 'posts' or layout.type == 'posts' %} class="selected" {% endif %}>
 							POSTS
@@ -126,8 +128,7 @@ layout: compress
 	<footer id="site-footer">
 		<h4>PREV.KR</h4>
 		<div class="description">
-			<div>This website is student developer's blog and PREV.KR is personal brand domain.</div>
-			<div class="last">Powered by Github Pages. Designed by me. &copy; Copyrights all right reserved. prev.kr</div>
+			<div class="last">Powered by Github Pages. &copy; Copyrights all right reserved. prev.kr</div>
 		</div>
 	</footer>
 

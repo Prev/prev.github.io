@@ -73,10 +73,10 @@ header#site-header{ position: relative; background-color: white }
 header#site-header .logo-wrap{
 	position: relative;
 	width: 160px;
-	height: 150px;
+	height: 140px;
 
 	margin: 0 auto;
-	padding: 30px 0 0px 0;
+	padding: 20px 0 0px 0;
 	z-index: 2;
 }
 header#site-header .logo-wrap .logo-wrap2{ margin-left: 10px }
@@ -107,10 +107,9 @@ header#site-header nav.gnb{
 }
 header#site-header nav.gnb ul{
 	list-style: none;
-	width: 440px;
-	margin: 0 auto;
-	/*padding: 0 10px 0 0;*/
+	margin: 0;
 	padding: 0;
+	text-align: center;
 }
 header#site-header nav.gnb ul a{
 	color: #666;
@@ -120,10 +119,9 @@ header#site-header nav.gnb ul a{
 	-webkit-transition: color 0.4s;
 }
 header#site-header nav.gnb ul li{
-	float: left;
-	width: 110px;
+	display: inline-block;
+	width: 80px;
 	text-align: center;
-	/*margin-right: 50px;*/
 }
 header#site-header nav.gnb ul a:hover,
 header#site-header nav.gnb ul li.selected{ color: #001F99 }
@@ -157,64 +155,71 @@ ul.post-list{
 }
 
 ul.post-list li{
-	float: left;
-	position: relative;
-	width: 260px;
-	height: 160px;
-	margin-right: 10px;
-	margin-bottom: 10px;
+	margin: 25px 0;
+	padding: 0;
+	*zoom: 1;
 }
-ul.post-list a:last-child li{ margin-right: 0 }
-ul.post-list a:nth-child(3n) li{ margin-right: 0 }
 
-ul.post-list li .thumbnail{
-	width: inherit;
-	height: inherit;
-
-	background-color: #666;
-	background-size: cover;
-	background-position: center center;
-	filter: brightness(90%);
-	transition: 0.7s all;
-}
-ul.post-list li:hover .thumbnail{ filter: brightness(70%); }
-
-ul.post-list li .background-filter{
-	position: absolute;
-	width: 100%;
-	height: 150px;
-	bottom: 0;
-	background: -webkit-linear-gradient(0deg,rgba(0,0,0,.85),rgba(0,0,0,0));
-	background: linear-gradient(0deg,rgba(0,0,0,.85),rgba(0,0,0,0));
-	z-index: 2;
+ul.post-list li:after{
+	clear: both;
+	display: block;
+	content: ' ';
 }
 
 ul.post-list li .content{
-	position: absolute;
-	bottom: 5px;
-	padding: 10px 12px;
-	color: white;
-	text-decoration: none;
-	z-index: 3;
+	float: left;
+	width: 600px;
 }
 
 ul.post-list li .content h4{
-	margin: 3px 0;
+	margin: 0;
 	padding: 0;
-	font-size: 18px;
-	font-weight: 300;
-	vertical-align: middle;
+	font-weight: normal;
+	font-size: 14px;
 }
 
-ul.post-list li .comments-count{
-	background-color: rgba(255,255,255,0.2);
-	font-size: 13px;
-	color: white;
-	line-height: 1;
+ul.post-list li .content h4 a{
+	color: #696969;
+	text-decoration: none;
+}
+
+ul.post-list li .content h4 a:hover{
+	text-decoration: underline;
+}
+
+ul.post-list li .content h4 strong{
+	color: black;
+	font-size: 18px;
+	font-weight: normal;
+}
+
+ul.post-list li .content h4 .comments-count .fb_comments_count{
 	display: inline-block;
-	border-radius: 6px;
-	padding: 2px 4px 1px;
-	vertical-align: middle;
+	color: #999;
+	background-color: #f0f0f0;
+	border-radius: 4px;
+	padding: 1px 3px;
+}
+ul.post-list li .content h4 .comments-count .fb_iframe_widget{
+	display: none;
+}
+
+ul.post-list li .content h4 .date{
+	display: inline-block;
+	margin-left: 10px;
+}
+
+ul.post-list li .content p{
+	color: #999;
+	margin: 8px 0;
+}
+
+ul.post-list li .thumbnail{
+	float: right;
+	width: 150px;
+	height: 100px;
+	background-size: cover;
+	background-position: center center;
 }
 
 
@@ -285,7 +290,9 @@ header#site-header .logo-wrap .logo-txt{ color: white }
 	}
 	section.w800{ padding-top: 0 }
 
-	ul.post-list a:nth-child(3n) li{ margin-right: 10px }
+	ul.post-list li .content{
+		width: 400px;
+	}
 
 	header#site-header .background svg{
 		width: 400px;
@@ -307,8 +314,6 @@ header#site-header .logo-wrap .logo-txt{ color: white }
 		width: auto;
 	}
 
-	ul.post-list li{ width: 100% }
-
 	header#site-header .logo-wrap{ padding-top: 10px }
 
 	header#site-header .logo-wrap .logo-txt{
@@ -325,5 +330,21 @@ header#site-header .logo-wrap .logo-txt{ color: white }
 
 	footer#site-footer .description div{
 		display: inline;
+	}
+
+
+	ul.post-list li{
+		border-bottom: 1px solid #eee;
+		padding-bottom: 20px;
+	}
+
+	ul.post-list li .content{
+		float: none;
+		width: auto;
+	}
+
+	ul.post-list li .thumbnail{
+		float: none;
+		width: auto;
 	}
 }

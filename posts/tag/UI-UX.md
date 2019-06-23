@@ -1,6 +1,6 @@
 ---
 layout: tag-posts
 type: posts
-tag: 설계
-title: 'Tag:설계'
+tag: UI/UX
+title: 'Tag:UI/UX'
 ---
