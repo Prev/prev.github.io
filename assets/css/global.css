@@ -68,7 +68,11 @@ html,body{
 	font-size: 14px;
 }
 
-header#site-header{ position: relative; background-color: white }
+header#site-header{
+	position: relative;
+	background-color: white;
+	border-bottom: 4px solid #ddd;
+}
 
 header#site-header .logo-wrap{
 	position: relative;
@@ -130,14 +134,18 @@ header#site-header nav.gnb ul li.selected{ color: #001F99 }
 
 footer#site-footer{
 	text-align: center;
-	font-size: 12px;
+	font-size: 13px;
 	color: #999;
 	margin-top: 80px;
 	padding: 20px 0;
 	border-top: 1px solid #eaeaea;
 }
 footer#site-footer h4{ font-size: 12px; margin: 2px 0; padding: 0 }
-footer#site-footer .last{ margin-top: 2px }
+footer#site-footer p{ margin: 2px 0; }
+
+footer#site-footer a{
+	color: #999;
+}
 
 
 section.w800{

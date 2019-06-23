@@ -93,7 +93,7 @@ layout: compress
 			</div>
 		</div>
 
-		<div>
+		<!-- <div>
 			<nav class="gnb">
 				<ul class="clearfix">
 					<a href="/">
@@ -106,11 +106,11 @@ layout: compress
 							ABOUT
 						</li>
 					</a>
-					<!-- <a href="/projects/">
+					<a href="/projects/">
 						<li {% if page.type == 'projects' %} class="selected" {% endif %}>
 							PROJECTS
 						</li>
-					</a> -->
+					</a>
 					<a href="/posts/">
 						<li {% if page.type == 'posts' or layout.type == 'posts' %} class="selected" {% endif %}>
 							POSTS
@@ -118,7 +118,7 @@ layout: compress
 					</a>
 				</ul>
 			</nav>
-		</div>
+		</div> -->
 	</header>
 
 	<div id="wrapper" class="{% if page.profile %}home{% endif %}">
@@ -128,7 +128,13 @@ layout: compress
 	<footer id="site-footer">
 		<h4>PREV.KR</h4>
 		<div class="description">
-			<div class="last">Powered by Github Pages. &copy; Copyrights all right reserved. prev.kr</div>
+			<p>
+				Powered by Github Pages. &copy; Copyrights all right reserved. prev.kr
+			</p>
+			<p>
+				<a href="/about">About</a>&nbsp;
+				<a href="/feed.xml">RSS</a>
+			</p>
 		</div>
 	</footer>
 

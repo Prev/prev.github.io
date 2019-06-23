@@ -1,33 +1,12 @@
 @charset "utf-8";
 
-h3.description{
-	position: relative;
-	margin: 55px 0 85px;
-	text-align: center;
-	font-size: 18px;
-	font-weight: 200;
-	color: #868686;
-}
-h3.description:after{
-	position: absolute;
-	display: block;
-	content: '';
-	bottom: -10px;
-	left: 50%;
-	margin-left: -15px;
-	height: 3px;
-	width: 30px;
-	background-color: #2c4168;
-}
-
 section.pictures{
-	margin: 80px auto;
+	margin: 60px auto 20px;
 }
 
 section.pictures img{
 	background-color: #eee;
 }
-
 
 section{
 	position: relative;
@@ -35,46 +14,29 @@ section{
 	margin: 40px auto 70px;
 }
 
-section h2{
-	position: relative;
-	margin: 10px 0 10px 0;
-	font-size: 28px;
-	/*font-family: 'Nanum Myeongjo', serif;*/
-	/*font-weight: 600;*/
-	font-weight: 300;
-}
-section h2:after{
-	position: absolute;
-	display: block;
-	content: '';
-
-	top: 19px;
-	left: 0;
-	height: 1px;
-	width: 800px;
-	background-color: #E1E1E1;
-}
-section h2 span{
-	display: inline-block;
-	position: relative;
-	padding-right: 10px;
-	background-color: white;
-	z-index: 3;
+section.post-list > header{
+	text-align: center;
+	padding: 20px 0;
+	font-family: 'Nanum Myeongjo', serif;
 }
 
-section .view-more{
-	position: absolute;
-	right: 0;
-	top: 3px;
-	z-index: 3;
-}
-
-section .view-more a{
+section.post-list > header h3{
+	font-weight: normal;
+	font-size: 16px;
 	color: #999;
-	text-decoration: none;
-	transition: 0.7s all;
 }
-section .view-more a:hover{ color: #444 }
+
+section.post-list > header h3 strong{
+	color: black;
+	font-weight: normal;
+}
+
+section.post-list > header a{
+	text-decoration: none;
+	margin: 0 3px;
+	color: #999;
+}
+section.post-list > header a:hover{ text-decoration: underline }
 
 
 
@@ -84,23 +46,14 @@ section .view-more a:hover{ color: #444 }
 		padding: 15px;
 	}
 
-	section h2:after{ width: 100% }
-
 	section.pictures{ margin: 0; padding: 0; max-width: 100%; }
 	section.pictures img{
 		margin: 15px;
 		width: calc(100% - 30px);
 		height: auto;
 	}
-
-	section .view-more{ right: 15px; top: 26px; }
-	section.profile{ width: auto }
-
-	h3.description{ padding: 0 10px }
 }
 
 @media (max-width: 573px) {
 	section{ width: auto }
-
-	section.service-shortcut ul a li{ width: 100% }
 }
