@@ -15,7 +15,7 @@
 			</a>
 		</h4>
 		<p>
-			{{ post.content | strip_html | truncatewords:35 }}
+			{{ post.content | markdownify | strip_html | truncatewords:35 }}
 		</p>
 	</div>
 	<div class="thumbnail" style="background-image: url('/attachs/{{ post.image }}')"></div>

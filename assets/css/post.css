@@ -176,13 +176,18 @@ article footer .readmore ul li .dates{
 	article header h1:after{ display: none; }
 
 	article .post-body img{
-		width: calc(100% + 40px);
-		max-width: initial;
+		max-width: calc(100% + 40px);
 		margin-left: -20px;
 	}
 
+	article .post-body pre{
+		width: calc(100% + 10px); /* padding */
+		margin-left: -20px;
+		overflow: auto;
+	}
+
 	article .post-body p.margined img{
-		width: 100%;
+		/*width: 100%;*/
 		max-width: 100%;
 		margin-left: 0;
 	}

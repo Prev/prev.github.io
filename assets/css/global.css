@@ -141,6 +141,8 @@ footer#site-footer{
 	border-top: 1px solid #eaeaea;
 }
 footer#site-footer h4{ font-size: 12px; margin: 2px 0; padding: 0 }
+footer#site-footer h4 a{ text-decoration: none;  }
+
 footer#site-footer p{ margin: 2px 0; }
 
 footer#site-footer a{
