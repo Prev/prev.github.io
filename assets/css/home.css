@@ -39,14 +39,18 @@ section.post-list > header a{
 section.post-list > header a:hover{ text-decoration: underline }
 
 
-
 @media (max-width: 800px) {
 	section{
 		margin-top: 20px;
 		padding: 15px;
 	}
 
-	section.pictures{ margin: 0; padding: 0; max-width: 100%; }
+	section.pictures{
+		margin: 20px auto 0;
+		padding: 0;
+		/*max-width: 100%;*/
+	}
+	
 	section.pictures img{
 		margin: 15px;
 		width: calc(100% - 30px);
@@ -56,4 +60,8 @@ section.post-list > header a:hover{ text-decoration: underline }
 
 @media (max-width: 573px) {
 	section{ width: auto }
+
+	section.pictures{
+		display: none;
+	}
 }

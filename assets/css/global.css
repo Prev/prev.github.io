@@ -163,7 +163,7 @@ ul.post-list{
 }
 
 ul.post-list li{
-	margin: 25px 0;
+	margin: 25px 0 30px;
 	padding: 0;
 	*zoom: 1;
 }
@@ -225,7 +225,7 @@ ul.post-list li .content p{
 ul.post-list li .thumbnail{
 	float: right;
 	width: 150px;
-	height: 100px;
+	height: 90px;
 	background-size: cover;
 	background-position: center center;
 }

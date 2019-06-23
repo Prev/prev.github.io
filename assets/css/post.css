@@ -128,6 +128,14 @@ article footer .readmore h4 strong{
 	color: #2e88b5 !important;
 }
 
+article footer .readmore .content p{
+	margin: 3px 0 !important;
+}
+
+article footer .readmore .thumbnail{
+	/*height: 90px !important;*/
+}
+
 /*
 article footer .readmore ul{
 	margin: 0;

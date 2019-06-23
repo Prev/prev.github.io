@@ -32,14 +32,11 @@ type: posts
 		</section>
 		
 		<section class="readmore">
-			<h3>더보기</h3>
+			<h3>관련 글 더보기</h3>
 			<ul class="post-list">
 			{% assign tag = page.tags[0] %}
 			{% for post in site.tags[tag] %}
 				{% if post.url != page.url %}
-					<!-- <li>
-						<a href="{{ post.url }}">{{ post.title }}<span class="dates">{{ post.date | date:"%-m월 %-d일, %Y" }}</span></a>
-					</li> -->
 					{% include post-tile.html %}
 				{% endif %}
 			{% endfor %}
