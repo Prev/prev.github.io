@@ -2,7 +2,11 @@ name: Prev.kr
 description: Personal brand website that treats Development, SW Architecting, User Interface and User eXperience.
 
 markdown: kramdown
-highlighter: rouge
+# highlighter: rouge
+highlighter: none
+kramdown:
+   syntax_highlighter_opts:
+      disable : true
 
 baseurl: /
 google_analytics: 'UA-34015951-1'

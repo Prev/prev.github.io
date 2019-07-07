@@ -42,9 +42,12 @@ layout: compress
 	{% elsif page.type == 'posts' %}
 	<link rel="stylesheet" href="/assets/css/posts.css?{{ assetappendix }}">
 	{% elsif layout.type == 'posts' %}
+	<link rel="stylesheet" href="/assets/lib/prism.css">
 	<link rel="stylesheet" href="/assets/css/markdown-theme.css?{{ assetappendix }}">
 	<link rel="stylesheet" href="/assets/css/code-highlight.css?{{ assetappendix }}">
 	<link rel="stylesheet" href="/assets/css/post.css?{{ assetappendix }}">
+	<script type="text/javascript" src="/assets/lib/prism.js"></script>
+
 	{% elsif page.type == 'about' %}
 	<link rel="stylesheet" href="/assets/css/about.css?{{ assetappendix }}">
 	{% elsif page.type == 'projects' %}

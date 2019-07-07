@@ -47,9 +47,9 @@ article header .tags a{ color: #949494; text-decoration: none; }
 article header .tags a:hover{ text-decoration: underline; }
 
 article .post-body{
-	color: #666;
+	color: #454545;
 	font-size: 16px;
-	line-height: 1.5em;
+	line-height: 1.6em;
 	text-align: justify;
 }
 
@@ -63,7 +63,7 @@ article .post-body h4{ color: #111; font-weight: 400; text-align: left; }
 
 article .post-body h2{
 	position: relative;
-	font-size: 28px;
+	font-size: 30px;
 	margin: 40px 0 0;
 	padding: 10px 0 5px;
 	/*border-bottom: 1px dashed #ccc;*/
@@ -92,6 +92,10 @@ article .post-body img{
 article .post-body strong{
 	font-weight: 500;
 	color: #1E2025;
+}
+
+article .post-body a strong{
+	color: inherit;
 }
 
 article .post-body .caption{
