@@ -11,11 +11,13 @@
 				<span class="comments-count">
 					<span class="fb-comments-count" data-href="{{ fbcomment_url }}"></span>
 				</span>
-				<span class="date">{{ post.date | date:"%-m월 %-d일, %Y" }}</span>
 			</a>
 		</h4>
+		<p class="date">
+			{{ post.date | date:"%-m월 %-d일, %Y" }}
+		</p>
 		<p>
-			{{ post.content | markdownify | strip_html | truncatewords:35 }}
+			{{ post.content | markdownify | strip_html | truncatewords: 28 }}
 		</p>
 	</div>
 	<div class="thumbnail" style="background-image: url('/attachs/{{ post.image }}')"></div>

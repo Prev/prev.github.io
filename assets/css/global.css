@@ -165,9 +165,11 @@ ul.post-list{
 }
 
 ul.post-list li{
-	margin: 25px 0 30px;
-	padding: 0;
+	margin: 20px 0;
+	padding: 18px 15px 10px;
 	*zoom: 1;
+	box-shadow: 0 2px 10px 0 #eee;
+	border-radius: 5px;
 }
 
 ul.post-list li:after{
@@ -214,14 +216,19 @@ ul.post-list li .content h4 .comments-count .fb_iframe_widget{
 	display: none;
 }
 
-ul.post-list li .content h4 .date{
+/*ul.post-list li .content h4 .date{
 	display: inline-block;
 	margin-left: 10px;
+}
+*/
+ul.post-list li .content p.date{
+	color: #333;
+	margin: 3px 0;
 }
 
 ul.post-list li .content p{
 	color: #999;
-	margin: 8px 0;
+	margin: 0 0 8px;
 }
 
 ul.post-list li .thumbnail{
@@ -301,7 +308,7 @@ header#site-header .logo-wrap .logo-txt{ color: white }
 	section.w800{ padding-top: 0 }
 
 	ul.post-list li .content{
-		width: 400px;
+		width: 385px;
 	}
 
 	header#site-header .background svg{
@@ -344,8 +351,10 @@ header#site-header .logo-wrap .logo-txt{ color: white }
 
 
 	ul.post-list li{
-		border-bottom: 1px solid #eee;
-		padding-bottom: 20px;
+		/*border-bottom: 1px solid #eee;*/
+		/*padding-bottom: 20px;*/
+		margin-left: -15px;
+    	width: 100%;
 	}
 
 	ul.post-list li .content{

@@ -33,7 +33,7 @@ layout: compress
 
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 
-	{% assign assetappendix = '20190623' %}
+	{% assign assetappendix = '20190707' %}
 
 	<link rel="stylesheet" href="/assets/css/global.css?{{ assetappendix }}">
 
@@ -55,15 +55,6 @@ layout: compress
 	{% endif %}
 
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-	<script type="text/javascript">
-		(function(d, s, id) {
-			var js, fjs = d.getElementsByTagName(s)[0];
-			if (d.getElementById(id)) return;
-			js = d.createElement(s); js.id = id;
-			js.src = "//connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v2.8&appId=446647918689823";
-			fjs.parentNode.insertBefore(js, fjs);
-		}(document, 'script', 'facebook-jssdk'));
-	</script>
 </head>
 <body>
 	<header id="site-header">
@@ -156,6 +147,18 @@ layout: compress
 	<!-- <div class="scroll-top">
 		<i class="fa fa-caret-up" aria-hidden="true"></i>
 	</div> -->
+
+	<script>
+	  window.fbAsyncInit = function() {
+	    FB.init({
+	      appId            : '446647918689823',
+	      autoLogAppEvents : true,
+	      xfbml            : true,
+	      version          : 'v3.3'
+	    });
+	  };
+	</script>
+	<script async defer src="https://connect.facebook.net/en_US/sdk.js"></script>
 </body>
 </html>
 

@@ -131,11 +131,11 @@ const PrimaryButton = styled(Button)<PrimaryButtonPropsType>`
   border-color: blue;
 
 	${props => props.xlarge &&
-        css`
-            font-size: 20px;
-            height: 64px;
-            line-height: 64px;
-        `};
+    css`
+      font-size: 20px;
+      height: 64px;
+      line-height: 64px;
+    `};
 `;
 ```
 
@@ -205,8 +205,8 @@ storiesOf('Tooltip', module)
     .addDecorator(withKnobs)
     .add('tooltip', () => {
         const message = text('message', 'Hello Label!');
-  			const position = select('position', ['top-left', 'top-right', 'bottom-left', 'bottom-right'], 'top-left');
-  			const disabled = boolean('disabled', false);
+        const position = select('position', ['top-left', 'top-right', 'bottom-left', 'bottom-right'], 'top-left');
+        const disabled = boolean('disabled', false);
 
         return (
           <Tooltip
@@ -255,7 +255,6 @@ module.exports = ({ config, mode }) => {
         ],
         enforce: 'pre',
       });
-  
     config.resolve.extensions.push('.ts', '.tsx');
     return config;
   };
