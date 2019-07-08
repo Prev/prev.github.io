@@ -65,7 +65,8 @@ html,body{
 	padding: 0;
 	/*background-color: #f3f3f3;*/
 	background-color: white;
-	font-size: 14px;
+	font-size: 16px;
+	line-height: 1.6;
 }
 
 header#site-header{
@@ -134,7 +135,8 @@ header#site-header nav.gnb ul li.selected{ color: #001F99 }
 
 footer#site-footer{
 	text-align: center;
-	font-size: 13px;
+	font-size: 14px;
+	line-height: 1.4;
 	color: #999;
 	margin-top: 80px;
 	padding: 20px 0;
@@ -170,6 +172,7 @@ ul.post-list li{
 	*zoom: 1;
 	box-shadow: 0 2px 10px 0 #eee;
 	border-radius: 5px;
+	line-height: 1.4;
 }
 
 ul.post-list li:after{
@@ -234,7 +237,7 @@ ul.post-list li .content p{
 ul.post-list li .thumbnail{
 	float: right;
 	width: 150px;
-	height: 90px;
+	height: 100px;
 	background-size: cover;
 	background-position: center center;
 }

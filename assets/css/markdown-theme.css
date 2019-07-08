@@ -1,7 +1,7 @@
 @charset "utf-8";
 
 .md-theme p {
-	line-height: 150%;
+	/*line-height: 150%;*/
 }
 
 .md-theme a {
