@@ -9,67 +9,41 @@
 
 .about p{
 	text-align: center;
-	line-height: 150%;
+	line-height: 1.8;
 }
 
 .about p a{
 	color: #2e88b5;
 }
 
+.about strong{
+	font-weight: normal;
+	color: #111;
+}
 
 .about a{ color: #444; text-decoration: none; }
 .about a:hover{ text-decoration: underline; }
 
 
-.about .name-section{ margin: 60px 0 48px 0 }
-.about .name-section .picture-wrap{ margin: 0 20px 0 125px }
-.about .name-section .picture-wrap .profile-picture{ border-radius: 50% }
-.about .name-section h2{ margin: 15px 0 4px 0; font-weight: normal; }
-
-.about .name-section .contacts{ margin: 12px 0 0 40px; padding-left: 40px; border-left: 1px solid #ccc }
-.about .name-section .contacts ul{ list-style: none; margin: 0; padding: 0 }
-.about .name-section .contacts ul li{ margin: 4px 0 }
-
-
-.profile dl{ margin: 40px 0; padding: 0; *zoom: 1; }
-.profile dl:after{ clear: both; content: ""; display: block; }
-
-.profile dl dt,
-.profile dl dd{ float: left; margin: 0; padding: 0; }
-
-.profile dl dt{ width: 200px; text-align: right; padding-right: 30px }
-
-.profile dl dd ul{ margin: 0; padding: 0; list-style: none; }
-
-.profile dl dd ul li{ margin-bottom: 5px }
-.profile dl dd ul li.section{ width: 450px; border-bottom: 1px solid #d0d0d0; margin-bottom: 12px }
-.profile dl dd ul li div{ margin-bottom: 12px; line-height: 140% }
-
-.profile dl dt h3,
-.profile dl dd h4,
-.profile dl dd h5{ margin: 0; padding: 0; font-weight: normal; font-size: 19px; line-height: 140% }
-
-.profile dl dd h4{ color: black }
-.profile dl dd h4 .small{ font-size: 15px }
-/*.profile dl dd h4 .date{ display: inline-block; margin-top: -4px; color: #5384b9; font-size: 16px; vertical-align: bottom; }*/
-.profile dl dd h4 .date{
-	display: inline-block;
-	margin: -4px 0 0 3px;
-	vertical-align: middle;
-	background-color: #969696;
-	color: white;
-	font-weight: 300;
-	font-size: 13px;
-	line-height: 100%;
-	padding: 3px 3px 1px 3px;
-	border-radius: 3px;
+.about .name-section{
+	margin: 60px auto 20px auto;
+	width: 400px;
 }
+.about .name-section .picture-wrap .profile-picture{ border-radius: 20% }
+.about .name-section h2{ margin: 10px 0 4px 0; font-weight: normal; }
+.about .name-section h3{ margin: 4px 0; font-weight: normal; }
 
-
-.profile dl dd h5{ font-size: 16px; color: #2d3fa5 }
-.profile dl dd h5 a{ color: #2d3fa5; text-decoration: underline; }
-.profile dl dd h5 span.small{ font-size: 13px }
-.profile dl dd div.detail{ padding-left: 13px }
+.about .contacts{
+	text-align: center;
+	margin-bottom: 60px;
+	padding-bottom: 30px;
+	border-bottom: 1px solid #eee;
+}
+.about .contacts ul{ list-style: none; margin: 0; padding: 0 }
+.about .contacts ul li{
+	display: inline-block;
+	padding: 0 22px;
+}
 
 
 @media (max-width: 800px) {
@@ -80,25 +54,13 @@
 		margin: 25px auto 48px auto;
 		text-align: center;
 	}
-	.about .name-section .fl{ float: none; }
+	.about .name-section .fl,
+	.about .name-section .fr{ float: none; }
 
 	.about .name-section .picture-wrap{ margin: 0 }
 
-	.about .name-section .contacts{ border-left: none; padding-left: 0; margin-left: 0 }
-
-	.profile dl{ margin: 50px 0 }
-	.profile dl dt,
-	.profile dl dd{ float: none; /*text-align: center*/; padding: 0 20px }
-
-	.profile dl dt{
-		width: 150px;
-		padding: 10px 0 0 0;
-		margin: 0 auto 15px auto;
-	}
-
-	.profile dl dt h3{ font-size: 26px; text-align: center; }
-
-	.profile dl dd ul li.section{
-		width: 100%;
+	.about .contacts ul li{
+		display: block;
+		padding: 0;
 	}
 }
