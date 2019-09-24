@@ -14,10 +14,14 @@
 			</a>
 		</h4>
 		<p class="date">
-			{{ post.date | date:"%-m월 %-d일, %Y" }}
+			{{ post.date | date:"%-m월 %-d일, %Y" }}<br>
 		</p>
 		<p>
-			{{ post.content | markdownify | strip_html | truncatewords: 28 }}
+			{{ post.description }}<br>
+			{% for tag in post.tags %}
+				#{{ tag }}
+			{% endfor %}
+			<!-- {{ post.content | markdownify | strip_html | truncatewords: 28 }} -->
 		</p>
 	</div>
 	<div class="thumbnail" style="background-image: url('/attachs/{{ post.image }}')"></div>

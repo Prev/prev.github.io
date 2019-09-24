@@ -72,7 +72,7 @@ html,body{
 header#site-header{
 	position: relative;
 	background-color: white;
-	border-bottom: 4px solid #ddd;
+	/*border-bottom: 4px solid #ddd;*/
 }
 
 header#site-header .logo-wrap{
@@ -154,7 +154,7 @@ footer#site-footer a{
 
 section.w800{
 	position: relative;
-	width: 800px;
+	width: 850px;
 	margin: 30px auto;
 }
 
@@ -183,7 +183,7 @@ ul.post-list li:after{
 
 ul.post-list li .content{
 	float: left;
-	width: 600px;
+	width: 650px;
 }
 
 ul.post-list li .content h4{
@@ -204,7 +204,7 @@ ul.post-list li .content h4 a:hover{
 
 ul.post-list li .content h4 strong{
 	color: black;
-	font-size: 18px;
+	font-size: 20px;
 	font-weight: normal;
 }
 
@@ -300,7 +300,7 @@ header#site-header .logo-wrap .logo-txt{ color: white }
 .label.label-thoughts{ background-position: 0 -64px }
 
 
-@media (max-width: 800px) {
+@media (max-width: 850px) {
 	section,
 	section.w800{
 		max-width: 570px;

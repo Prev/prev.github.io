@@ -10,14 +10,14 @@ section.pictures img{
 
 section{
 	position: relative;
-	width: 800px;
+	width: 850px;
 	margin: 40px auto 70px;
 }
 
 section.post-list > header{
 	text-align: center;
 	padding: 20px 0;
-	font-family: 'Nanum Myeongjo', serif;
+	/*font-family: 'Nanum Myeongjo', serif;*/
 }
 
 section.post-list > header h3{
