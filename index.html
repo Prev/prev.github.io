@@ -12,7 +12,8 @@ redirect_from:
 <section class="post-list w800">
 	 <header>
 		<h3>
-			{% for tag in site.tags %}
+			{% assign sorted = site.tags | sort %}
+			{% for tag in sorted %}
 			<a href="/posts/tag/{{ tag[0] | replace: '/', '-' }}">
 				#<strong>{{ tag[0] }}</strong>
 			</a>
