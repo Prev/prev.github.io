@@ -226,12 +226,21 @@ ul.post-list li .content h4 .comments-count .fb_iframe_widget{
 */
 ul.post-list li .content p.date{
 	color: #333;
-	margin: 3px 0;
+	/*margin: 3px 0;*/
+	margin: 0;
 }
 
 ul.post-list li .content p{
-	color: #999;
+	color: #777;
 	margin: 0 0 8px;
+}
+
+ul.post-list li .content p .tag{
+	background-color: #eee;
+    color: #666;
+    border-radius: 8px;
+    font-size: 12px;
+    padding: 1px 5px 0;
 }
 
 ul.post-list li .thumbnail{

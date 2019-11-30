@@ -19,9 +19,8 @@
 		<p>
 			{{ post.description }}<br>
 			{% for tag in post.tags %}
-				#{{ tag }}
+				<span class="tag"># {{ tag }}</span>
 			{% endfor %}
-			<!-- {{ post.content | markdownify | strip_html | truncatewords: 28 }} -->
 		</p>
 	</div>
 	<div class="thumbnail" style="background-image: url('/attachs/{{ post.image }}')"></div>

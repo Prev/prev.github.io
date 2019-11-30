@@ -49,7 +49,7 @@ article header .tags a:hover{ text-decoration: underline; }
 
 article .post-body{
 	color: #454545;
-	font-size: 18px;
+	font-size: 17px;
 	/*line-height: 1.6;*/
 	text-align: justify;
 }
