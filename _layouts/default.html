@@ -16,6 +16,8 @@ layout: compress
 	<meta name="keywords" content="prev,cse,programming,developer,web" />
 	<meta name="robots" content="ALL">
 
+	<meta property="fb:app_id" content="446647918689823" />
+
 	{% if page.description %}
 	<meta name="description" content="{{ page.description }}">
 	<meta property="og:description" content="{{ page.description }}"/>
@@ -69,10 +71,6 @@ layout: compress
 							<path d="M126.6,92.3l-23.85,21.75L62.35,97.3l25.4-20.05L126.6,92.3" fill="#091223" />
 							<path d="M169.35,141.2l-45.3-18.75l23.2-22.5l43.3,16.45L169.35,141.2z" fill="#091223" />
 						</svg>
-						<!-- <div class="logo-txt">
-							<span>personal brand website</span>
-							<strong>prev.kr</strong>
-						</div> -->
 					</div>
 				</a>
 			</div>
@@ -86,33 +84,6 @@ layout: compress
 				</svg>
 			</div>
 		</div>
-
-		<!-- <div>
-			<nav class="gnb">
-				<ul class="clearfix">
-					<a href="/">
-						<li {% if page.type == 'home' %} class="selected" {% endif %}>
-							HOME
-						</li>
-					</a>
-					<a href="/about/">
-						<li {% if page.type == 'about' %} class="selected" {% endif %}>
-							ABOUT
-						</li>
-					</a>
-					<a href="/projects/">
-						<li {% if page.type == 'projects' %} class="selected" {% endif %}>
-							PROJECTS
-						</li>
-					</a>
-					<a href="/posts/">
-						<li {% if page.type == 'posts' or layout.type == 'posts' %} class="selected" {% endif %}>
-							POSTS
-						</li>
-					</a>
-				</ul>
-			</nav>
-		</div> -->
 	</header>
 
 	<div id="wrapper" class="{% if page.profile %}home{% endif %}">
@@ -148,17 +119,7 @@ layout: compress
 		<i class="fa fa-caret-up" aria-hidden="true"></i>
 	</div> -->
 
-	<script>
-	  window.fbAsyncInit = function() {
-	    FB.init({
-	      appId            : '446647918689823',
-	      autoLogAppEvents : true,
-	      xfbml            : true,
-	      version          : 'v3.3'
-	    });
-	  };
-	</script>
-	<script async defer src="https://connect.facebook.net/en_US/sdk.js"></script>
+	<script async defer crossorigin="anonymous" src="https://connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v5.0&appId=446647918689823&autoLogAppEvents=1"></script>
 </body>
 </html>
 
