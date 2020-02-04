@@ -5,7 +5,7 @@ tags: ['프론트엔드']
 image: sc-st-on-react/cover.jpg
 ---
 
-제니퍼소프트에서 인턴을 하면서 제품 내의 컴포넌트가 너무 비대해지고 CSS dependency도 복잡하게 얽혀있어 정리가 필요한 시점이 오고 있었다. 이에 <u>① 컴포넌트의 재사용을 쉽게 하고</u> <u>② 꼬여있던 스타일을 정리하며</u> <u>③ 테스트 코드 작성까지 용이</u>하도록 주요 컴포넌트를 분리하기로 하였고, [styled-components](https://www.styled-components.com/)와 [Storybook](https://storybook.js.org/)을 이용하기로 하였다. 또 기존 코드에서 TypeScript를 사용하고 있었기에 분리한 컴포넌트들도 마찬가지로 TypeScript를 이용하기로 했다.
+제니퍼소프트에서 프론트엔드 제품 개발을 하면서 제품 내의 컴포넌트가 너무 비대해지고 CSS dependency도 복잡하게 얽혀있어 정리가 필요한 시점이 오고 있었다. 이에 <u>① 컴포넌트의 재사용을 쉽게 하고</u> <u>② 꼬여있던 스타일을 정리하며</u> <u>③ 테스트 코드 작성까지 용이</u>하도록 **주요 컴포넌트를 프로덕트에서 분리**하기로 하였고, [styled-components](https://www.styled-components.com/)와 [Storybook](https://storybook.js.org/)을 이용하기로 하였다. 또 기존 코드에서 TypeScript를 사용하고 있었기에 분리한 컴포넌트들도 마찬가지로 TypeScript를 이용하기로 했다.
 
 
 
@@ -67,7 +67,7 @@ const SearchWrapper = styled.div`
 
 styled-components의 또 다른 주요한 특징은 `props`를 바탕으로 한 [조건부 스타일링](https://www.styled-components.com/docs/basics#adapting-based-on-props)이 가능한 점이다. 같은 컴포넌트여도 **특징에 따라(크기, 테마, 방향 등) 조금씩 다르게 렌더링** 될 수 있는데, 매번 새로운 컴포넌트를 만드는 것은 비효율적이다. styled-components 에서는 `template literal` 내에 `${props => /* expression */};` 형태의 문법을 이용하여 주어진 props에 따라 다른 CSS를 렌더링하도록 할 수 있다.
 
-여기서의 `props`은 React 컴포넌트의 props과 대응된다. TypeScript에서 React 컴포넌트의 props에 `type`을 정의해주어야 하는 것처럼 styled-component의 props도 type을 정의해주어야 한다. 이도 마찬가지로 *Generic*을 이용해서 지정해주면 type 검사와 힌트가 알맞게 뜨며 TypeScript의 강점을 그대로 이용할 수 있다.
+여기서의 `props`은 React 컴포넌트의 props과 대응된다. TypeScript에서 React 컴포넌트의 props에 *타입*을 정의해주어야 하는 것처럼 styled-component의 props도 *타입*을 정의해주어야 한다. 이도 마찬가지로 *Generic*을 이용해서 지정해주면 타입 검사와 힌트가 알맞게 뜨며 TypeScript의 강점을 그대로 이용할 수 있다.
 
 ```ts
 interface ButtonPropsType {
@@ -87,7 +87,7 @@ const Container = (props: {}) => (
 );
 ```
 
-위 코드를 주의 깊게 살펴보면 `props` 값이 변수 형태로 passing 되지 않고, 일종의 **call-back 함수**가 passing 되는 것을 볼 수 있다. `background: ${props.primary}` 와 같이 사용하지 않는다는 점에 유의해야 한다. 이 때문에 조건부 코드가 조금 길어지기는 하지만, 아래 코드처럼 여러 조건에 따른 분기 처리나 CSS block 단위의 조작 등 더 자유롭게 조건에 따른 스타일을 지정해줄 수 있다.
+위 코드를 주의 깊게 살펴보면 `props` 값이 변수 형태로 passing 되지 않고, 일종의 **call-back 함수**가 passing 되는 것을 볼 수 있다. `background: ${props.primary ? "palevioletred" : "white"}` 와 같이 사용하지 않는다는 점에 유의해야 한다. 이 때문에 조건부 코드가 조금 길어지기는 하지만, 아래 코드처럼 여러 조건에 따른 분기 처리나 CSS block 단위의 조작 등 더 자유롭게 조건에 따른 스타일을 지정해줄 수 있다.
 
 ```js
 const Button = styled.button`
@@ -104,6 +104,7 @@ const Button = styled.button`
       background-color: transparent;
       color: ${props.theme.primary || '#497eff'};
     `};
+`
 ```
 
 
@@ -130,7 +131,7 @@ const PrimaryButton = styled(Button)<PrimaryButtonPropsType>`
   color: white;
   border-color: blue;
 
-	${props => props.xlarge &&
+  ${props => props.xlarge &&
     css`
       font-size: 20px;
       height: 64px;

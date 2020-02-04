@@ -11,7 +11,7 @@ image: ec2-parallel-tasks/parallel-tasks.png
 
 ## 병렬 작업에 대한 구조 디자인
 
-병렬 작업 처리를 위해서는 우선 작업을 어떻게 분배할지를 정해야 한다. 나는 날짜를 작업의 단위로 삼았다. 다른 이유보다는 크롤링할 기사에 대한 URL 목록을 받아오기 위해서는 날짜별로 쿼리를 주어야 했기 때문이다.
+병렬 작업 처리를 위해서는 우선 작업을 어떻게 쪼갤지를 정해야 한다. 나는 날짜를 작업의 단위로 삼았다. 다른 이유보다는 크롤링할 기사에 대한 URL 목록을 받아오기 위해서는 날짜별로 쿼리를 주어야 했기 때문이다.
 
 다만 날짜를 단위로 삼을 경우 1년 치 데이터를 수집하기 위해서는 총 365개의 task가 생기는데, 이를 N개의 노드에게 **어떻게 분배하는가**에 대한 문제가 발생한다. 그저 적당히 쪼개어서 노드가 10개라면 36개씩 분배하는 방법도 있겠지만, 작업별 수행 시간을 미리 알 수 없고 또 그 시간의 차이가 크다면 좋은 방법은 아니다. 단적으로 9개의 노드는 1시간 만에 작업을 완료했는데, 나머지 1개의 노드가 10시간이 걸린다면 총 수행 시간은 10시간이 될 수 있다.
 
@@ -25,14 +25,14 @@ image: ec2-parallel-tasks/parallel-tasks.png
 
 이를 구현하기 위해서는 크게 2가지 방법이 있다.
 
-1. 작업 노드에서 자체적으로 기 작업이 끝나면 새로운 작업을 큐에서 받아와서 수행
-2. 마스터 노드를 두고, 작업 노드들을 체크하며 IDLE 상태라면 작업을 수행하도록 명령
+1. 작업 노드에서 자체적으로 기 작업이 끝나면 새로운 작업을 큐에서 받아와서 수행 (pull-based)
+2. 마스터 노드를 두고, 작업 노드들을 체크하며 IDLE 상태라면 작업을 수행하도록 명령 (push-based)
 
 1번의 방법이라면 큐 시스템을 설계해야 한다. AWS SQS 같은 서비스를 이용할 수도 있겠다. 2번 방법이라면 마스터 노드가 작업 노드들의 정보와 접속 권한을 가지고 있어야 한다. 나는 2번 방법을 사용하기로 했다. 작업 노드에 장애가 발생할 경우 1번의 경우 문제를 인지하기 쉽지 않지만, 2번 방법을 이용하면 장애 감지까지 편하다는 장점이 있었고, 무엇보다 **Docker Remote API (Docker Engine API)**를 이용하면 '작업 노드를 체크하고 작업을 수행하도록 명령하는 것'을 매우 쉽게 구현할 수 있어서다.
 
 
 
-> Docker는 RESTFul 형태로 명령을 수행할 수 있도록 [API](https://docs.docker.com/engine/api/v1.24/)를 제공한다. 흔히 사용하는 docker ps, docker images, docker run 등 모든 커맨드를 curl을 이용해서도 실행시킬 수 있고, <u>외부에서도 명령을 날릴 수 있다</u>. 언어별로 docker API를 wrapping한 SDK가 있으며, 특히 python은 [공식적으로 SDK](https://github.com/docker/docker-py)를 제공한다.
+> Docker는 RESTFul 형태로 명령을 수행할 수 있도록 [API](https://docs.docker.com/engine/api/v1.24/)를 제공한다. 흔히 사용하는 docker ps, docker images, docker run 등 모든 커맨드를 curl을 이용해서도 실행시킬 수 있고, <u>외부에서도 명령을 보낼 수 있다</u>. 언어별로 docker API를 wrapping한 SDK가 있으며, 특히 python은 [공식적으로 SDK](https://github.com/docker/docker-py)를 제공한다.
 
 
 
@@ -49,7 +49,7 @@ scrapy runspider spiders/naver_news.py -a date=20190101
 
 하지만 이 명령어를 노드마다 실행하게 하지는 않을 것이다. 만약 ssh 등으로 실행한다면 그전에 python3, scrapy, virtualenv 등을 설치하고 환경을 갖추어 주어야 하는데 이는 너무 불편하다. 그렇다. Docker로 scrapy를 패키징 해줄 필요가 무척 있었다.
 
-다만 약간의 문제가 있는데, scrapy는 library 형태가 아닌 framework로, 자체 `scrapy runspider` 명령어를 통해 수행해준다는 것이다. Python docker image를 사용하려면 scrapy를 시작시킬 엔트리용 파일을 작성할 필요가 있었다. 이에 scrapy에서는 공식적으로 `CrawlerProcess` 라는 클래스를 제공한다. 이를 이용하면 `scrapy` 프로세스를 python으로 작성하고 관리할 수 있다. 실제 scrapy의 `setup.py`를 확인해보면 `cmdline.py` 의 `execute` 함수를 호출함을 볼 수 있는데, 이 함수 내에서도 `CrawlerProcess` 클래스를 이용한다.
+다만 약간의 문제가 있는데, scrapy는 library 형태가 아닌 framework로, 자체 `scrapy runspider` 명령어를 통해 수행해준다는 것이다. Python docker image를 사용하려면 scrapy를 시작시킬 엔트리용 파일을 작성할 필요가 있었다. 이에 scrapy에서는 공식적으로 `CrawlerProcess` 라는 클래스를 제공한다. 이를 이용하면 `scrapy` 프로세스를 python으로 작성하고 관리할 수 있다. 실제 scrapy 라이브러리의 내부 `setup.py`를 확인해보면 `cmdline.py` 의 `execute` 함수를 호출함을 볼 수 있는데, 이 함수 내에서도 `CrawlerProcess` 클래스를 이용한다.
 
 ```python
 # run-scrapy.py
@@ -121,7 +121,7 @@ ExecStart=/usr/bin/dockerd -H fd:// -H tcp://0.0.0.0:2375
 
 ![security-group](/attachs/ec2-parallel-tasks/security-group.png)
 
-나는 10개의 t2.medium 인스턴스를 생성하였다. (더 많이 할 수도 있었지만 무서워서..)  인스턴스들의 IP를 가져와서 어딘가에 기록해두자. 다수의 인스턴스 풀을 사용한다면 EC2 API를 이용해서 IP 주소를 받아오도록 하면 더 좋을 것이다.
+나는 10개의 t2.medium 인스턴스를 생성하였다. 인스턴스들의 IP를 가져와서 어딘가에 기록해두자. 다수의 인스턴스 풀을 사용한다면 EC2 API를 이용해서 IP 주소를 받아오도록 하면 더 좋을 것이다.
 
 ![spot-request](/attachs/ec2-parallel-tasks/spot-instance-list.png)
 
@@ -240,7 +240,7 @@ ORDER BY date
 
 ![new-count-graph](/attachs/ec2-parallel-tasks/new-count-graph.png)
 
-한 달 치 데이터를 그려보니 명확해 보인다. 혹시 몰라 2018년 1월 6일을 보니 토요일이다. 아, 주말엔 기사 수가 확실히 적구나. 그래 기사들도 주말엔 쉬어야지. 그래도 결과를 보니 크롤링은 정상적으로 잘 끝난 것 같다.
+한 달 치 데이터를 그려보니 명확해 보인다. 혹시 몰라 2018년 1월 6일을 보니 토요일이다. 주말엔 기사 수가 확실히 적구나. 그래도 결과를 보니 크롤링은 정상적으로 잘 끝난 것 같다.
 
 ![new-count-graph-monthly](/attachs/ec2-parallel-tasks/new-count-graph-monthly.png)
 

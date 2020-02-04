@@ -33,19 +33,19 @@ Dynamo는 2007년도에 Amazon이 제안한 Key-Value 스토리지 시스템이�
 
 ### b. Eventual Consistency
 
-Dynamo에서는 write availability problem을 해결하기 위해 **일관성(consistency)을 일부 희생**하는 접근을 취한다. 다시 말해 모든 노드에 write operation이 수행되지 않아도 적당히 눈감아 주며 클라이언트에게 성공했다고 response를 보낸다. 예를 들어 총 3개의 replication이 있는 상황에서 1번과 3번 노드에서 write 수행이 50ms가 걸리고 2번 노드가 장애 상황으로 인해 2000ms가 걸린다고 하자. 이 상황에서 2번 노드에서 write가 완료되지 않아도 1번과 3번 노드에서만 성공을 하면 바로 클라이언트에게 성공했다고 메시지를 보내는 것이다. 그러면 2번 노드의 장애 상황에서도 50ms 안에 write operation이 수행될 수 있다.
+Dynamo에서는 write availability problem을 해결하기 위해 **일관성(consistency)을 일부 희생**하는 접근을 취한다. 다시 말해 <u>모든 노드에 write operation이 완료되지 않아도 적당히 눈감아 주며 클라이언트에게 성공했다고</u> response를 보낸다. 예를 들어 총 3개의 replication이 있는 상황에서 1번과 3번 노드에서 write 수행이 50ms가 걸리고 2번 노드가 장애 상황으로 인해 2000ms가 걸린다고 하자. 이 상황에서 2번 노드에서 write가 완료되지 않아도 1번과 3번 노드에서만 성공을 하면 바로 클라이언트에게 성공했다고 메시지를 보내는 것이다. 그러면 2번 노드의 장애 상황에서도 50ms 안에 write operation이 수행될 수 있다.
 
-이 정책에서는 클라이언트에서 write가 완료되었다는 메시지를 받은 이후 read를 수행해도 예전 데이터를 반환할 수 있다. 위 경우로 예를 들자면 read operation이 2번 노드에서 수행이 되어버리는 상황일 것이다. 즉, 순간적으로 노드간 서로 다른 버전의 데이터를 가지고 있을 수 있고, 이는 데이터베이스의 일관성 제약 조건에 어긋난다(inconsistent). 하지만 중요한 점은 시간이 어느 정도 지나면 모든 노드에 write가 수행될 것이고, **결과적**으로는 일관성이 지켜질 것이라는 것이다. 그리고 이를 **eventual consistency**라고 한다. 
+이 정책에서는 클라이언트에서 write가 완료되었다는 메시지를 받은 이후 read를 수행해도 오래된 버전의 데이터를 반환할 수 있다. 즉, 순간적으로 노드간 서로 다른 버전의 데이터를 가지고 있을 수 있고, 이는 데이터베이스의 일관성 제약 조건에 어긋난다(inconsistent). 하지만 중요한 점은 시간이 어느 정도 지나면 모든 노드에 write가 수행될 것이고, **결과적**으로는 일관성이 지켜질 것이라는 것이다. 그리고 이를 **eventual consistency**라고 한다. 
 
-실제 서비스 환경에서 모든 데이터가 강한 일관성을 요구하지는 않는다. 예를 들어 상품의 재고나 평균 별점, 리뷰의 수 등은 예전 버전의 데이터를 보여줘도 큰 문제가 되지 않는다. Dynamo는 이처럼 강한 일관성을 요구하지 않는 어플리케이션을 타게팅하여 만들어졌다. 그리고 최근에도 많은 서비스들이 데이터의 특징에 따라 consistency level과 성능 사이에서 tradeoff를 하고 있는 것으로 알고 있다.
+실제 서비스 환경에서 모든 데이터가 강한 일관성(항상 최신의 데이터)을 요구하지는 않는다. 예를 들어 상품의 재고나 평균 별점, 리뷰의 수 등은 예전 버전의 데이터를 보여줘도 큰 문제가 되지 않는다. Dynamo는 이처럼 강한 일관성을 요구하지 않는 어플리케이션을 타게팅하여 만들어졌다. 그리고 최근에도 많은 서비스들이 데이터의 특징에 따라 consistency level과 성능 사이에서 tradeoff를 하고 있는 것으로 알고 있다.
 
 ### c. N, R, W 파라미터
 
-Dynamo는 write availability를 위해 완전한 일관성 대신 eventual consistency만 보장한다. 그럼 정책으로 스토리지를 만든다고 하자. 3개의 replication 노드가 있다면 몇 개 이상부터 성공으로 간주하면 좋을까? Dynamo는 이 숫자들을 임의로 정하지 않고 사용자가 설정할 수 있는 파라미터로 만들었다. N은 replication 노드의 수, R은 read-operation이 성공으로 간주되기 위한 노드의 수, W는 write-operation이 성공으로 간주되기 위한 노드의 수다. *(ps. 이런 시스템을 [quorum-based](https://en.wikipedia.org/wiki/Quorum_(distributed_computing)) 라고도 한다)*
+Dynamo는 write availability를 위해 완전한 일관성 대신 eventual consistency만 보장한다. 그럼 정책으로 스토리지를 만든다고 하자. 3개의 replication 노드가 있다면 몇 개 이상부터 성공으로 간주하면 좋을까? Dynamo는 이 숫자들을 임의로 정하지 않고 사용자가 설정할 수 있는 파라미터로 만들었다. `N`은 replication 노드의 수, `R`은 읽기 작업이 성공으로 간주되기 위한 노드의 수, `W`는 쓰기 작업이 성공으로 간주되기 위한 노드의 수다. *(ps. 이런 시스템을 [quorum-based](https://en.wikipedia.org/wiki/Quorum_(distributed_computing)) 라고도 한다)*
 
-논문에 따르면 Amazon에서 가장 보편적으로 사용되는 설정은 (N=3, R=2, W=2)이다. 이 설정에서는 3개 노드 중에 2개에서만 성공 응답을 받아도 클라이언트에게 바로 성공 메시지를 보낸다. 이와 다르게 (N=3, R=1, W=3)으로 설정한다면 read는 매우 빠르고 write에서 일관성을 보장하는, [그림 1](#figure1)에서 설명한 전통적 데이터베이스 디자인과 같게 된다. (N=3, R=1, W=1)에서는 매우 낮은 consistency를 보일 테지만 가장 높은 성능을 끌어낼 수 있을 것이다.
+논문에 따르면 Amazon에서 가장 보편적으로 사용되는 설정은 (N=3, R=2, W=2)이다. 이 설정에서는 3개 노드 중에 2개에서만 성공 응답을 받아도 클라이언트에게 바로 성공 메시지를 보낸다. 이와 다르게 (N=3, R=1, W=3)으로 설정한다면 read는 하나에서만 응답을 받아도 되어 매우 빠르고, write에서 일관성을 보장하지만 write availability가 떨어질 수 있는, [그림 1](#figure1)에서 설명한 전통적 데이터베이스 디자인과 같게 된다. (N=3, R=1, W=1)에서는 매우 낮은 consistency를 보일 테지만 가장 높은 성능을 끌어낼 수 있을 것이다.
 
-Amazon 내부에서도 매우 다양한 서비스가 존재하고, consistency level 요구도 각자 다를 것이다. 그렇기에 파라미터를 설정 가능하게 한 것은 매우 의미있어 보인다. 덕분에 가장 덜 중요한 데이터는 최대한 빠르고 저렴한 설정으로, 그보다 중요한 데이터는 가용성과 일관성을 타협하는 설정으로 전체 어플리케이션을 구성할 수 있었다.
+Amazon 내부에서도 매우 다양한 서비스가 존재하고, consistency level 요구도 각자 다를 것이다 (결제 정보는 제품의 리뷰 수보다 더 높은 일관성을 요구할 것이다). 그렇기에 파라미터를 설정 가능하게 한 것은 매우 의미있어 보인다. 덕분에 가장 덜 중요한 데이터는 최대한 빠르고 저렴한 설정으로, 그보다 중요한 데이터는 가용성과 일관성을 타협하는 설정으로 전체 어플리케이션을 구성할 수 있었다.
 
 ## DynamoDB의 디자인
 
@@ -59,7 +59,7 @@ Amazon의 CTO Werner Vogels의 블로그 [All Things Distributed](https://www.al
 
 ### a. 읽기 일관성
 
-DynamoDB에서의 read operation은 기본적으로 eventual consistency만 보장한다. 이는 가용성을 위해 Dynamo의 주요 디자인을 계속해서 받아들인 것으로 볼 수 있다. [공식 문서](https://docs.aws.amazon.com/ko_kr/amazondynamodb/latest/developerguide/HowItWorks.ReadConsistency.html)에 따르면 보통 1초 이내에 모든 스토리지 위치의 데이터가 일관성을 갖게 된다고 한다. 또 전체 리전 장애에도 정상 동작할 수 있도록 replication들은 서로 격리되어있는 여러 센터에 걸쳐 저장된다고 한다.
+DynamoDB에서의 read operation은 기본적으로 eventual consistency만 보장한다. 이는 가용성을 위해 Dynamo의 주요 디자인을 계속해서 받아들인 것으로 볼 수 있다. [공식 문서](https://docs.aws.amazon.com/ko_kr/amazondynamodb/latest/developerguide/HowItWorks.ReadConsistency.html)에 따르면 보통 1초 이내에 모든 스토리지 위치의 데이터가 일관성을 갖게 된다고 한다. (이는 반대로 이야기하면 1초 내에 읽기 작업을 요청하면 예전 버전의 데이터를 반환할 수 있다는 의미이다.) 또 전체 리전 장애에도 정상 동작할 수 있도록 replication들은 서로 격리되어있는 여러 센터에 걸쳐 저장된다고 한다.
 
 하지만 사용자가 consistency가 보장이 된 결과를 원한다면 옵션(consistent-read)을 통해 strongly consistent read를 요청할 수 있다. 다음은 해당 문서에 있는 내용이다.
 
@@ -67,14 +67,14 @@ DynamoDB에서의 read operation은 기본적으로 eventual consistency만 보�
 - 강력한 일관된 읽기는 최종적 일관된 읽기보다 지연 시간이 더 길 수도 있습니다.
 - 강력한 일관된 읽기는 최종적 일관된 읽기보다 처리 용량을 더 많이 사용합니다.
 
-이 옵션을 켜면 [Dynamo 문단](#a-write-availability-problem)에서 설명했던 문제가 그대로 발생하는 것을 볼 수 있다. 완전한 consistency를 보장 받고 싶다면 write availability를 다시 tradeoff 해야한다. 하지만 **상황에 따라** 일부 쿼리는 availability보다 consistency가 중요할 수 있다. DynamoDB는 Dynamo처럼 기본적으로 강한 일관성을 요구하지 않는 어플리케이션을 타겟으로 만들어졌지만, 편의성을 위해 이런 수요를 배제하기 보다는 사용자로 하여금 선택할 수 있게 만들며 유연성을 제공한다.
+이 옵션을 켜면 [Dynamo 문단](#a-write-availability-problem)에서 설명했던 문제가 그대로 발생하는 것을 볼 수 있다. 완전한 consistency를 보장 받고 싶다면 availability를 다시 tradeoff 해야한다. 하지만 **상황에 따라** 일부 쿼리는 availability보다 consistency가 중요할 수 있다. DynamoDB는 Dynamo처럼 기본적으로 강한 일관성을 요구하지 않는 어플리케이션을 타겟으로 만들어졌지만, 편의성을 위해 이런 수요를 배제하기 보다는 사용자로 하여금 선택할 수 있게 만들며 유연성을 제공한다.
 
 
 ### b. 파티션 키와 정렬 키
 
 DynamoDB는 두 가지의 기본 키를 지원한다. 첫 번째는 **파티션 키(Partition Key)**이고, 두 번째는 **파티션 키 및 정렬 키(Sort Key)**이다. 전자의 경우는 우리가 흔히 아는 key-value 스토리지의 키다. 이 키는 고유 값을 갖는다. 후자의 경우는 복합 키라고 보면 된다. 이 경우 파티션 키는 고유할 필요 없이 파티션 키와 정렬 키의 쌍만 고유하면 된다. 두 키의 차이는 쿼리 조건의 차이라고 볼 수 있다. DynamoDB에서 파티션 키에 대해서는 오로지 `==` 조건 검색만 수행이 가능하다. 하지만 정렬 키는 `<, ≤, >, ≥, between, begins_with` 등 더 풍부한 연산을 제공한다. DynamoDB는 왜 이런 복잡한 키 구성을 가지고 있을까?
 
-Dynamo는 내부적으로 데이터 분배를 위해 Consistent Hashing 기반의 알고리즘을 사용한다. Consistent Hashing은 간단히 이야기하자면 노드의 개수가 변동되는 상황에서 요청을 분산하는 방법이다. 그리고 이 알고리즘의 이름에서부터 나타나지만 위치를 결정하는 것은 hash 알고리즘이다. 중앙에 마스터 노드가 존재하여 어떤 키가 어떤 노드에 저장되는지 직접 관리하는 방식이 아니다. 대신에 클라이언트가 모두 동일한 알고리즘을 가지고 바로 노드에 요청하는 방식이다. 중앙 관리형이 아니며, 또 hash 기반이기 때문에 정렬된 데이터 구조를 가질 수 없다. 때문에 Dynamo을 기반으로 한 DynamoDB 또한 비슷한 구조로 인해 정렬된 키(Ordered Key)를 지원하지 않는다.
+Dynamo는 내부적으로 데이터 분배를 위해 [Consistent Hashing](https://ko.wikipedia.org/wiki/%EC%9D%BC%EA%B4%80%EB%90%9C_%ED%95%B4%EC%8B%B1) 기반의 알고리즘을 사용한다. Consistent Hashing은 간단히 이야기하자면 노드의 개수가 변동되는 상황에서 요청을 분산하는 방법이다. 그리고 이 알고리즘의 이름에서부터 나타나지만 위치를 결정하는 것은 hash 알고리즘이다. 중앙에 마스터 노드가 존재하여 어떤 키가 어떤 노드에 저장되는지 직접 관리하는 방식이 아니다. 대신에 클라이언트가 모두 동일한 알고리즘을 가지고 바로 노드에 요청하는 방식이다. 중앙 관리형이 아니며, 또 hash 기반이기 때문에 정렬된 데이터 구조를 가질 수 없다. 때문에 Dynamo을 기반으로 한 DynamoDB 또한 비슷한 구조로 인해 정렬된 키(Ordered Key)를 지원하지 않는다.
 
 하지만 정렬된 키(Ordered Key)의 지원 여부는 NOSQL을 포함한 데이터베이스의 편의성에 많은 영향을 준다. 단적으로 예를 들면 정렬 키를 지원하지 않는 시스템에서 `a < key < b` 인 아이템을 찾기 위해서는 모든 레코드를 scan 해야 한다. DynamoDB에서의 정렬 키(Sort Key)는 이러한 불편함을 **보완**하기 위해 만들어낸 개념이라고 생각된다. 예를 들면 게시판 시스템에서 아래와 같은 구조로 스키마를 사용한다고 가정하자. 게시글과 댓글 모두 독립적인 레코드로 보되, 댓글의 경우에는 게시글과 파티션 키를 공유하도록 했다. 이 경우 게시글 ID는 `==` 연산만 사용할 수 있지만 댓글 ID에 대해서는 더 다양한 조건을 지정할 수 있다. `PartitionKey="Article-123" AND SortKey between "Comment-10" and "Comment-20"` 같은 쿼리가 수행될 수 있다는 말이다.
 
@@ -83,16 +83,17 @@ Dynamo는 내부적으로 데이터 분배를 위해 Consistent Hashing 기반�
   <span class="caption">테이블 1. DynamoDB의 샘플 테이블 스키마</span>
 </p>
 
-DynamoDB에서 같은 파티션 키를 갖는 아이템은 같은 노드에 저장된다. 위 테이블에서 `Article_123` 이라는 게시글과 그 게시글에 달린 댓글 모두가 실제로 물리적으로 같은 곳에 있다는 소리다. 파티션 키를 통해 레코드가 어떤 노드에 저장되어야 하는지가 한 번 결정되고 나면, 이후에 그 노드에서 internal하게 레코드를 어떻게 저장하는가는 선택할 수 있는 문제이다. DynamoDB에서는 이 경우에 정렬 키를 바탕으로 레코드를 정렬하여 저장하고, 사용자는 이 특징을 바탕으로 쿼리를 최적화 할 수 있다.
+DynamoDB에서 같은 파티션 키를 갖는 아이템은 같은 노드에 저장된다. 위 테이블에서 `Article-123` 이라는 게시글과 그 게시글에 달린 댓글 모두가 실제로 물리적으로 같은 곳에 있다는 소리다. 하지만 파티션 키가 노드 내부(internal)의 위치까지 결정할 필요는 없다. 노드 내부에서 B-Tree 같은 자료 구조를 이용하여 아이템을 저장할 수 있는데, 이때의 인덱스로 파티션 키를 계속 사용하지 않아도 된다는 것이다. DynamoDB에서는 이 경우 **정렬 키(SortKey)**를 내부 인덱스로 사용한다. **파티션 키**를 통해 레코드가 어떤 노드에 저장되어야 하는지를 결정하고(external location), **정렬 키**로 노드 내부에서의 아이템 위치를 결정하는 것이다(internal location).
 
-DynamoDB에서 스키마를 잘 설계하기 위해서는 두 키가 왜 나눠져있는지, 또 내부 시스템이 어떻게 동작하는지 잘 이해해야 한다. 정렬된 게시글을 불러오고 싶어 아래와 같이 스키마를 디자인했다면 이는 scale-out이 제대로 될 수 없는 잘못된 설계일 것이다.
+다시 앞서 말했던 `PartitionKey="Article-123" AND SortKey between "Comment-10" and "Comment-20"` 라는 쿼리를 살펴보자. DynamoDB는 해시 알고리즘을 통해서 `Article-123`라는 파티션 키를 가진 아이템이 어떤 노드에 위치해있는지를 먼저 알아낸다. 이후 해당 노드의 내부에서 `Comment-10 ≤ SortKey ≤ Comment-20`인 데이터를 조회한다. 노드 내부에서 SortKey에 대해서 인덱스를 사용하고 있을 것이므로 데이터 조회에 fullscan을 할 필요 또한 없다.
+
+Consistent Hashing 기반의 분산 스토리지는 중앙 관리로 인한 문제를 최소화한다. 하지만 이 디자인은 단일 대상 검색(`key='A'`)만 가능하지 범위 지정 쿼리(`a < key < b`)를 사용할 수 없다는 제약이 있다. DynamoDB에서는 성능을 이유로 기능성의 일부를 포기했지만, 꽤 괜찮은 타협점으로 *파티션 키와 정렬 키*라는 것을 만들어 낸 것이라 볼 수 있다. 이들의 고민과 디자인 철학을 이해하고 나면 보다 더 나은 스키마를 설계할 수 있을 것이라 생각한다. 아래는 scale-out이 제대로 될 수 없는 잘못된 설계인데, DynamoDB가 내부적으로 어떻게 동작하는지를 알면 더 쉽게 문제를 발견할 수 있을 것이다.
 
 <p class="center">
   <img src="/attachs/underneath-dynamodb/inappropriate_scheme.png" width="700" alt="inappropriate_scheme">
   <span class="caption">테이블 2. DynamoDB의 잘못된 테이블 스키마. 게시글이 무수히 늘어나도 물리적으로 하나의 노드에 모든 게시글들이 위치하게 된다.</span>
 </p>
 
-Dynamo는 중앙 관리로 인한 문제를 최소화하기 위해 Consistent Hashing 기반으로 분산 시스템을 디자인했다. 이 디자인의 제약은 정렬된 데이터 구조를 가질 수 없다는 것이었지만, DynamoDB에서는 꽤 괜찮은 타협점으로 *파티션 키와 정렬 키*라는 것을 만들어 낸 것이라 생각한다. 꽤 흥미롭지 않은가.
 
 
 ### c. 보조 인덱스
@@ -111,7 +112,7 @@ DynamoDB가 기존 RDMS와 다른 점은 인덱스가 만들어졌을 때 인덱
 
 생각해보라. 만약 인덱스에 테이블에 대해서 완전한 consistency를 보장한다면, 인덱스가 많아질수록 그 수에 비례해 write availability가 떨어질 것이다 (3개의 노드 모두가 operation을 성공할 확률과 9개의 노드가 모두 성공할 확률은 분명 다르다). 이 때문인지 [a. 읽기 일관성](#a-읽기-일관성)에서 언급했던 *Consistent Read 옵션도* 글로벌 보조 인덱스에서는 아예 지원되지 않는다.
 
-위에서 설명한 인덱스는 정확히는 글로벌 보조 인덱스(Global Secondary Index; GSI)이고, DynamoDB에는 로컬 보조 인덱스(Local Secondary Index; LSI)라는 하나의 인덱스가 더 존재한다. LSI는 기본 테이블과 파티션 키는 동일하지만 정렬 키는 다른 인덱스이다. GSI와 달리 LSI는 강력한 일관성을 보장한다. 대신에 LSI는 GSI와 달리 해당 파티션 키의 노드와 같은 곳에 테이블이 만들어져야 할 것이다. 즉 LSI는 충분히 scalable 하지 않는다. 실제로 [AWS의 공식 문서](https://docs.aws.amazon.com/ko_kr/amazondynamodb/latest/developerguide/bp-indexes-general.html)에서도 LSI보다 GSI를 사용하는 것을 권장하고 있다.
+위에서 설명한 인덱스는 정확히는 글로벌 보조 인덱스(Global Secondary Index; GSI)이고, DynamoDB에는 로컬 보조 인덱스(Local Secondary Index; LSI)라는 하나의 인덱스가 더 존재한다. LSI는 기본 테이블과 파티션 키는 동일하지만 정렬 키는 다른 인덱스이다. GSI와 달리 LSI는 강력한 일관성을 보장한다. 대신에 LSI는 GSI와 달리 해당 파티션 키의 노드와 같은 곳에 테이블이 만들어진다. 즉 LSI는 충분히 scalable 하지 않는다. 그래서인지 실제로 [AWS의 공식 문서](https://docs.aws.amazon.com/ko_kr/amazondynamodb/latest/developerguide/bp-indexes-general.html)에서도 LSI보다 GSI를 사용하는 것을 권장하고 있다.
 
 이러한 인덱스 디자인은 기본적으로 eventual consistency만 보장하자는 가정아래였기에 가능한 설계이라고 생각된다. 그 덕분에 편의성을 높이면서도 Dynamo에서 가장 중요하게 여겼던 가용성과 확장성은 여전히 잘 보장하고 있다.
 
@@ -131,7 +132,7 @@ DynamoDB에서는 사용자가 N, R, W 같은 파라미터를 설정할 필요�
 
 DynamoDB에는 생소한 개념이 많이 등장하고, 무언가 제약 상황이 많아 보인다. 왜 이들은 완전한 일관성을 보장하지 않는가. 왜 인덱스를 설정하면 전용 테이블을 따로 만드는 것인가. 또 GSI 테이블에는 왜 Consistent Read 옵션을 사용할 수 없을까. DynamoDB 공식 문서에는 이런 질문들에 대한 답이 존재하지 않는다. 
 
-물론 굳이 이런 질문에 답하지 않아도 DynamoDB를 사용하는 데에는 문제가 없을 것이다. 하지만 Dynamo 논문을 통해서 Amazon이 어떤 문제를 해결하려 했었고 Werner Vogels의 글을 통해 어떤 철칙을 바탕으로 DynamoDB를 디자인했는지 알고 난 이후에, 나는 더 쉽게 DynamoDB를 이해하고 빠르게 배울 수 있었다. Dynamo는 write availability라는 문제를 해결하기 위해 만들어졌었고, 이를 위해 consistency를 포기하자는 아이디어로부터 나왔다. 이 관점에서 DynamoDB의 디자인을 본다면, DynamoDB를 더 잘 이해하고 더 잘 사용할 수 있으리라 생각한다.
+물론 굳이 이런 질문에 답하지 않아도 DynamoDB를 사용하는 데에는 문제가 없을 것이다. 하지만 Dynamo 논문을 통해서 Amazon이 어떤 문제를 해결하려 했었고 Werner Vogels의 글을 통해 어떤 철칙을 바탕으로 DynamoDB를 디자인했는지 알고 난 이후에, 나는 더 쉽게 DynamoDB를 이해하고 빠르게 배울 수 있었다. Dynamo는 write availability라는 문제를 해결하기 위해 만들어졌었고, 이를 위해 consistency를 일부 포기하자는 아이디어로부터 나왔다. 이 관점에서 DynamoDB의 디자인을 본다면, DynamoDB를 더 잘 이해하고 더 잘 사용할 수 있으리라 생각한다.
 
 ---
 
