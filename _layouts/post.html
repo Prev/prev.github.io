@@ -25,6 +25,16 @@ type: posts
 	</section>
 
 	<footer>
+		<section class="subscribe">
+			<button class="subscribe-toggle">
+				<i class="far fa-envelope"></i>
+				<span>이 블로그의 새로운 글 받아보기</span>
+			</button>
+			<form method="POST">
+				<input type="email" name="email" placeholder="example@example.com">
+				<button type="submit">구독</button>
+			</form>
+		</section>
 		<section class="comment">
 			<div class="comment-box">
 				<div class="fb-comments" data-href="{{ fbcomment_url }}" data-width="850" data-numposts="10" data-colorscheme="light"></div>
@@ -44,3 +54,26 @@ type: posts
 		</section>
 	</footer>
 </article>
+
+<script type="text/javascript">
+	$('.subscribe button.subscribe-toggle').click(function() {
+		$('.subscribe form').toggle();
+	});
+	$('.subscribe form').on('submit', function(e) {
+		e.preventDefault();
+		var emailAddr = $('.subscribe form input').val();
+
+		$.ajax({
+			type: 'POST',
+			url: 'https://rhqwen9vle.execute-api.ap-northeast-2.amazonaws.com/prod',
+			data: emailAddr
+		})
+		.done(function() {
+			alert("구독되었습니다.");
+			$('.subscribe form').hide();
+		})
+		.fail(function() {
+			alert("error");
+		})
+	});
+</script>

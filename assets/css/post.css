@@ -110,8 +110,49 @@ article .post-body .caption{
 article footer{
 	margin-top: 40px;
 	padding-top: 20px;
-	border-top: 1px solid #eaeaea;
+	/*border-top: 1px solid #eaeaea;*/
 }
+
+article footer section.subscribe{
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+article footer section.subscribe > button{
+	padding: 8px;
+	border: none;
+	background: none;
+	background: #f0f7ff;
+    color: #2C4168;
+	font-size: 15px;
+	border-radius: 4px;
+	outline: none;
+}
+/*article footer section.subscribe > button:hover{
+	text-decoration: underline;
+}*/
+
+article footer section.subscribe form{
+	display: none;
+	font-size: 16px;
+	margin-top: 13px;
+}
+
+article footer section.subscribe form input{
+	padding: 8px 12px;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	background: white;
+}
+
+article footer section.subscribe form button{
+	padding: 8px 12px;
+	border-radius: 3px;
+	background: #2C4168;
+	color: white;
+	border: none;
+}
+
 
 article footer .readmore{
 	margin-top: 40px;
