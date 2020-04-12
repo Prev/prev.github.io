@@ -1,13 +1,15 @@
 @charset "utf-8";
 
 .about{
-	width: 750px;
+	width: 600px;
 	margin: 0 auto;
 	font-weight: 400;
 	color: #666;
 }
 
 .about p{
+	width: 500px;
+	margin: 20px auto;
 	text-align: center;
 	line-height: 1.8;
 }
@@ -26,12 +28,12 @@
 
 
 .about .name-section{
-	margin: 60px auto 20px auto;
+	margin: 60px auto 10px auto;
 	width: 400px;
 }
 .about .name-section .picture-wrap .profile-picture{ border-radius: 20% }
-.about .name-section h2{ margin: 10px 0 4px 0; font-weight: normal; }
-.about .name-section h3{ margin: 4px 0; font-weight: normal; }
+.about .name-section h2{ margin: 10px 0 0 0; font-weight: normal; }
+.about .name-section h3{ margin: 0; font-weight: normal; }
 
 .about .contacts{
 	text-align: center;
@@ -48,6 +50,7 @@
 
 @media (max-width: 800px) {
 	.about{ padding-left: 10px; width: auto; }
+	.about p{ width: auto }
 
 	.about .name-section{
 		width: 180px;

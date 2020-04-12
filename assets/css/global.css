@@ -84,7 +84,7 @@ header#site-header .logo-wrap{
 	padding: 20px 0 0px 0;
 	z-index: 2;
 }
-header#site-header .logo-wrap .logo-wrap2{ margin-left: 10px }
+/*header#site-header .logo-wrap .logo-wrap2{ margin-left: 10px }*/
 
 
 header#site-header .logo-wrap .logo-txt{
@@ -107,7 +107,7 @@ header#site-header .background{
 
 
 header#site-header nav.gnb{
-	padding: 10px 0;
+	padding: 5px 0;
 	border: 1px solid #eee;
 }
 header#site-header nav.gnb ul{
@@ -120,12 +120,13 @@ header#site-header nav.gnb ul a{
 	color: #666;
 	text-decoration: none;
 	font-size: 14px;
+	outline: none;
 	transition: color 0.4s;
 	-webkit-transition: color 0.4s;
 }
 header#site-header nav.gnb ul li{
 	display: inline-block;
-	width: 80px;
+	width: 85px;
 	text-align: center;
 }
 header#site-header nav.gnb ul a:hover,

@@ -1,0 +1,15 @@
+---
+layout: default
+type: notes
+---
+
+<article class="post">
+	<header>
+		<h1><span>{{ page.title }}</span></h1>
+		<div class="date">{{ page.date | date:"%-m월 %-d일, %Y" }}</div>
+	</header>
+	
+	<section class="post-body md-theme">
+		{{content}}
+	</section>
+</article>

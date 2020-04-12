@@ -1,0 +1,24 @@
+---
+layout: default
+title: 개발 포스트
+type: posts
+---
+
+<section class="post-list w800">
+	 <header>
+		<h3>
+			{% assign sorted = site.tags | sort %}
+			{% for tag in sorted %}
+			<a href="/posts/tag/{{ tag[0] | replace: '/', '-' }}">
+				#<strong>{{ tag[0] }}</strong>
+			</a>
+			{% endfor %}
+		</h3>
+	</header>
+
+	<ul class="post-list">
+	{% for post in site.posts %}
+		{% include post-tile.html %}
+	{% endfor %}
+	</ul>
+</section>

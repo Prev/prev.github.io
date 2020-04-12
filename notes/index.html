@@ -1,0 +1,29 @@
+---
+layout: default
+title: 잡생각
+type: notes
+---
+
+<section class="w800">
+	<ul class="note-list">
+		{% assign sorted = (site.pages | sort: 'date') | reverse %}
+		{% for page in sorted %}
+		{% if page.layout == 'note' %}
+		<li>
+			<h4>
+				<a href="{{ page.url }}">
+					{{ page.title }}
+				</a>
+			</h4>
+			<div class="date">
+				{{ page.date | date: "%-m월 %-d일, %Y" }}
+			</div>
+		</li>
+		{% endif %}
+		{% endfor %}
+	</ul>
+</section>
+
+<style type="text/css">
+	
+</style>

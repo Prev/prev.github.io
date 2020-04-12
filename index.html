@@ -1,29 +1,11 @@
 ---
 layout: default
 type: home
-redirect_from:
-  - /posts/
 ---
 
 <section class="pictures w800">
 	<img src="https://pictures.prev.kr" width="850" height="478">
-</section>
-
-<section class="post-list w800">
-	 <header>
-		<h3>
-			{% assign sorted = site.tags | sort %}
-			{% for tag in sorted %}
-			<a href="/posts/tag/{{ tag[0] | replace: '/', '-' }}">
-				#<strong>{{ tag[0] }}</strong>
-			</a>
-			{% endfor %}
-		</h3>
-	</header>
-
-	<ul class="post-list">
-	{% for post in site.posts %}
-		{% include post-tile.html %}
-	{% endfor %}
-	</ul>
+	<p class="description">
+		랜덤 여행사진 (2016~2020)
+	</p>
 </section>

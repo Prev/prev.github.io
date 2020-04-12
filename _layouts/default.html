@@ -35,7 +35,7 @@ layout: compress
 
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 
-	{% assign assetappendix = '20200204' %}
+	{% assign assetappendix = '20200420' %}
 
 	<link rel="stylesheet" href="/assets/css/global.css?{{ assetappendix }}">
 
@@ -49,6 +49,10 @@ layout: compress
 	<link rel="stylesheet" href="/assets/css/code-highlight.css?{{ assetappendix }}">
 	<link rel="stylesheet" href="/assets/css/post.css?{{ assetappendix }}">
 	<script type="text/javascript" src="/assets/lib/prism.js"></script>
+
+	{% elsif page.type == 'notes' %}
+	<link rel="stylesheet" href="/assets/css/markdown-theme.css?{{ assetappendix }}">
+	<link rel="stylesheet" href="/assets/css/note.css?{{ assetappendix }}">
 
 	{% elsif page.type == 'about' %}
 	<link rel="stylesheet" href="/assets/css/about.css?{{ assetappendix }}">
@@ -84,6 +88,28 @@ layout: compress
 				</svg>
 			</div>
 		</div>
+
+		<div>
+			<nav class="gnb">
+				<ul class="clearfix">
+					<a href="/posts/">
+						<li {% if page.type == 'posts' or layout.type == 'posts' %} class="selected" {% endif %}>
+							개발 포스트
+						</li>
+					</a>
+					<a href="/notes/">
+						<li {% if page.type == 'notes' or layout.type == 'notes' %} class="selected" {% endif %}>
+							잡생각
+						</li>
+					</a>
+					<a href="/about/">
+						<li {% if page.type == 'about' %} class="selected" {% endif %}>
+							About
+						</li>
+					</a>
+				</ul>
+			</nav>
+		</div>
 	</header>
 
 	<div id="wrapper" class="{% if page.profile %}home{% endif %}">
@@ -97,11 +123,12 @@ layout: compress
 		<div class="description">
 			<p>
 				&copy; Copyrights all right reserved. Prev.kr. Powered by Github Pages.
-			</p>
-			<p>
-				<a href="/about">About</a>&nbsp;
 				<a href="/feed.xml">RSS</a>
 			</p>
+			<!-- <p>
+				<a href="/about">About</a>&nbsp;
+				<a href="/feed.xml">RSS</a>
+			</p> -->
 		</div>
 	</footer>
 

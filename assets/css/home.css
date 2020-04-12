@@ -8,6 +8,14 @@ section.pictures img{
 	background-color: #eee;
 }
 
+section.pictures p.description{
+	text-align: center;
+	margin: 1px 0 20px;
+	padding: 0;
+	color: #666;
+	font-size: 13px;
+}
+
 section{
 	position: relative;
 	width: 850px;
@@ -61,7 +69,7 @@ section.post-list > header a:hover{ text-decoration: underline }
 @media (max-width: 573px) {
 	section{ width: auto }
 
-	section.pictures{
+	/*section.pictures{
 		display: none;
-	}
+	}*/
 }
