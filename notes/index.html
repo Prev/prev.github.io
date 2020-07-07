@@ -6,7 +6,7 @@ type: notes
 
 <section class="w800">
 	<ul class="note-list">
-		{% assign sorted = (site.pages | sort: 'date') | reverse %}
+		{% assign sorted = site.pages | sort: 'date' | reverse %}
 		{% for page in sorted %}
 		{% if page.layout == 'note' %}
 		<li>
