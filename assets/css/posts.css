@@ -3,12 +3,11 @@
 section.post-list > header{
 	text-align: center;
 	padding: 20px 0;
-	/*font-family: 'Nanum Myeongjo', serif;*/
 }
 
 section.post-list > header h3{
 	font-weight: normal;
-	font-size: 1.2em;
+	font-size: 16px;
 	color: #999;
 }
 

@@ -28,10 +28,20 @@
 
 .about .name-section{
 	margin: 60px 0 10px 10px;
+	color: black;
+	line-height: 1;
 }
-.about .name-section .picture-wrap .profile-picture{ border-radius: 20% }
-.about .name-section h2{ margin: 10px 0 0 0; font-weight: normal; }
-.about .name-section h3{ margin: 0; font-weight: normal; }
+
+.about .name-section .picture-wrap .avatar{
+	width: 100px;
+	height: 100px;
+	background-image: url('/assets/images/avatar.jpg');
+	background-size: 100px 100px;
+	border-radius: 50%;
+}
+
+.about .name-section h2{ margin: 25px 0 0 0; font-weight: normal; }
+.about .name-section h3{ margin: 7px 0 0 0; font-weight: normal; }
 
 .about .contacts{
 	text-align: left;
@@ -46,12 +56,29 @@
 	padding: 0 30px 0 0;
 }
 
-h4.cv-list-header{
+.about p.notice {
+	background-color: #eee;
+	padding: 10px 10px 8px 10px;
+	margin-bottom: 20px;
+	font-style: italic;
+}
+
+.about h4.cv-list-header{
 	margin: 20px 0 0 10px;
 	padding: 0;
 	font-weight: 600;
 }
 
+.about ul.cv-list{
+	margin-top: 7px;
+	margin-bottom: 0;
+}
+
+.about ul.cv-list span.date{
+	display: inline-block;
+	width: 160px;
+	color: #888;
+}
 
 @media (max-width: 800px) {
 	.about{ padding-left: 10px; width: auto; }
@@ -66,9 +93,19 @@ h4.cv-list-header{
 	.about .name-section .fr{ float: none; }
 
 	.about .name-section .picture-wrap{ margin: 0 }
+	.about .name-section .picture-wrap .avatar{
+		margin: 10px auto 0;
+	}
 
 	.about .contacts ul li{
 		display: block;
 		padding: 0;
+	}
+}
+
+@media (max-width: 500px) {
+	.about ul.cv-list span.date{
+		display: block;
+		width: auto;
 	}
 }

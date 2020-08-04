@@ -46,7 +46,6 @@ layout: compress
 	{% elsif layout.type == 'posts' %}
 	<link rel="stylesheet" href="/assets/lib/prism.css">
 	<link rel="stylesheet" href="/assets/css/markdown-theme.css?{{ assetappendix }}">
-	<link rel="stylesheet" href="/assets/css/code-highlight.css?{{ assetappendix }}">
 	<link rel="stylesheet" href="/assets/css/post.css?{{ assetappendix }}">
 	<script type="text/javascript" src="/assets/lib/prism.js"></script>
 
@@ -64,54 +63,32 @@ layout: compress
 </head>
 <body>
 	<header id="site-header">
-		<div class="clearfix">
-			<div class="logo-wrap">
-				<a href="/">
-					<div class="logo-wrap2">
-						<svg width="160" height="144" fill="#091223" viewBox="0 0 200 180">
-							<path d="M81.1,26.15L101.35,13l31.7,10.5l-19,13.95L81.1,26.15z" fill="#091223" />
-							<path d="M81.7,60.85l-34.6-12.7l23.2-14.9l33.25,11.55L81.7,60.85z" fill="#091223" />
-							<path d="M33.5,56.9l35.4,13.25l-26.45,19.1L6.5,74.8L33.5,56.9" fill="#091223" />
-							<path d="M126.6,92.3l-23.85,21.75L62.35,97.3l25.4-20.05L126.6,92.3" fill="#091223" />
-							<path d="M169.35,141.2l-45.3-18.75l23.2-22.5l43.3,16.45L169.35,141.2z" fill="#091223" />
-						</svg>
-					</div>
-				</a>
-			</div>
-			<div class="background">
-				<svg width="580" height="158" viewBox="0 0 580 158" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-					<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-						<g fill="#273B60">
-							<polyline points="0 158 0 0 580 0 580 0"></polyline>
-						</g>
-					</g>
-				</svg>
-			</div>
-		</div>
-
 		<div>
-			<nav class="gnb">
-				<ul class="clearfix">
-					<a href="/posts/">
-						<li {% if page.type == 'posts' or layout.type == 'posts' %} class="selected" {% endif %}>
-							개발 포스트
-						</li>
-					</a>
-					<a href="/notes/">
-						<li {% if page.type == 'notes' or layout.type == 'notes' %} class="selected" {% endif %}>
-							잡생각
-						</li>
-					</a>
-					<a href="/about/">
-						<li {% if page.type == 'about' %} class="selected" {% endif %}>
-							About
-						</li>
-					</a>
-				</ul>
-			</nav>
+			<a href="/">
+				<span class="icon"></span>
+				<span class="title">Prev's Blog</span>
+			</a>
 		</div>
 	</header>
-
+	<nav id="gnb">
+		<ul class="clearfix">
+			<a href="/posts/">
+				<li {% if page.type == 'posts' or layout.type == 'posts' %} class="selected" {% endif %}>
+					개발 포스트
+				</li>
+			</a>
+			<a href="/notes/">
+				<li {% if page.type == 'notes' or layout.type == 'notes' %} class="selected" {% endif %}>
+					잡생각
+				</li>
+			</a>
+			<a href="/about/">
+				<li {% if page.type == 'about' %} class="selected" {% endif %}>
+					About
+				</li>
+			</a>
+		</ul>
+	</nav>
 	<div id="wrapper" class="{% if page.profile %}home{% endif %}">
 		{{ content }}
 	</div>

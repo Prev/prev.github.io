@@ -6,13 +6,12 @@
 
 .md-theme a {
 	border: none;
-	/*color: #59b;*/
 	color: #2e88b5;
 	padding: 0;
 	text-decoration: none;
 	transition: color 0.5s;
 }
-.md-theme a:hover { color: #84d1f7; /*text-decoration: underline;*/ }
+.md-theme a:hover { color: #84d1f7; }
 
 .md-theme a code {
 	color: #01579B;
@@ -32,11 +31,7 @@
 	background: #eee;
 	border: 1px solid #eee;
 	border-radius: 3px;
-
 	padding: 1px 3px 0;
-	/*font-size: 14px;*/
-	/*font-family: sans-serif;*/
-	/*color: #7f4a6a;*/
 	font-size: 15px;
 	background: rgba(135,131,120,0.15);
 	color: #EB5757;
@@ -51,25 +46,21 @@
 	margin: 28px 0 5px 0;
 }
 
-
 .md-theme h2{
 	font-size: 30px;
 	font-weight: 400;
 	margin: 30px 0 5px 0;
 	padding-top: 20px;
-	/*border-bottom: 1px dashed #ccc;*/
 }
 
 .md-theme h3{
 	font-size: 21px;
 	font-weight: 500;
-	/*border-bottom: 1px dotted #e0e0e0;*/
 }
 
 .md-theme h4{
 	font-size: 18px;
 	font-weight: 500;
-	/*border-bottom: 1px dotted #e0e0e0;*/
 }
 
 .md-theme hr {
@@ -99,7 +90,6 @@
 	background: none;
 	border: none;
 	padding: 0;
-	/*font: 13px Menlo, Consolas, "Liberation Mono", Menlo, Courier, monospace;*/
 	font: 14px Consolas, Menlo, "Liberation Mono", Menlo, Courier, monospace;
 	tab-size: 4;
 	color: black;
@@ -116,7 +106,6 @@
 	border-width: 0 1px 1px 0;
 	border-color: #ddd;
 	border-style: solid;
-	/*padding: 10px;*/
 	padding: 8px 10px;
 }
 
@@ -127,8 +116,6 @@
 .md-theme > table thead tr{
 	background-color: #f1f4ff;
 }
-
-
 
 .md-theme blockquote {
 	background: #f9f9f9;
@@ -141,7 +128,6 @@
 	color: #ccc;
 	content: open-quote;
 	font-size: 5em;
-	/*line-height: 0.1em;*/
 	line-height: 0;
 	margin-right: 0.25em;
 	vertical-align: -0.4em;
@@ -155,12 +141,15 @@
 	tab-size: 4;
 }
 
-@media (max-width: 800px) {
-	/*.md-theme pre{
-		width: calc(100% + 40px);
-		margin-left: -20px;
-	}*/
+code[class*="language-"], pre[class*="language-"] {
+	text-shadow: none;
+}
 
+.token.operator, .token.entity, .token.url, .language-css .token.string, .style .token.string {
+	background: none;
+}
+
+@media (max-width: 800px) {
 	.md-theme blockquote{
 		margin-left: 0;
 		margin-right: 0;
