@@ -10,7 +10,7 @@ type: posts
 			{% assign sorted = site.tags | sort %}
 			{% for tag in sorted %}
 			<a href="/posts/tag/{{ tag[0] | replace: '/', '-' }}">
-				#<strong>{{ tag[0] }}</strong>
+				#<strong>{{ tag[0] }}({{ tag[1] | size }})</strong>
 			</a>
 			{% endfor %}
 		</h3>
