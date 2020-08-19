@@ -57,10 +57,9 @@
 }
 
 .about p.notice {
-	background-color: #eee;
+	background-color: #f3f3f3;
 	padding: 10px 10px 8px 10px;
 	margin-bottom: 20px;
-	font-style: italic;
 }
 
 .about h4.cv-list-header{
@@ -70,7 +69,7 @@
 }
 
 .about ul.cv-list{
-	margin-top: 7px;
+	margin-top: 10px;
 	margin-bottom: 0;
 }
 

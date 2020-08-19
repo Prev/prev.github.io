@@ -98,15 +98,15 @@ header#site-header .title{
 }
 
 nav#gnb{
-	padding: 5px 0;
+	padding: 0;
 	background-color: #d5d9e1;
 	color: #062d40;
 }
 nav#gnb ul{
-	max-width: 1150px;
+	max-width: 1190px;
 	list-style: none;
 	margin: 0 auto;
-	padding: 5px 15px;
+	padding: 0;
 	text-align: left;
 }
 nav#gnb ul a{
@@ -119,7 +119,8 @@ nav#gnb ul a{
 }
 nav#gnb ul li{
 	display: inline-block;
-	margin-right: 40px;
+	margin: 0;
+	padding: 10px 20px;
 }
 nav#gnb ul a:hover,
 nav#gnb ul li.selected{ color: #4671bb; font-weight: 600; }
