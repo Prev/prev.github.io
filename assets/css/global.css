@@ -52,7 +52,7 @@ a img{ border:none; outline:none }
 
 /* Global Tags Settings */
 html,body,code{
-	font-family: "Apple SD Gothic Neo",BlinkMacSystemFont,"나눔고딕",NanumGothic,"돋움",Dotum,Arial,Helvetica,sans-serif;
+	font-family: "Apple SD Gothic Neo",BlinkMacSystemFont,"나눔고딕",NanumGothic,Arial,Helvetica,sans-serif;
 }
 
 /* For Every Page */
@@ -127,15 +127,15 @@ nav#gnb ul li.selected{ color: #4671bb; font-weight: 600; }
 
 footer#site-footer{
 	text-align: center;
-	font-size: 14px;
+	font-size: 13px;
 	line-height: 1.4;
 	color: #999;
 	margin-top: 80px;
 	padding: 20px 0;
 	border-top: 1px solid #eaeaea;
 }
-footer#site-footer h4{ font-size: 12px; margin: 2px 0; padding: 0 }
-footer#site-footer h4 a{ text-decoration: none;  }
+/*footer#site-footer h4{ font-size: 12px; margin: 2px 0; padding: 0 }
+footer#site-footer h4 a{ text-decoration: none;  }*/
 
 footer#site-footer p{ margin: 2px 0; }
 
