@@ -87,7 +87,7 @@ const Container = (props: {}) => (
 );
 ```
 
-위 코드를 주의 깊게 살펴보면 `props` 값이 변수 형태로 passing 되지 않고, 일종의 **call-back 함수**가 passing 되는 것을 볼 수 있다. `background: ${props.primary ? "palevioletred" : "white"}` 와 같이 사용하지 않는다는 점에 유의해야 한다. 이 때문에 조건부 코드가 조금 길어지기는 하지만, 아래 코드처럼 여러 조건에 따른 분기 처리나 CSS block 단위의 조작 등 더 자유롭게 조건에 따른 스타일을 지정해줄 수 있다.
+위 코드를 주의 깊게 살펴보면 `props` 값이 변수 형태로 passing 되지 않고, 일종의 **callback 함수**가 passing 되는 것을 볼 수 있다. `background: ${props.primary ? "palevioletred" : "white"}` 와 같이 사용하지 않는다는 점에 유의해야 한다. 이 때문에 조건부 코드가 조금 길어지기는 하지만, 아래 코드처럼 여러 조건에 따른 분기 처리나 CSS block 단위의 조작 등 더 자유롭게 조건에 따른 스타일을 지정해줄 수 있다.
 
 ```js
 const Button = styled.button`

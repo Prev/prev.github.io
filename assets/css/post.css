@@ -88,6 +88,8 @@ article .post-body img{
 article .post-body strong{
 	font-weight: 500;
 	color: #1E2025;
+    /* border-bottom: 1px solid #e1eeff; */
+    box-shadow: inset 0 -10px 0 #e1eeff;
 }
 
 article .post-body a strong{

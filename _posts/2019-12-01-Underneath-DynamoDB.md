@@ -33,7 +33,7 @@ Dynamo는 2007년도에 Amazon이 제안한 Key-Value 스토리지 시스템이�
 
 ### b. Eventual Consistency
 
-Dynamo에서는 write availability problem을 해결하기 위해 **일관성(consistency)을 일부 희생**하는 접근을 취한다. 다시 말해 <u>모든 노드에 write operation이 완료되지 않아도 적당히 눈감아 주며 클라이언트에게 성공했다고</u> response를 보낸다. 예를 들어 총 3개의 replication이 있는 상황에서 1번과 3번 노드에서 write 수행이 50ms가 걸리고 2번 노드가 장애 상황으로 인해 2000ms가 걸린다고 하자. 이 상황에서 2번 노드에서 write가 완료되지 않아도 1번과 3번 노드에서만 성공을 하면 바로 클라이언트에게 성공했다고 메시지를 보내는 것이다. 그러면 2번 노드의 장애 상황에서도 50ms 안에 write operation이 수행될 수 있다.
+Dynamo에서는 write availability problem을 해결하기 위해 **일관성(consistency)을 일부 희생**하는 접근을 취한다. 다시 말해 모든 노드에 write operation이 완료되지 않아도 적당히 눈감아 주며 클라이언트에게 성공했다고 response를 보낸다. 예를 들어 총 3개의 replication이 있는 상황에서 1번과 3번 노드에서 write 수행이 50ms가 걸리고 2번 노드가 장애 상황으로 인해 2000ms가 걸린다고 하자. 이 상황에서 2번 노드에서 write가 완료되지 않아도 1번과 3번 노드에서만 성공을 하면 바로 클라이언트에게 성공했다고 메시지를 보내는 것이다. 그러면 2번 노드의 장애 상황에서도 50ms 안에 write operation이 수행될 수 있다.
 
 이 정책에서는 클라이언트에서 write가 완료되었다는 메시지를 받은 이후 read를 수행해도 오래된 버전의 데이터를 반환할 수 있다. 즉, 순간적으로 노드간 서로 다른 버전의 데이터를 가지고 있을 수 있고, 이는 데이터베이스의 일관성 제약 조건에 어긋난다(inconsistent). 하지만 중요한 점은 시간이 어느 정도 지나면 모든 노드에 write가 수행될 것이고, **결과적**으로는 일관성이 지켜질 것이라는 것이다. 그리고 이를 **eventual consistency**라고 한다. 
 
