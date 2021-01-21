@@ -40,7 +40,11 @@ Machine Learning의 결과는 보통 모델이라 불리는 파일로 저장된�
 Machine Learning에서 training args는 모델을 기술(description) 할 수 있는 최고의 데이터이다. 논문을 통해 새롭게 제안된 아키텍처나 training technique가 새로운 args로 들어가기도 하고, 반대로 args의 차이에 따른 성능 변화가 새로운 논문의 재료가 되기도 한다. 때문에 ML 모델의 관리를 도와주는 서비스에서는 다른 정보보다 training args에 대해 잘 보여주는 것이 가장 중요하다고 생각했고, 실제로 개발한 서비스에서도 모델의 training args를 중요한 데이터로 사용했다. Training args를 활용하는 대표적인 기능으로 아래 사진처럼 여러 모델 간 비교 시 args를 기반으로 diff를 보여주는 기능이 있다.
 
 <p class="center">
-  <img src="/attachs/ai-swe-internship/modelbase1.gif" width="600">
+  <video autoplay loop muted playsinline>
+    <source src="/attachs/ai-swe-internship/modelbase1.mp4" type="video/mp4">
+    <!-- Fallback -->
+    <img src="/attachs/ai-swe-internship/modelbase1.gif" width="600">
+  </video>
 </p>
 
 
@@ -52,8 +56,13 @@ Machine Learning에서 training args는 모델을 기술(description) 할 수 �
 위의 기능에서는 소수 모델에 대해 args를 보고 비교해볼 수 있었다면, 다수의 모델 리스트에 대해서도 테이블 뷰를 통해 args로 검색과 정렬이 가능한 기능도 존재한다. Notion의 테이블을 써봤다면 익숙할법할 기능으로, 원하는 args에 대해 새로운 테이블 열로 projection이 가능하며, 테이블에서의 정렬과 검색 모두 지원한다.
 
 <p class="center">
-  <img src="/attachs/ai-swe-internship/modelbase2.gif" width="600">
+  <video autoplay loop muted playsinline>
+    <source src="/attachs/ai-swe-internship/modelbase2.mp4" type="video/mp4">
+    <!-- Fallback -->
+    <img src="/attachs/ai-swe-internship/modelbase2.gif" width="600">
+  </video>
 </p>
+
 
 특히 테이블에서 켜고 끌 수 있는 필드들은 hard-coding 되어있지 않고, 업로드된 모델의 args에 따라 dynamic 하게 불러오기 때문에 향후에 새로운 args가 추가되어도 대응 가능하도록 개발을 진행하였다.
 
@@ -64,7 +73,11 @@ Machine Learning에서 training args는 모델을 기술(description) 할 수 �
 때로는 팀 내에서 연구용으로 만들었던 모델을 다른 팀이나 외부에 공유할 일이 있을 수 있다. 이 경우에 특정한 모델에 대해서 선택적으로 공유가 가능하며, Markdown으로 README를 작성할 수도 있게 개발을 진행했다.
 
 <p class="center">
-  <img src="/attachs/ai-swe-internship/modelbase3.gif" width="600">
+  <video autoplay loop muted playsinline>
+    <source src="/attachs/ai-swe-internship/modelbase3.mp4" type="video/mp4">
+    <!-- Fallback -->
+    <img src="/attachs/ai-swe-internship/modelbase3.gif" width="600">
+  </video>
 </p>
 
 
