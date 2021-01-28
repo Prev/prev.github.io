@@ -6,12 +6,15 @@
 
 .md-theme a {
 	border: none;
-	color: #2e88b5;
+	color: #0c61bb;
 	padding: 0;
 	text-decoration: none;
 	transition: color 0.5s;
 }
-.md-theme a:hover { color: #84d1f7; }
+.md-theme a:hover {
+	color: #187fef;
+	text-decoration: underline;
+}
 
 .md-theme a code {
 	color: #01579B;

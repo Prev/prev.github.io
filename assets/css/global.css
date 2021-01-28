@@ -112,7 +112,8 @@ nav#gnb ul{
 nav#gnb ul a{
 	color: inherit;
 	text-decoration: none;
-	font-size: 14px;
+	font-size: 15px;
+	font-weight: 600;
 	outline: none;
 	transition: color 0.4s;
 	-webkit-transition: color 0.4s;
@@ -123,7 +124,7 @@ nav#gnb ul li{
 	padding: 10px 20px;
 }
 nav#gnb ul a:hover,
-nav#gnb ul li.selected{ color: #4671bb; font-weight: 600; }
+nav#gnb ul li.selected{ color: #4671bb;  }
 
 footer#site-footer{
 	text-align: center;
