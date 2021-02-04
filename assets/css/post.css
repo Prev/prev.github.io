@@ -187,7 +187,8 @@ article footer .readmore .thumbnail{
 	article header h1{ padding-top: 20px }
 	article header h1:after{ display: none; }
 
-	article .post-body img{
+	article .post-body img,
+	article .post-body video{
 		max-width: calc(100% + 40px);
 		margin-left: -20px;
 	}
