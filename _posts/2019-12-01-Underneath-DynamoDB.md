@@ -72,22 +72,29 @@ DynamoDB에서의 read operation은 기본적으로 eventual consistency만 보�
 
 ### b. 파티션 키와 정렬 키
 
-DynamoDB는 두 가지의 기본 키를 지원한다. 첫 번째는 **파티션 키(Partition Key)**이고, 두 번째는 **파티션 키 및 정렬 키(Sort Key)**이다. 전자의 경우는 우리가 흔히 아는 key-value 스토리지의 키다. 이 키는 고유 값을 갖는다. 후자의 경우는 복합 키라고 보면 된다. 이 경우 파티션 키는 고유할 필요 없이 파티션 키와 정렬 키의 쌍만 고유하면 된다. 두 키의 차이는 쿼리 조건의 차이라고 볼 수 있다. DynamoDB에서 파티션 키에 대해서는 오로지 `==` 조건 검색만 수행이 가능하다. 하지만 정렬 키는 `<, ≤, >, ≥, between, begins_with` 등 더 풍부한 연산을 제공한다. DynamoDB는 왜 이런 복잡한 키 구성을 가지고 있을까?
+DynamoDB는 아래의 두 가지의 기본 키를 지원한다:
 
-Dynamo는 내부적으로 데이터 분배를 위해 [Consistent Hashing](https://ko.wikipedia.org/wiki/%EC%9D%BC%EA%B4%80%EB%90%9C_%ED%95%B4%EC%8B%B1) 기반의 알고리즘을 사용한다. Consistent Hashing은 간단히 이야기하자면 노드의 개수가 변동되는 상황에서 요청을 분산하는 방법이다. 그리고 이 알고리즘의 이름에서부터 나타나지만 위치를 결정하는 것은 hash 알고리즘이다. 중앙에 마스터 노드가 존재하여 어떤 키가 어떤 노드에 저장되는지 직접 관리하는 방식이 아니다. 대신에 클라이언트가 모두 동일한 알고리즘을 가지고 바로 노드에 요청하는 방식이다. 중앙 관리형이 아니며, 또 hash 기반이기 때문에 정렬된 데이터 구조를 가질 수 없다. 때문에 Dynamo을 기반으로 한 DynamoDB 또한 비슷한 구조로 인해 정렬된 키(Ordered Key)를 지원하지 않는다.
+1. **파티션 키(Partition Key)**: 우리가 흔히 아는 key-value 스토리지의 키. 고유 값을 갖는다.
+2. **정렬 키(Sort Key)**: 그 자체로는 고유할 필요 없이 파티션 키와 정렬 키의 쌍만 고유하면 된다. (일종의 복합 키)
 
-하지만 정렬된 키(Ordered Key)의 지원 여부는 NOSQL을 포함한 데이터베이스의 편의성에 많은 영향을 준다. 단적으로 예를 들면 정렬 키를 지원하지 않는 시스템에서 `a < key < b` 인 아이템을 찾기 위해서는 모든 레코드를 scan 해야 한다. DynamoDB에서의 정렬 키(Sort Key)는 이러한 불편함을 **보완**하기 위해 만들어낸 개념이라고 생각된다. 예를 들면 게시판 시스템에서 아래와 같은 구조로 스키마를 사용한다고 가정하자. 게시글과 댓글 모두 독립적인 레코드로 보되, 댓글의 경우에는 게시글과 파티션 키를 공유하도록 했다. 이 경우 게시글 ID는 `==` 연산만 사용할 수 있지만 댓글 ID에 대해서는 더 다양한 조건을 지정할 수 있다. `PartitionKey="Article-123" AND SortKey between "Comment-10" and "Comment-20"` 같은 쿼리가 수행될 수 있다는 말이다.
+두 키의 차이는 쿼리 조건의 차이라고 볼 수 있다. DynamoDB에서 파티션 키에 대해서는 오로지 `==` 조건 검색만 수행이 가능하다. 하지만 정렬 키는 `<, ≤, >, ≥, between, begins_with` 등 더 풍부한 연산을 제공한다. DynamoDB는 왜 이런 복잡한 키 구성을 가지고 있을까?
+
+Dynamo는 내부적으로 데이터 분배를 위해 [Consistent Hashing](https://ko.wikipedia.org/wiki/%EC%9D%BC%EA%B4%80%EB%90%9C_%ED%95%B4%EC%8B%B1) 기반의 알고리즘을 사용한다. Consistent Hashing은 간단히 이야기하자면 노드의 개수가 변동되는 상황에서 요청을 분산하는 방법이다. 그리고 이 알고리즘의 이름에서부터 나타나지만 위치를 결정하는 것은 **해시 알고리즘**이다. 중앙에 마스터 노드가 존재하여 어떤 키가 어떤 노드에 저장되는지 직접 관리하는 방식이 아니다. 대신에 **클라이언트가 모두 동일한 알고리즘을 가지고 바로 노드에 요청하는 방식**이다. 중앙 관리형이 아니며, 또 hash 기반이기 때문에 정렬된 데이터 구조를 가질 수 없다. 때문에 Dynamo을 기반으로 한 DynamoDB 또한 비슷한 구조로 인해 파티션 키로 range query를 사용할 수 없다.
+
+하지만 range query의 지원 여부는 NOSQL을 포함한 데이터베이스의 편의성에 많은 영향을 준다. 단적으로 예를 들면 range query를 지원하지 않는 시스템에서 `a < key < b` 인 아이템을 찾기 위해서는 모든 레코드를 scan 해야 한다. DynamoDB에서의 정렬 키(Sort Key)는 이러한 불편함을 **보완**하기 위해 만들어낸 개념이라고 생각된다. 예를 들면 게시판 시스템에서 [테이블 1](#table1)과 같은 구조로 스키마를 사용한다고 가정하자. 게시글과 댓글 모두 독립적인 레코드로 보되, 댓글의 경우에는 게시글과 파티션 키를 공유하도록 했다. 이 경우 게시글 ID는 `==` 연산만 사용할 수 있지만 댓글 ID에 대해서는 더 다양한 조건을 지정할 수 있다. `PartitionKey="Article-123" AND SortKey between "Comment-10" and "Comment-20"` 같은 쿼리가 수행될 수 있다는 말이다.
 
 <p class="center" id="table1">
   <img src="/attachs/underneath-dynamodb/sample_scheme.png" width="700" alt="sample_scheme">
   <span class="caption">테이블 1. DynamoDB의 샘플 테이블 스키마</span>
 </p>
 
-DynamoDB에서 같은 파티션 키를 갖는 아이템은 같은 노드에 저장된다. 위 테이블에서 `Article-123` 이라는 게시글과 그 게시글에 달린 댓글 모두가 실제로 물리적으로 같은 곳에 있다는 소리다. 하지만 파티션 키가 노드 내부(internal)의 위치까지 결정할 필요는 없다. 노드 내부에서 B-Tree 같은 자료 구조를 이용하여 아이템을 저장할 수 있는데, 이때의 인덱스로 파티션 키를 계속 사용하지 않아도 된다는 것이다. DynamoDB에서는 이 경우 **정렬 키(SortKey)**를 내부 인덱스로 사용한다. **파티션 키**를 통해 레코드가 어떤 노드에 저장되어야 하는지를 결정하고(external location), **정렬 키**로 노드 내부에서의 아이템 위치를 결정하는 것이다(internal location).
+DynamoDB에서 같은 파티션 키를 갖는 아이템은 같은 노드에 저장된다. 위 테이블에서 `Article-123` 이라는 게시글과 그 게시글에 달린 댓글 모두가 실제로 물리적으로 같은 곳에 있다는 소리다. *(실제로는 가상화되어 물리적으로 다를지도 모른다. 하지만 편의를 위해 물리적으로 같은 곳이라고 가정하자.)*
 
-다시 앞서 말했던 `PartitionKey="Article-123" AND SortKey between "Comment-10" and "Comment-20"` 라는 쿼리를 살펴보자. DynamoDB는 해시 알고리즘을 통해서 `Article-123`라는 파티션 키를 가진 아이템이 어떤 노드에 위치해있는지를 먼저 알아낸다. 이후 해당 노드의 내부에서 `Comment-10 ≤ SortKey ≤ Comment-20`인 데이터를 조회한다. 노드 내부에서 SortKey에 대해서 인덱스를 사용하고 있을 것이므로 데이터 조회에 fullscan을 할 필요 또한 없다.
+파티션 키는 어떤 노드에 데이터를 저장할지 결정한다. 하지만 파티션 키가 노드 내부(internal)의 위치까지 결정할 필요는 없다. 노드 내부에서 B-Tree 같은 자료 구조를 이용하여 아이템을 저장할 수 있는데, 이때의 인덱스로 파티션 키를 계속 사용하지 않아도 된다는 것이다. DynamoDB에서는 이 경우 **정렬 키(SortKey)**를 내부 인덱스로 사용한다. **파티션 키**를 통해 레코드가 어떤 노드에 저장되어야 하는지를 결정하고(external location), **정렬 키**로 노드 내부에서의 아이템 위치를 결정하는 것이다(internal location).
 
-Consistent Hashing 기반의 분산 스토리지는 중앙 관리로 인한 문제를 최소화한다. 하지만 이 디자인은 단일 대상 검색(`key='A'`)만 가능하지 범위 지정 쿼리(`a < key < b`)를 사용할 수 없다는 제약이 있다. DynamoDB에서는 성능을 이유로 기능성의 일부를 포기했지만, 꽤 괜찮은 타협점으로 *파티션 키와 정렬 키*라는 것을 만들어 낸 것이라 볼 수 있다. 이들의 고민과 디자인 철학을 이해하고 나면 보다 더 나은 스키마를 설계할 수 있을 것이라 생각한다. 아래는 scale-out이 제대로 될 수 없는 잘못된 설계인데, DynamoDB가 내부적으로 어떻게 동작하는지를 알면 더 쉽게 문제를 발견할 수 있을 것이다.
+다시 앞서 말했던 `PartitionKey="Article-123" AND SortKey between "Comment-10" and "Comment-20"` 라는 쿼리를 살펴보자. DynamoDB는 해시 알고리즘을 통해서 `Article-123`라는 **파티션 키**를 가진 아이템이 어떤 노드에 위치해있는지를 먼저 알아낸다. 이후 해당 노드의 내부에서 `Comment-10 ≤ SortKey ≤ Comment-20`인 데이터를 조회한다. 노드 내부에서 **정렬 키**에 대해서 인덱스를 사용하고 있을 것이므로 데이터 조회에 fullscan을 할 필요 또한 없다.
+
+Consistent Hashing 기반의 분산 스토리지는 중앙 관리로 인한 문제를 최소화한다. 하지만 이 디자인은 단일 대상 검색(`key='A'`)만 가능하지 range query(`a < key < b`)를 사용할 수 없다는 제약이 있다. DynamoDB에서는 성능을 이유로 기능성의 일부를 포기했지만, 꽤 괜찮은 **타협점으로 파티션 키와 정렬 키라는 것을 만들어 낸 것**이라 볼 수 있다. 이들의 고민과 디자인 철학을 이해하고 나면 보다 더 나은 스키마를 설계할 수 있을 것이라 생각한다. 아래는 scale-out이 제대로 될 수 없는 잘못된 설계인데, DynamoDB가 내부적으로 어떻게 동작하는지를 알면 더 쉽게 문제를 발견할 수 있을 것이다.
 
 <p class="center">
   <img src="/attachs/underneath-dynamodb/inappropriate_scheme.png" width="700" alt="inappropriate_scheme">
@@ -100,7 +107,7 @@ Consistent Hashing 기반의 분산 스토리지는 중앙 관리로 인한 문�
 
 RDBMS를 사용할 때에도 스키마 디자인에 있어 인덱스는 매우 중요했다. DynamoDB는 기본적으로 데이터베이스로서 사용할 수 있는 서비스다. 인덱스 기능 없이 오직 primary키로만 쿼리를 해야 한다면 편의성에 제약이 많아진다. 이러한 수요를 해결하기 위해 DynamoDB에서는 **보조 인덱스(Secondary Index)**라는 기능을 제공한다. 
 
-DynamoDB가 기존 RDMS와 다른 점은 인덱스가 만들어졌을 때 인덱스에 대한 B-Tree만 만드는 것이 아니라, 아예 해당 인덱스가 Primary Key가 되는 **별도의 테이블**을 만든다는 것에 있다. [테이블 1](#table1)에서 UserId 컬럼에 대해 보조 인덱스를 걸었을 때 새로 생기는 테이블은 아래와 같다. 이 두 테이블은 달라 보이지만 레코드만 놓고 보면 그 내용은 모두 같다. 즉 보조 인덱스 테이블도 일종의 replication으로 취급될 수 있다. *(ps. 레코드 내용이 항상 같지는 않을 수도 있다. 인덱스 테이블에 모든 레코드를 복제하지 않고 일부 속성만 프로젝션 할 수도 있다. 물론 이 경우에도 replication으로 취급 할 수 있다.)*
+DynamoDB가 기존 RDMS와 다른 점은 인덱스가 만들어졌을 때 인덱스에 대한 B-Tree만 만드는 것이 아니라, 아예 해당 인덱스가 Primary Key가 되는 **별도의 테이블**을 만든다는 것에 있다. 그리고 별도의 테이블이 만들어진다는 것은 **인덱스가 원본 테이블과는 물리적으로 다른 노드에 위치할 수 있다는 것**을 의미한다. [테이블 1](#table1)에서 UserId 컬럼에 대해 보조 인덱스를 걸었을 때 새로 생기는 테이블은 아래와 같다. 이 두 테이블은 달라 보이지만 레코드만 놓고 보면 그 내용은 모두 같다. 즉 보조 인덱스 테이블도 일종의 replication으로 취급될 수 있다. *(ps. 레코드 내용이 항상 같지는 않을 수도 있다. 인덱스 테이블에 모든 레코드를 복제하지 않고 일부 속성만 프로젝션 할 수도 있다. 물론 이 경우에도 replication으로 취급 할 수 있다.)*
 
 <p class="center">
   <img src="/attachs/underneath-dynamodb/sample_gsi.png" width="700" alt="sample_gsi">
@@ -112,7 +119,7 @@ DynamoDB가 기존 RDMS와 다른 점은 인덱스가 만들어졌을 때 인덱
 
 생각해보라. 만약 인덱스에 테이블에 대해서 완전한 consistency를 보장한다면, 인덱스가 많아질수록 그 수에 비례해 write availability가 떨어질 것이다 (3개의 노드 모두가 operation을 성공할 확률과 9개의 노드가 모두 성공할 확률은 분명 다르다). 이 때문인지 [a. 읽기 일관성](#a-읽기-일관성)에서 언급했던 *Consistent Read 옵션도* 글로벌 보조 인덱스에서는 아예 지원되지 않는다.
 
-위에서 설명한 인덱스는 정확히는 글로벌 보조 인덱스(Global Secondary Index; GSI)이고, DynamoDB에는 로컬 보조 인덱스(Local Secondary Index; LSI)라는 하나의 인덱스가 더 존재한다. LSI는 기본 테이블과 파티션 키는 동일하지만 정렬 키는 다른 인덱스이다. GSI와 달리 LSI는 강력한 일관성을 보장한다. 대신에 LSI는 GSI와 달리 해당 파티션 키의 노드와 같은 곳에 테이블이 만들어진다. 즉 LSI는 충분히 scalable 하지 않는다. 그래서인지 실제로 [AWS의 공식 문서](https://docs.aws.amazon.com/ko_kr/amazondynamodb/latest/developerguide/bp-indexes-general.html)에서도 LSI보다 GSI를 사용하는 것을 권장하고 있다.
+위에서 설명한 인덱스는 정확히는 글로벌 보조 인덱스(Global Secondary Index; GSI)이고, DynamoDB에는 로컬 보조 인덱스(Local Secondary Index; LSI)라는 하나의 인덱스가 더 존재한다. LSI는 기본 테이블과 파티션 키는 공유하지만 다른 컬럼을 정렬 키로 사용할 수 있게 하는 인덱스이다. GSI와 달리 LSI는 강력한 일관성을 보장한다. 대신에 LSI는 GSI와 달리 해당 파티션 키의 노드와 같은 곳에 테이블이 만들어진다. 즉 LSI는 충분히 scalable 하지 않는다. 그래서인지 실제로 [AWS의 공식 문서](https://docs.aws.amazon.com/ko_kr/amazondynamodb/latest/developerguide/bp-indexes-general.html)에서도 LSI보다 GSI를 사용하는 것을 권장하고 있다.
 
 이러한 인덱스 디자인은 기본적으로 eventual consistency만 보장하자는 가정아래였기에 가능한 설계이라고 생각된다. 그 덕분에 편의성을 높이면서도 Dynamo에서 가장 중요하게 여겼던 가용성과 확장성은 여전히 잘 보장하고 있다.
 
