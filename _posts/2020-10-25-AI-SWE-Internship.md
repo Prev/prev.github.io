@@ -6,7 +6,9 @@ image: ai-swe-internship/backbone-pipeline.png
 ---
 
 <script>
-  document.querySelector('video').playbackRate = 4.0;
+  document.addEventListener('load', function () {
+    document.querySelector('video').playbackRate = 4.0;
+  });
 </script>
 
 얼마 전 N사의 C모 AI 연구 조직에서 Software Engineering(SWE) 인턴을 3개월간 진행했다. 특히 내가 있었던 팀은 회사 내에서도 개발보다는 연구에 치우쳐져 있는 조직이었는데, 구체적으로는 팀원분들이 모두 박사학위를 소지하고 있는 연구 중심적인 팀이었다. 처음 이 팀에 들어가게 된 이후 이런 팀에 엔지니어 인력이 왜 필요한지, 또 엔지니어로서 팀에 기여할 수 있는 부분이 무엇이 있는지 정말 고민을 많이 했었다. 특히 조직 문화가 시키는 일만 따박따박 하기보단 스스로 할 일을 찾고 제안하는 분위기였기에, 인턴 기간 동안 내가 할 수 있는 것을 잘 찾아야만 의미 있는 아웃풋을 낼 수 있으리라 생각했다.
@@ -205,7 +207,3 @@ N사의 AI 연구 조직에서도 Docker는 적극적으로 이용되고 있다.
 정리를 하고 보니 3개월이라는 짧은 시간 동안 꽤 많은 것들을 한 것 같은데, 이는 <strong>처음부터 어떤 것들을 할지에 대한 충분한 고민</strong>이 있었기에 가능했던 것이라고 생각한다. 특히 계획을 세우는 과정 중에 여러 회사의 career 페이지에서 Research Software Engineer, 혹은 AI Software Engineer의 업무를 찾아보고 그중 할 수 있는 일들을 찾아보기까지 하면서 내가 할 수 있는 것들이 무엇인지를 찾는데 많은 시간을 투자했었다.
 
 그 결과 다양한 작업들을 진행하며 Computer Vision 분야에 대한 기본적인 이해와 AI Research Scientist 들이 일하는 방식을 배울 수 있었고, 또 AI 연구 분야에서도 해볼 만한 engineering task가 정말 많다는 것을 느낄 수 있었다. 하지만 무엇보다 값졌던 경험은 <strong>조직에 능동적으로 기여하고자 하는 태도와 그에 따른 결과</strong>라고 생각하는데, 누가 시키지 않아도 팀에 도움이 될만한 일들이 무엇이 있을지 지속적인 고민을 했었고, 또 해보고자 하는 것들을 적극 시도했기에 이런 결과를 낼 수 있었다고 생각한다.
-
-<script>
-  document.querySelector('video').playbackRate = 4.0;
-</script>

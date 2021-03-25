@@ -6,11 +6,11 @@ tags: ['스토리']
 image: colorscripter-6th/cover.png
 ---
 
-<p class="center margined">
+<!-- <p class="center margined">
 	<img src="/attachs/colorscripter-6th/logo.png" width="445">
-</p>
+</p> -->
 
-내가 운영하고 있는 서비스 중에 "Color Scripter" 라는 것이 있다. Syntax Highlighter (웹 상에서 코드를 볼 때 코드의 가독성을 높이기 위해 색을 바꿔주는 것)의 일종이고, 만들어진지 만 6년이 되어가고 있으며(2018년 2월 기준) 현재는 **일 평균 4~500명** 정도가 찾는다. 
+내가 운영하고 있는 서비스 중에 [Color Scripter](http://colorscripter.com/) 라는 것이 있다. Syntax Highlighter (웹 상에서 코드를 볼 때 코드의 가독성을 높이기 위해 색을 바꿔주는 것)의 일종이고, 만들어진지 만 6년이 되어가고 있으며(2018년 2월 기준) 현재는 **일 평균 4~500명** 정도가 찾는다. 
 
 한국에서는 꽤 많이 쓰이는 프로그램인데, 내가 정보를 찾기 위해 구글링을 하다 보면 이 프로그램을 써서 코드를 올린 블로그를 종종 발견하곤 한다. 그렇기 때문에 쉽게 서비스를 중단할 수 없고, 또 애정을 가질 수밖에 없기도 하다.
 
