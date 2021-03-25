@@ -5,7 +5,7 @@ tags: ['프론트엔드']
 image: sc-st-on-react/cover.jpg
 ---
 
-제니퍼소프트에서 프론트엔드 제품 개발을 하면서 제품 내의 컴포넌트가 너무 비대해지고 CSS dependency도 복잡하게 얽혀있어 정리가 필요한 시점이 오고 있었다. 이에 <u>① 컴포넌트의 재사용을 쉽게 하고</u> <u>② 꼬여있던 스타일을 정리하며</u> <u>③ 테스트 코드 작성까지 용이</u>하도록 **주요 컴포넌트를 프로덕트에서 분리**하기로 하였고, [styled-components](https://www.styled-components.com/)와 [Storybook](https://storybook.js.org/)을 이용하기로 하였다. 또 기존 코드에서 TypeScript를 사용하고 있었기에 분리한 컴포넌트들도 마찬가지로 TypeScript를 이용하기로 했다.
+프론트엔드 제품 개발을 하면서 제품 내의 컴포넌트가 너무 비대해지고 CSS dependency도 복잡하게 얽혀있어 정리가 필요한 시점이 오고 있었다. 이에 ① 컴포넌트의 재사용을 쉽게 하고 ② 꼬여있던 스타일을 정리하며 ③ 테스트 코드 작성까지 용이하도록 **주요 컴포넌트를 프로덕트에서 분리**하기로 하였고, [styled-components](https://www.styled-components.com/)와 [Storybook](https://storybook.js.org/)을 이용하기로 하였다. 또 기존 코드에서 TypeScript를 사용하고 있었기에 분리한 컴포넌트들도 마찬가지로 TypeScript를 이용하기로 했다.
 
 
 
@@ -17,7 +17,7 @@ image: sc-st-on-react/cover.jpg
 
 React에서 컴포넌트 스타일링을 하는 방법에는 여러 가지가 있다. 가장 간단한 방법으로 `.css` 파일을 import 하거나, Sass/SCSS 등 CSS Preprocessor를 사용하는 방법, 여기에 CSS module을 이용하는 방법, `CSS-in-JS` 라이브러리를 이용하는 방법 등이 있다. 자세한 내용은 [이 글](https://velog.io/@velopert/react-component-styling)에 정리가 잘 되어있다.
 
-우리는 CSS-in-JS 라이브러리 중 가장 핫한 [**styled-components**](https://www.styled-components.com/)를 사용하기로 했다. styled-components에서는 `tagged template literal` 이라는 syntax를 이용하여 스타일을 정의하게 되는데, JavaScript에서 스타일을 줄 때 보통 object로 주었던 것과 비교해서 훨씬 깔끔하고 CSS의 문법 거의 그대로를 적용시킬 수 있어서 마이그레이션도 꽤 편리하다.
+우리는 CSS-in-JS 라이브러리 중 가장 핫한 [styled-components](https://www.styled-components.com/)를 사용하기로 했다. styled-components에서는 `tagged template literal` 이라는 syntax를 이용하여 스타일을 정의하게 되는데, JavaScript에서 스타일을 줄 때 보통 object로 주었던 것과 비교해서 훨씬 깔끔하고 CSS의 문법 거의 그대로를 적용시킬 수 있어서 마이그레이션도 꽤 편리하다.
 
 ```jsx
 import styled from 'styled-components';
@@ -158,7 +158,7 @@ Single Page Application(SPA) 개발을 진행하다 보면 컴포넌트를 중�
 
 ### 스토리 (Stories)
 
-Storybook에서 컴포넌트를 이용하여 그 사용법 등을 보여주는 코드를 스토리(Stories)라 부른다. `*.stories.js` 같은 확장자를 이용하여 컴포넌트와 같은 위치에 작성할 수도 있고, 별개의 `stories` 디렉토리를 만들어서 적어줄 수도 있다. 코드는 아래처럼 생겼으며, 보통 <u>컴포넌트 단위마다</u> 스토리를 적어준다.
+Storybook에서 컴포넌트를 이용하여 그 사용법 등을 보여주는 코드를 스토리(Stories)라 부른다. `*.stories.js` 같은 확장자를 이용하여 컴포넌트와 같은 위치에 작성할 수도 있고, 별개의 `stories` 디렉토리를 만들어서 적어줄 수도 있다. 코드는 아래처럼 생겼으며, 보통 **컴포넌트 단위마다** 스토리를 적어준다.
 
 ```jsx
 import React from 'react';

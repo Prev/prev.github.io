@@ -6,7 +6,7 @@ image: ai-swe-internship/backbone-pipeline.png
 ---
 
 <script>
-  document.querySelector('video').playbackRate = 3;
+  document.querySelector('video').playbackRate = 4.0;
 </script>
 
 얼마 전 N사의 C모 AI 연구 조직에서 Software Engineering(SWE) 인턴을 3개월간 진행했다. 특히 내가 있었던 팀은 회사 내에서도 개발보다는 연구에 치우쳐져 있는 조직이었는데, 구체적으로는 팀원분들이 모두 박사학위를 소지하고 있는 연구 중심적인 팀이었다. 처음 이 팀에 들어가게 된 이후 이런 팀에 엔지니어 인력이 왜 필요한지, 또 엔지니어로서 팀에 기여할 수 있는 부분이 무엇이 있는지 정말 고민을 많이 했었다. 특히 조직 문화가 시키는 일만 따박따박 하기보단 스스로 할 일을 찾고 제안하는 분위기였기에, 인턴 기간 동안 내가 할 수 있는 것을 잘 찾아야만 의미 있는 아웃풋을 낼 수 있으리라 생각했다.
@@ -21,10 +21,10 @@ image: ai-swe-internship/backbone-pipeline.png
 
 Machine Learning의 결과는 보통 모델이라 불리는 파일로 저장된다. 모델 파일에는 주로 weight matrix 값이 저장되어 있으며, 모델을 불러옴으로써 중단된 training을 계속하거나 inference(추론)에 사용할 수 있다. 보통 training 한 번에 수 시간~수 일씩 소요되기 때문에 model 파일을 잘 관리할 수 있다면 중복된 training 작업을 줄일 수 있게 된다. 특히 요즘에는 모델의 training이 한 번에 끝나지 않고 Transfer Learning 이나 Finetuning 처럼 1차 모델을 학습시키고, 해당 모델을 바탕으로 2차 모델을 학습시키는 식으로 진행되기 때문에, 모델 파일에 대한 관리는 중요해져 가고 있다고 볼 수 있다.
 
-이쯤이면 다들 눈치를 챘겠지만 내가 이 팀에서 개발한 Web Service는 **Machine Learning 모델을 저장하고 관리할 수 있는 사내 서비스**다. 기존의 CLI 형태로 모델 파일에 대한 업로드/다운로드를 진행할 수 있게끔 만들어져 있는 라이브러리를 커스터마이징하고 웹 서비스 형태를 추가적으로 개발하는 작업을 가장 먼저 진행하였다.
+이러한 배경을 가지고 내가 이 팀에서 개발한 Web Service는 **Machine Learning 모델을 저장하고 관리할 수 있는 사내 서비스**다. 기존의 CLI 형태로 모델 파일에 대한 업로드/다운로드를 진행할 수 있게끔 만들어져 있는 라이브러리를 커스터마이징하고 웹 서비스 형태를 추가적으로 개발하는 작업을 인턴 기간 중 가장 먼저 진행하였다.
 
 <p class="center">
-  <img src="/attachs/ai-swe-internship/modelbase.png" width="600">
+  <img src="/attachs/ai-swe-internship/modelbase.png" width="800">
 </p>
 
 
@@ -51,10 +51,10 @@ Machine Learning의 결과는 보통 모델이라 불리는 파일로 저장된�
 Machine Learning에서 training args는 모델을 기술(description) 할 수 있는 최고의 데이터이다. 논문을 통해 새롭게 제안된 아키텍처나 training technique가 새로운 args로 들어가기도 하고, 반대로 args의 차이에 따른 성능 변화가 새로운 논문의 재료가 되기도 한다. 때문에 ML 모델의 관리를 도와주는 서비스에서는 다른 정보보다 training args에 대해 잘 보여주는 것이 가장 중요하다고 생각했고, 실제로 개발한 서비스에서도 모델의 training args를 중요한 데이터로 사용했다. Training args는 모델 ID를 생성하는데 사용되는 것 뿐만 아니라, 아래 비디오처럼 여러 모델 간 비교 시 args를 기반으로 diff를 보여주는 기능에서도 주요하게 이용되도록 개발을 진행했다.
 
 <p class="center">
-  <video autoplay loop muted playsinline>
+  <video autoplay loop muted playsinline width="700" style="border: 1px solid #e0e0e0; box-sizing: border-box;">
     <source src="/attachs/ai-swe-internship/modelbase1.mp4" type="video/mp4">
     <!-- Fallback -->
-    <img src="/attachs/ai-swe-internship/modelbase1.gif" width="600">
+    <img src="/attachs/ai-swe-internship/modelbase1.gif" width="800">
   </video>
 </p>
 
@@ -63,15 +63,15 @@ Machine Learning에서 training args는 모델을 기술(description) 할 수 �
 
 ### 2) Training args로 모델을 검색, 정렬
 
-위의 기능에서는 소수 모델에 대해 args를 보고 비교해볼 수 있었다면, 다수의 모델 리스트에 대해서도 테이블 뷰를 통해 args로 검색과 정렬이 가능한 기능도 존재한다. Notion의 테이블을 써봤다면 익숙할법할 기능으로, 원하는 args에 대해 새로운 테이블 열로 projection이 가능하며, 테이블에서의 정렬과 검색 모두 지원한다.
+위의 기능에서는 소수 모델에 대해 args를 보고 비교해볼 수 있었다면, 다수의 모델 리스트에 대해서도 테이블 뷰를 통해 args로 검색과 정렬이 가능한 기능도 존재한다. [Notion](https://www.notion.so/)의 테이블을 써봤다면 익숙할법할 기능으로, 원하는 args에 대해 새로운 테이블 열로 projection이 가능하며, 테이블에서의 정렬과 검색 모두 지원한다.
 
 최근 Machine Learning에 사용되는 기술들이 정말 많아지고 있는 만큼, 한두 개의 필드만으로는 모델을 정확히 설명하기 어렵다고 생각한다. (hyperparameter가 여간 많아야지..) 그런 만큼 보다 유동적으로 검색에 대응하기 위하여 테이블에서 보고자 하는 필드를 상황에 맞게 바꿀 수 있도록 이 기능은 꼭 있어야 한다고 생각했고, 높은 우선순위로 작업을 진행하였다.
 
 <p class="center">
-  <video autoplay loop muted playsinline>
+  <video autoplay loop muted playsinline width="700" style="border: 1px solid #e0e0e0; box-sizing: border-box;">
     <source src="/attachs/ai-swe-internship/modelbase2.mp4" type="video/mp4">
     <!-- Fallback -->
-    <img src="/attachs/ai-swe-internship/modelbase2.gif" width="600">
+    <img src="/attachs/ai-swe-internship/modelbase2.gif" width="800">
   </video>
 </p>
 
@@ -85,10 +85,10 @@ Machine Learning에서 training args는 모델을 기술(description) 할 수 �
 때로는 팀 내에서 연구용으로 만들었던 모델을 다른 팀이나 외부에 공유할 일이 있을 수 있다. 이 경우에 특정한 모델에 대해서 선택적으로 공유가 가능하며, Markdown으로 README를 작성할 수도 있게 개발을 진행했다.
 
 <p class="center">
-  <video autoplay loop muted playsinline>
+  <video autoplay loop muted playsinline width="700" style="border: 1px solid #e0e0e0; box-sizing: border-box;">
     <source src="/attachs/ai-swe-internship/modelbase3.mp4" type="video/mp4">
     <!-- Fallback -->
-    <img src="/attachs/ai-swe-internship/modelbase3.gif" width="600">
+    <img src="/attachs/ai-swe-internship/modelbase3.gif" width="800">
   </video>
 </p>
 
@@ -162,7 +162,7 @@ N사의 AI 연구 조직에서도 Docker는 적극적으로 이용되고 있다.
 <p class="center">
   <img src="/attachs/ai-swe-internship/backbone-pipeline.png">
   <span class="caption">
-    인턴 기간이 끝나갈 때쯤의 ML 코드 파이프라인.<br>
+    인턴 기간이 끝나갈 때쯤의 ML 코드 파이프라인.
     연구 생산성을 위한 다양한 기법들을 경험할 수 있었고, 일부 파이프라인의 개발에도 어느 정도 기여할 수 있었다.
   </span>
 </p>
@@ -198,10 +198,14 @@ N사의 AI 연구 조직에서도 Docker는 적극적으로 이용되고 있다.
 
 인턴을 하면서 진행했던 3가지 작업에 걸쳐 소개를 했었는데, 각 작업에 대한 성과를 요약하자면 아래처럼 쓸 수 있을 것 같다.
 
-- AI 연구자를 위한 사내 Web Service 개발 → 작은 규모지만 온전한 사내 서비스 개발 완료
-- 사내 ML Code 개발 참여 → 작지만 팀에서 필요로 했던 작업들 처리 완료
-- 엔지니어링 중심의 개인 연구 주제 진행 → 자신만의 아이디어를 공유하고 발전시킬 수 있었던 기회
+- Task 1: AI 연구자를 위한 사내 Web Service 개발 → 작은 규모지만 온전한 사내 서비스 개발 완료
+- Task 2: 사내 ML Code 개발 참여 → 작지만 팀에서 필요로 했던 작업들 처리 완료
+- Task 3: 엔지니어링 중심의 개인 연구 주제 진행 → 자신만의 아이디어를 공유하고 발전시킬 수 있었던 기회
 
 정리를 하고 보니 3개월이라는 짧은 시간 동안 꽤 많은 것들을 한 것 같은데, 이는 <strong>처음부터 어떤 것들을 할지에 대한 충분한 고민</strong>이 있었기에 가능했던 것이라고 생각한다. 특히 계획을 세우는 과정 중에 여러 회사의 career 페이지에서 Research Software Engineer, 혹은 AI Software Engineer의 업무를 찾아보고 그중 할 수 있는 일들을 찾아보기까지 하면서 내가 할 수 있는 것들이 무엇인지를 찾는데 많은 시간을 투자했었다.
 
 그 결과 다양한 작업들을 진행하며 Computer Vision 분야에 대한 기본적인 이해와 AI Research Scientist 들이 일하는 방식을 배울 수 있었고, 또 AI 연구 분야에서도 해볼 만한 engineering task가 정말 많다는 것을 느낄 수 있었다. 하지만 무엇보다 값졌던 경험은 <strong>조직에 능동적으로 기여하고자 하는 태도와 그에 따른 결과</strong>라고 생각하는데, 누가 시키지 않아도 팀에 도움이 될만한 일들이 무엇이 있을지 지속적인 고민을 했었고, 또 해보고자 하는 것들을 적극 시도했기에 이런 결과를 낼 수 있었다고 생각한다.
+
+<script>
+  document.querySelector('video').playbackRate = 4.0;
+</script>

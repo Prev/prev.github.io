@@ -95,6 +95,7 @@ header#site-header .title{
 	margin-top: 1px;
 	margin-left: 10px;
 	vertical-align: top;
+	font-weight: 600;
 }
 
 nav#gnb{
@@ -150,6 +151,12 @@ section.w800{
 	margin: 30px auto;
 }
 
+section.w700{
+	position: relative;
+	width: 700px;
+	margin: 30px auto;
+}
+
 /* component/post-list */
 ul.post-list{
 	list-style: none;
@@ -174,7 +181,8 @@ ul.post-list li:after{
 
 ul.post-list li .content{
 	float: left;
-	width: 650px;
+	/* width: 650px; */
+	width: 500px;
 }
 
 ul.post-list li .content h4{
@@ -196,7 +204,7 @@ ul.post-list li .content h4 a:hover{
 ul.post-list li .content h4 strong{
 	color: black;
 	font-size: 20px;
-	font-weight: normal;
+	font-weight: 500;
 }
 
 ul.post-list li .content h4 .comments-count .fb_comments_count{
@@ -249,7 +257,7 @@ ul.post-list li .thumbnail{
 	section.w800{ padding-top: 0 }
 
 	ul.post-list li .content{
-		width: 385px;
+		width: 350px;
 	}
 
 	nav#gnb ul{

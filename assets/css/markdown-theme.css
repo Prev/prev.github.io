@@ -1,7 +1,14 @@
 @charset "utf-8";
 
 .md-theme p {
-	/*line-height: 150%;*/
+	line-height: 170%;
+	word-break: keep-all;
+    font-family: georgia,'Noto Serif KR', serif;
+}
+
+.md-theme ul li,
+.md-theme ol li {
+	font-family: georgia, 'Noto Serif KR', serif;
 }
 
 .md-theme a {
@@ -83,7 +90,7 @@
 .md-theme pre {
 	border-radius: 4px;
 	margin: 10px 0;
-	padding: 15px;
+	padding: 15px 20px;
 	overflow: auto;
 	white-space: pre;
 	background-color: #f5f2f0;
@@ -161,5 +168,11 @@ code[class*="language-"], pre[class*="language-"] {
 	.md-theme table.full{
 		margin-left: -20px;
 		width: calc(100% + 40px);
+	}
+}
+
+@media (max-width: 573px) {
+	.md-theme p {
+		word-break: break-all;
 	}
 }
