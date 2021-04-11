@@ -270,7 +270,8 @@ ul.post-list li .thumbnail{
 
 @media (max-width: 573px) {
 	section,
-	section.w800{
+	section.w800,
+	section.w700{
 		width: auto;
 	}
 
