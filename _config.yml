@@ -12,8 +12,8 @@ baseurl: /
 google_analytics: 'UA-34015951-1'
 disqus_shortname: 'prevdev'
 
-url:            'https://prev.kr'
-site_url:       'https://prev.kr'
+url:            'https://prev.github.io'
+site_url:       'https://prev.github.io'
 author:         'Prev'
 permalink:       /posts/:title/
 future:         true
