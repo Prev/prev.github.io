@@ -3,7 +3,7 @@
 .md-theme p {
 	line-height: 170%;
 	word-break: keep-all;
-    font-family: georgia,'Noto Serif KR', serif;
+    font-family: georgia, 'Noto Serif KR', serif;
 }
 
 .md-theme ul li,
@@ -174,5 +174,6 @@ code[class*="language-"], pre[class*="language-"] {
 @media (max-width: 573px) {
 	.md-theme p {
 		word-break: break-all;
+		font-family: "Apple SD Gothic Neo", BlinkMacSystemFont, georgia, 'Noto Serif KR', sans-serif;
 	}
 }
