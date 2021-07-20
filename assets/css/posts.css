@@ -17,6 +17,7 @@ section.post-list > header h3 strong{
 }
 
 section.post-list > header a{
+	display: inline-block;
 	text-decoration: none;
 	margin: 0 3px;
 	color: #999;

@@ -103,7 +103,7 @@ article .post-body .caption{
 	font-size: 15px;
 	color: #909090;
 	text-align: center;
-	font-family: "Apple SD Gothic Neo",BlinkMacSystemFont,"나눔고딕",NanumGothic,Arial,Helvetica,sans-serif;
+	font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Pretendard, Roboto, 'Noto Sans KR', 'Segoe UI', 'Malgun Gothic', sans-serif;
 	line-height: 140%;
 }
 
