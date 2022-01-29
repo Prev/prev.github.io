@@ -1,7 +1,7 @@
 ---
 title: Docker와 EC2 Spot Instance로 병렬 작업 수행하기
 description: Docker를 이용해서 크롤링 작업을 패키징 한 후, EC2 Spot Instance를 이용하여 병렬로 작업 수행하기
-tags: ['백엔드', '데브옵스']
+tags: ['백엔드']
 image: ec2-parallel-tasks/parallel-tasks.png
 ---
 

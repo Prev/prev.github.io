@@ -1,7 +1,7 @@
 ---
 title: AI 연구 조직에서의 SWE 인턴기
 description: AI 연구 조직에서 Software Engineering Intern으로 일하며 진행했던 작업들의 소개
-tags: ['스토리']
+tags: ['스토리', '머신러닝']
 image: ai-swe-internship/backbone-pipeline.png
 ---
 

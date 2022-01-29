@@ -1,7 +1,7 @@
 ---
 title: Underneath DynamoDB
 description: Dynamo 논문에서의 핵심 아이디어로 이해한 DynamoDB의 디자인
-tags: ['시스템디자인', '데이터베이스']
+tags: ['데이터베이스', '백엔드', 'CS']
 image: underneath-dynamodb/cover.png
 ---
 
