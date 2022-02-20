@@ -173,7 +173,8 @@ code[class*="language-"], pre[class*="language-"] {
 
 @media (max-width: 573px) {
 	.md-theme p {
-		word-break: break-all;
-		font-family: "Apple SD Gothic Neo", BlinkMacSystemFont, georgia, 'Noto Serif KR', sans-serif;
+		/* word-break: break-all; */
+		text-align: left;
+		/* font-family: "Apple SD Gothic Neo", BlinkMacSystemFont, georgia, 'Noto Serif KR', sans-serif; */
 	}
 }
