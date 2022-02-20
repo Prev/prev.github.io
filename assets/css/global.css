@@ -243,6 +243,7 @@ ul.post-list li .content .footer .date{
 }
 
 ul.post-list li .content .footer .tag{
+	display: inline-block;
 	background-color: #eee;
     color: #666;
     border-radius: 8px;
