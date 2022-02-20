@@ -148,6 +148,13 @@ section.w800{
 	margin: 30px auto;
 }
 
+section.w750{
+	position: relative;
+	width: 750px;
+	margin: 30px auto;
+}
+
+
 section.w700{
 	position: relative;
 	width: 700px;
@@ -162,8 +169,9 @@ ul.post-list{
 }
 
 ul.post-list li{
+	position: relative;
 	margin: 20px 0;
-	padding: 18px 15px 10px;
+	padding: 18px 18px 16px;
 	box-shadow: 0 2px 10px 0 #ddd;
 	border-radius: 5px;
 	line-height: 1.4;
@@ -200,7 +208,7 @@ ul.post-list li .content h4 a:hover{
 ul.post-list li .content h4 strong{
 	color: black;
 	font-size: 20px;
-	font-weight: 400;
+	font-weight: 500;
 }
 
 ul.post-list li .content h4 .comments-count .fb_comments_count{
@@ -214,23 +222,32 @@ ul.post-list li .content h4 .comments-count .fb_iframe_widget{
 	display: none;
 }
 
-ul.post-list li .content p.date{
-	color: #333;
-	/*margin: 3px 0;*/
-	margin: 0;
-}
-
 ul.post-list li .content p{
 	color: #777;
-	margin: 0 0 8px;
+	margin: 5px 0 25px;
+	font-size: 15px;
+	font-family: georgia, 'Noto Serif KR', serif;
 }
 
-ul.post-list li .content p .tag{
+ul.post-list li .content .footer{
+	position: absolute;
+	bottom: 16px;
+}
+
+ul.post-list li .content .footer .date{
+	display: inline-block;
+	color: #777;
+	margin: 0 5px 0 2px;
+	font-size: 14px;
+    padding: 1px 0;
+}
+
+ul.post-list li .content .footer .tag{
 	background-color: #eee;
     color: #666;
     border-radius: 8px;
     font-size: 12px;
-    padding: 1px 5px 0;
+    padding: 1px 5px 1px;
 }
 
 ul.post-list li .thumbnail{
@@ -244,6 +261,7 @@ ul.post-list li .thumbnail{
 
 @media (max-width: 850px) {
 	section,
+	section.w750,
 	section.w800{
 		max-width: 570px;
 		padding: 15px;
@@ -267,6 +285,7 @@ ul.post-list li .thumbnail{
 @media (max-width: 573px) {
 	section,
 	section.w800,
+	section.w750,
 	section.w700{
 		width: auto;
 	}
@@ -288,6 +307,11 @@ ul.post-list li .thumbnail{
 	ul.post-list li .content{
 		float: none;
 		width: auto;
+	}
+
+	ul.post-list li .content .footer{
+		position: relative;
+		margin-bottom: 3px;
 	}
 
 	ul.post-list li .thumbnail{

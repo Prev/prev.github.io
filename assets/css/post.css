@@ -43,7 +43,12 @@ article header h1 span{
 article header .date{ color: #444 }
 
 article header .tags{ margin-top: 3px; }
-article header .tags a{ color: #444; text-decoration: none; }
+article header .tags a{
+	display: inline-block;
+	color: #444;
+	text-decoration: none;
+	margin: 0 3px;
+}
 article header .tags a:hover{ text-decoration: underline; }
 
 article .post-body{
@@ -169,7 +174,7 @@ article footer .readmore h4 strong{
 }
 
 article footer .readmore .content p{
-	margin: 3px 0 !important;
+	margin-top: 3px !important;
 }
 
 article footer .readmore .thumbnail{

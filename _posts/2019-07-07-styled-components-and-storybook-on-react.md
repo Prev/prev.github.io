@@ -1,7 +1,7 @@
 ---
 title: styled-components + Storybook + TypeScript로 React 컴포넌트 관리하기
 description: styled-components + Storybook + TypeScript로 React 컴포넌트 관리하기
-tags: ['프론트엔드']
+tags: ['Frontend']
 image: sc-st-on-react/cover.jpg
 ---
 

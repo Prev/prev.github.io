@@ -6,7 +6,7 @@ type: posts
 <article class="post">
 	<header>
 		<h1><span>{{ page.title }}</span></h1>
-		<div class="date">{{ page.date | date:"%-m월 %-d일, %Y" }}</div>
+		<div class="date">{{ page.date | date: "%b. %-d, %Y" }}</div>
 		<div class="tags">
 		{% for tag in page.tags %}
 			<a href="/posts/tag/{{ tag | replace: '/', '-' }}">#{{ tag }}</a>
@@ -26,7 +26,7 @@ type: posts
 		</section>
 
 		<section class="readmore">
-			<h3>관련 글 더보기</h3>
+			<h3>Read more</h3>
 			<ul class="post-list">
 			{% assign tag = page.tags[0] %}
 			{% for post in site.tags[tag] %}

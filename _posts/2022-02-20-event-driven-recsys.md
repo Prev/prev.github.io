@@ -1,7 +1,7 @@
 ---
 title: Event-driven Live-streaming Recommender System
 description: Introduction of live-streaming recommender system implemented with MSA and EDA
-tags: ['백엔드', '머신러닝', 'English']
+tags: ['Backend', 'Machine Learning', 'English']
 image: event-driven-recsys/cover.png
 ---
 
@@ -9,7 +9,7 @@ image: event-driven-recsys/cover.png
 > 한국어 포스트를 보시려면 위 링크를 클릭해주세요.
 
 We face various engineering challenges when applying machine learning technologies to products.
-This article introduces the challenges we have encountered while building a **Live-streaming recommender system** applied in Azar Live and Hakuna Live, the live-streaming platforms of Hyperconnect.
+This article introduces the challenges we have encountered while building a **Live-streaming recommender system** applied in Azar Live and Hakuna Live, the live-streaming platforms of [Hyperconnect](https://hyperconnect.com/).
 
 
 ## Recommender System on Live-streaming
