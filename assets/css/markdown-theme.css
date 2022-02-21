@@ -172,7 +172,8 @@ code[class*="language-"], pre[class*="language-"] {
 }
 
 @media (max-width: 573px) {
-	.md-theme p {
+	.md-theme p,
+	.md-theme ul {
 		/* word-break: break-all; */
 		word-break: break-word;
 		text-align: left;
