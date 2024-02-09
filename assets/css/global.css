@@ -170,9 +170,9 @@ ul.post-list{
 
 ul.post-list li{
 	position: relative;
-	margin: 20px 0;
+	margin: 30px 0;
 	padding: 18px 18px 16px;
-	box-shadow: 0 2px 10px 0 #ddd;
+	/* box-shadow: 0 2px 10px 0 #ddd; */
 	border-radius: 5px;
 	line-height: 1.4;
 	*zoom: 1;
@@ -207,8 +207,9 @@ ul.post-list li .content h4 a:hover{
 
 ul.post-list li .content h4 strong{
 	color: black;
-	font-size: 20px;
-	font-weight: 500;
+	font-size: 22px;
+	font-weight: 600;
+	line-height: 1.2;
 }
 
 ul.post-list li .content h4 .comments-count .fb_comments_count{

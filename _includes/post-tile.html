@@ -22,5 +22,7 @@
 			{% endfor %}
 		</div>
 	</div>
+	{% if post.image %}
 	<div class="thumbnail" style="background-image: url('/attachs/{{ post.image }}')"></div>
+	{% endif %}
 </li>
