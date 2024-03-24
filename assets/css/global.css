@@ -170,10 +170,10 @@ ul.post-list{
 
 ul.post-list li{
 	position: relative;
-	margin: 30px 0;
-	padding: 18px 18px 16px;
-	/* box-shadow: 0 2px 10px 0 #ddd; */
+	margin: 10px 0;
+	padding: 18px 18px 38px;
 	border-radius: 5px;
+	border-bottom: 1px solid #ddd;
 	line-height: 1.4;
 	*zoom: 1;
 }
@@ -232,7 +232,7 @@ ul.post-list li .content p{
 
 ul.post-list li .content .footer{
 	position: absolute;
-	bottom: 16px;
+	bottom: 30px;
 }
 
 ul.post-list li .content .footer .date{
