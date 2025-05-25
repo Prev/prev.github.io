@@ -202,7 +202,7 @@ article footer .readmore .thumbnail{
 	}
 
 	article .post-body pre{
-		width: calc(100% + 10px); /* padding */
+		width: 100%;
 		margin-left: -20px;
 		overflow: auto;
 	}
