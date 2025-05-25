@@ -186,7 +186,7 @@ ul.post-list li:after{
 
 ul.post-list li .content{
 	float: left;
-	width: 500px;
+	width: 460px;
 }
 
 ul.post-list li .content h4{
@@ -254,7 +254,7 @@ ul.post-list li .content .footer .tag{
 
 ul.post-list li .thumbnail{
 	float: right;
-	width: 150px;
+	width: 190px;
 	height: 100px;
 	background-size: cover;
 	background-position: center center;

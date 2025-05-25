@@ -55,6 +55,9 @@
 	line-height: normal;
 	margin: 28px 0 5px 0;
 }
+.md-theme h1 code {
+	font-size: 1.9em;
+}
 
 .md-theme h2{
 	font-size: 30px;
@@ -62,10 +65,18 @@
 	margin: 30px 0 5px 0;
 	padding-top: 20px;
 }
+.md-theme h2 code{
+	font-size: 28px;
+	border-radius: 8px;
+}
 
 .md-theme h3{
 	font-size: 21px;
 	font-weight: 500;
+}
+.md-theme h3 code{
+	font-size: 20px;
+	border-radius: 5px;
 }
 
 .md-theme h4{
@@ -94,6 +105,7 @@
 	overflow: auto;
 	white-space: pre;
 	background-color: #f5f2f0;
+	line-height: 110%;
 }
 
 .md-theme pre code {

@@ -47,6 +47,7 @@
 	height: 110px;
 	background-image: url('/assets/images/avatar.jpg');
 	background-size: 110px 110px;
+	border: 1px solid #eee;
 	border-radius: 40px;
 }
 
